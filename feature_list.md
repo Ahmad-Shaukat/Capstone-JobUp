@@ -6,15 +6,15 @@ JobSphere, is a web application designed to simplify the process of managing int
 
 - Users can sign up, login, and logout.
 - Users can navigate the site using demo account.
-- Users can use centain features without logging in (eg. interviews, projects, jobs and dashboard)
+- Users can use certain features without logging in (eg. interviews, projects, jobs and dashboard)
 - Logged in users are directed to dashboard, they can create interviews, projects and search for available jobs. 
-- Logged out users are directed to hiomepage. 
+- Logged out users are directed to homepage. 
 
 ## 3. Profile/Dashboard
 
 - Read: Users can view profile information.
 - Update: Users can update the profile information (eg. Hometown, Name, Email)
-- Edit: Logged in users can edit the dashboard, showing different graph for projects and interviews. 
+- Edit: Logged in users can edit the dashboard, user can change graph showing data for interviews or projects. 
 
 ## 2. Interviews
 
