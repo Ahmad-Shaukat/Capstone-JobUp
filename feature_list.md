@@ -29,6 +29,15 @@ JobSphere, is a web application designed to simplify the process of managing int
 - Update: Logged in users can update the status of the project.
 - Delete: Logged in users can delete the projects. 
 
+## 4. Discussion / Users interactions
+- Users can see other users upcoming and declined interviews on community page. 
+- Users can view Other users profile and see what projects they have done. 
+- Users can comment on upcoming and declined interviews of the other users. 
+    - Create: Users can create comment belonging to certain job interviwe, upcoming or declined. 
+    - Read: Users can see all the comments on a specific upcoming or decline interview. 
+    - Update: Logged in user can update the comment. 
+    - Delete: Logged in users can delete their comment. 
+
 ## 4. Jobs Api 
 - Logged in user can search/View jobs near hometown
 - Each job shows description, company name, and position type. 
