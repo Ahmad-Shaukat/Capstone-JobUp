@@ -12,5 +12,20 @@ class FavoriteList(db.Model):
     name = db.Column(db.String(50), nullable=False)
 
     user = relationship('User', back_populates='list')
-    job = relationship('Job', back_populates='list', cascade="all, delete-orphan")
+    jobs = relationship('Job', back_populates='list', cascade="all, delete-orphan")
+
+    def to_dict(self):
+        job1 = [
+            {
+                'id': job.id,
+                'listId': job.listId,
+                'position': job.position,
+                'location': job.location,
+                'description': job.description
+            }
+            for job in self.jobs
+        ]
+        return {
+            'id': self.id,
+        }
 

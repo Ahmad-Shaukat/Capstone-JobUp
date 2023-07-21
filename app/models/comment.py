@@ -13,5 +13,13 @@ class Comment(db.Model):
     interviewId = db.Column(db.Integer, ForeignKey(add_prefix_for_prod('interviews.id')), nullable=False, unique=True)
     comment = db.Column(db.String(500), nullable=False)
 
+
     user = relationship("User", back_populates='comment')
     interview= relationship('Interview',back_populates='comment')
+
+    def to_dict(self):
+        return {
+            'id':self.id,
+            'username': self.userId,
+            'comment': self.comment
+        }

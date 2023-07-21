@@ -14,7 +14,16 @@ class Job(db.Models):
     location=db.Column(db.String(50), nullable=False)
     description=db.Column(db.String(500), nullable=False)
 
-    list = relationship('FavoriteList', back_populates='job')
+    list = relationship('FavoriteList', back_populates='jobs')
+
+    def self (self):
+        return {
+            'id': self.id,
+            'listId': self.listId, 
+            'position': self.position,
+            'location': self.location,
+            'description': self.description
+        }
 
 
 
