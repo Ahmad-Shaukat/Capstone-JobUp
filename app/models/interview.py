@@ -3,7 +3,7 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.schema import ForeignKey
 
 class Interview(db.Model):
-    __tablename__ = "account"
+    __tablename__ = "interviews"
 
     if environment == "production": 
         __table_args__ = {'schema': SCHEMA}
@@ -16,6 +16,7 @@ class Interview(db.Model):
     date = db.Column(db.Date)
 
     user = relationship("User", back_populates="interview")
+    comment = relationship('Comment', back_populates='interview', cascade="all, delete-orphan")
 
     def to_dict(self):
         return {
