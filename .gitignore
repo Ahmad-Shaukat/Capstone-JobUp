@@ -6,5 +6,5 @@ __pycache__/
 .vscode/
 # /instance
 /instance/
-/migrations
-/home/ahmad/projects/capstone/Jobup/migrations
+# /migrations
+# /home/ahmad/projects/capstone/Jobup/migrations
