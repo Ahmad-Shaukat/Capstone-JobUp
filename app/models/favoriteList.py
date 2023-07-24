@@ -7,8 +7,8 @@ class FavoriteList(db.Model):
     if environment == 'production':
         __table_args__ = {'schema': SCHEMA}
 
-    id = db.Column(db.integer, primary_key=True)
-    userId = db.Column(db.integer, ForeignKey(add_prefix_for_prod("users.id")), nullable=False, unique=True)
+    id = db.Column(db.Integer, primary_key=True)
+    userId = db.Column(db.Integer, ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
     name = db.Column(db.String(50), nullable=False)
 
     user = relationship('User', back_populates='list')
@@ -27,5 +27,8 @@ class FavoriteList(db.Model):
         ]
         return {
             'id': self.id,
+            'userId': self.userId,
+            'name': self.name,
+            'jobs': job1
         }
 

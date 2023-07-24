@@ -7,8 +7,8 @@ class Interview(db.Model):
 
     if environment == "production": 
         __table_args__ = {'schema': SCHEMA}
-    id = db.column(db.integer, primary_key=True)
-    userId = db.Column(db.Integer, ForeignKey(add_prefix_for_prod("user.id")), nullable=False, unique=True)
+    id = db.Column(db.Integer, primary_key=True)
+    userId = db.Column(db.Integer, ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
     position = db.Column(db.String(50), nullable=False)
     company = db.Column(db.String(50), nullable=False)
     location = db.Column(db.String(100), nullable=False)

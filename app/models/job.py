@@ -2,7 +2,7 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 from sqlalchemy.orm import relationship
 from sqlalchemy.schema import ForeignKey
 
-class Job(db.Models):
+class Job(db.Model):
     __tablename__='jobs'
 
     if environment == 'production':
@@ -12,11 +12,11 @@ class Job(db.Models):
     listId = db.Column(db.Integer, ForeignKey(add_prefix_for_prod("favoritelists.id")), nullable=False, unique=True)
     position=db.Column(db.String(50), nullable=False)
     location=db.Column(db.String(50), nullable=False)
-    description=db.Column(db.String(500), nullable=False)
+    description=db.Column(db.String(1000), nullable=False)
 
     list = relationship('FavoriteList', back_populates='jobs')
 
-    def self (self):
+    def to_dict (self):
         return {
             'id': self.id,
             'listId': self.listId, 
@@ -24,6 +24,7 @@ class Job(db.Models):
             'location': self.location,
             'description': self.description
         }
+
 
 
 
