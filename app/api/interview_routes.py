@@ -17,10 +17,10 @@ def watchlist_test():
 # GET /api/interviews/current
 # get all interviews for the current user
 @interview_routes.route('/current')
-# @login_required
+@login_required
 def interviews_current():
-    user_id = 1
-    interviews = Interview.query.filter(Interview.userId == 1)
+    user_id = current_user.id
+    interviews = Interview.query.filter(Interview.userId == user_id)
     interviews_list = [interview.to_dict() for interview in interviews]
     return jsonify(interviews_list)
 
@@ -29,7 +29,7 @@ def interviews_current():
 # get interview using the interview date
 
 @interview_routes.route('/<id>/one')
-
+@login_required
 def interview_get_one(id):
     filtered_interview = Interview.query.get(id)
     return filtered_interview.to_dict()
@@ -39,7 +39,7 @@ def interview_get_one(id):
 # GET /api/interviews/scheduled
 # get all interviews that are scheduled
 @interview_routes.route('/scheduled')
-# @login_required
+@login_required
 def interviews_scheduled():
     interviews = Interview.query.filter(Interview.status == 'Scheduled')
     interviews_list = [interview.to_dict() for interview in interviews]
@@ -48,7 +48,7 @@ def interviews_scheduled():
 # GET /api/interviews/declined
 # get all interviews that are declined
 @interview_routes.route('/scheduled')
-# @login_required
+@login_required
 def interviews_declined():
     interviews = Interview.query.filter(Interview.status == 'Declined')
     interviews_list = [interview.to_dict() for interview in interviews]
@@ -70,7 +70,7 @@ def interview_post():
     interivew_date = datetime.strptime(date, '%a, %d %b %Y %H:%M:%S %Z').date()
 
     new_interivew = Interview (
-        userId = 1,
+        userId = current_user.id,
         position = position,
         company = company,
         location = location,
@@ -106,6 +106,19 @@ def interview_edit(id):
     db.session.commit()
 
     return jsonify(filtered_interview.to_dict())
+
+# DELETE /api/interviews/<interviewId>/delete
+# delete interivew using interview data
+
+@interview_routes.route('/<id>/delete', methods=['DELETE'])
+# @login_required
+def interview_delete(id):
+    filtered_interview = Interview.query.get(id)
+    db.session.delete(filtered_interview)
+    db.session.commit()
+    return {
+        "message": "Successfully deleted interview"
+    }
 
     
     
