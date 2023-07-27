@@ -67,6 +67,6 @@ def favorites_delete(id):
     db.session.delete(filtered_fav)
     db.session.commit()
     return {
-        "message": "Successfully Deleted Watchlists"
+        "message": "Successfully Deleted Favorite List"
     }
     

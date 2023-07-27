@@ -17,10 +17,10 @@ def watchlist_test():
 # GET /api/interviews/current
 # get all interviews for the current user
 @interview_routes.route('/current')
-@login_required
+# @login_required
 def interviews_current():
-    user_id = current_user.id
-    interviews = Interview.query.filter(Interview.userId == user_id)
+    # user_id = current_user.id
+    interviews = Interview.query.filter(Interview.userId == 1)
     interviews_list = [interview.to_dict() for interview in interviews]
     return jsonify(interviews_list)
 
@@ -29,7 +29,7 @@ def interviews_current():
 # get interview using the interview date
 
 @interview_routes.route('/<id>/one')
-@login_required
+# @login_required
 def interview_get_one(id):
     filtered_interview = Interview.query.get(id)
     return filtered_interview.to_dict()
@@ -111,7 +111,7 @@ def interview_edit(id):
 # delete interivew using interview data
 
 @interview_routes.route('/<id>/delete', methods=['DELETE'])
-# @login_required
+@login_required
 def interview_delete(id):
     filtered_interview = Interview.query.get(id)
     db.session.delete(filtered_interview)
