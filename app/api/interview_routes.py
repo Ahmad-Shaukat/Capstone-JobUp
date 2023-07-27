@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import Interview, db
+from app.models import Interview, db, Comment
 from datetime import datetime
 
 interview_routes = Blueprint('interviews', __name__)
@@ -39,15 +39,15 @@ def interview_get_one(id):
 # GET /api/interviews/scheduled
 # get all interviews that are scheduled
 @interview_routes.route('/scheduled')
-@login_required
+# @login_required
 def interviews_scheduled():
-    interviews = Interview.query.filter(Interview.status == 'Scheduled')
+    interviews = Interview.query.join(Comment).filter(Interview.status == 'Scheduled').all()
     interviews_list = [interview.to_dict() for interview in interviews]
     return jsonify(interviews_list)
 
 # GET /api/interviews/declined
 # get all interviews that are declined
-@interview_routes.route('/scheduled')
+@interview_routes.route('/declined')
 @login_required
 def interviews_declined():
     interviews = Interview.query.filter(Interview.status == 'Declined')
