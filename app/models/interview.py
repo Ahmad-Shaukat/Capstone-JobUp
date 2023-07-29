@@ -36,7 +36,7 @@ class Interview(db.Model):
             'location': self.location,
             'status': self.status,
             'date': self.date,
-            'commnets': comments1
+            'comments': comments1
         }
 
 

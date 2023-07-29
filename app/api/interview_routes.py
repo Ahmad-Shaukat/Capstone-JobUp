@@ -17,7 +17,7 @@ def watchlist_test():
 # GET /api/interviews/current
 # get all interviews for the current user
 @interview_routes.route('/current')
-# @login_required
+@login_required
 def interviews_current():
     # user_id = current_user.id
     interviews = Interview.query.filter(Interview.userId == 1)
@@ -29,7 +29,7 @@ def interviews_current():
 # get interview using the interview date
 
 @interview_routes.route('/<id>/one')
-# @login_required
+@login_required
 def interview_get_one(id):
     filtered_interview = Interview.query.get(id)
     return filtered_interview.to_dict()
@@ -39,7 +39,7 @@ def interview_get_one(id):
 # GET /api/interviews/scheduled
 # get all interviews that are scheduled
 @interview_routes.route('/scheduled')
-# @login_required
+@login_required
 def interviews_scheduled():
     interviews = Interview.query.join(Comment).filter(Interview.status == 'Scheduled').all()
     interviews_list = [interview.to_dict() for interview in interviews]
@@ -59,7 +59,7 @@ def interviews_declined():
 # POST /api/interivews/new
 # create a new interviews
 @interview_routes.route('/new', methods=['POST'])
-# @login_required
+@login_required
 def interview_post():
     data = request.get_json()
     position = data.get('position')
@@ -86,7 +86,7 @@ def interview_post():
 # PUT /api/interivews/:interivewId
 # Edit a interviews by interview id
 @interview_routes.route('/<id>/edit', methods=['PUT'])
-# @login_required
+@login_required
 def interview_edit(id):
     filtered_interview = Interview.query.get(id)
     data = request.get_json()
