@@ -6,13 +6,15 @@ import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import { getAllInterviewsThunk } from "./store/interview";
+import { getAllLists, getAllListsThunk } from "./store/favoriteList";
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(getAllInterviewsThunk())
-    dispatch(authenticate()).then(() => setIsLoaded(true));
+  dispatch(getAllListsThunk())
+  dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
   return (

@@ -8,10 +8,10 @@ favorites_routes = Blueprint('favorites', __name__)
 # GET /api/favorites/current
 # get all interviews for the current user
 @favorites_routes.route('/current')
-# @login_required
+@login_required
 def favorites_current():
     userId = current_user.id
-    fav_lists = FavoriteList.query.filter(FavoriteList.userId == 1)
+    fav_lists = FavoriteList.query.filter(FavoriteList.userId == userId)
     lists = [fav_list.to_dict() for fav_list in fav_lists ]
     return jsonify(lists)
 
