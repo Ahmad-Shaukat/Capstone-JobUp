@@ -1,6 +1,8 @@
 const GET_FAVLIST = 'favoriteList/GET_FAVLIST'
 const ADD_FAVLIST = 'favoriteList/ADD_FAVLIST'
 const DELETE_FAVLIST = 'favoriteList/DELETE_FAVLIST'
+const ADD_JOB = 'favoriteList/ADD_JOB'
+const DELETE_JOB = 'favoriteLIst/DELETE_JOB'
 
 export const getAllLists = (lists) => {
     return {
@@ -19,6 +21,22 @@ export const deleteFavlist = (listId) => {
     return {
         type: DELETE_FAVLIST,
         payload: listId
+    }
+}
+export const addJob = (listId, job) => {
+    return {
+        type: ADD_JOB,
+        payload: {
+            listId, job
+        }
+    }
+}
+export const deleteJob = (listId, jobId) => {
+    return {
+        action: DELETE_JOB,
+        payload: {
+            listId, jobId
+        }
     }
 }
 
@@ -58,7 +76,33 @@ export const deleteListThunk = (list) => async (dispatch) => {
         dispatch(deleteFavlist(list.id))
     }
 }
-
+export const addJobThunk = (listId, job) => async (dispatch) =>  {
+    const response = fetch(`/api/favorites/${listId}/jobs/new`, {
+        method:'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(job)
+    })
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(addJob(data))
+        return data
+    }
+}
+export const deleteJobThunk = (listId, jobId) => async (dispatch) => {
+    const response = fetch (`/api/favorties/${listId}/jobs/${jobId}/delete`, {
+       method:'DELETE',
+       headers: {
+        'Content-Type': 'application.json'
+       } 
+    })
+    if (response.ok) {
+        dispatch(deleteJob(listId, jobId))
+        return true
+    }
+    return false
+}
 export default function favoritesRedcuer (state = {}, action) {
     let newState = {}
     switch(action.type) {
@@ -76,6 +120,20 @@ export default function favoritesRedcuer (state = {}, action) {
         case DELETE_FAVLIST:
             newState = {...state}
             delete newState[action.payload.id]
+            return newState
+        case ADD_JOB:
+            newState = {...state}
+            const {listId, job} = action.payload
+            newState[listId] = {
+                ...newState[listId], job:[...newState[listId].jobs, job]
+            }
+            return newState
+        case DELETE_JOB:
+            newState = {...state}
+            const {favListId, listJob} = action.payload
+            delete newState[favListId].jobs[listJob]
+            return newState
+        
         default:
             return state
     }

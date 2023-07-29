@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import FavoriteList, db
+from app.models import FavoriteList, db, Job
 
 favorites_routes = Blueprint('favorites', __name__)
 
@@ -69,4 +69,40 @@ def favorites_delete(id):
     return {
         "message": "Successfully Deleted Favorite List"
     }
+
+
+# POST /api/favorites/<favoriteId>/jobs/new
+# create a new job using favoritelist id
+@favorites_routes.route('/<id>/jobs/new', methods=['POST'])
+@login_required
+def jobs_add(id):
+    data = request.get_json()
+    userId = current_user.id
+    listId = id
+    position = data.get('position')
+    location = data.get('location')
+    description = data.get('description')
+    new_job = Job(
+        listId = listId,
+        position = position,
+        location = location, 
+        description = description
+    )
+    db.session.add(new_job)
+    db.session.commit()
+
+    return new_job.to_dict()
+
+@favorites_routes.route('/<favoriteId>/jobs/<jobId>/delete', methods=['DELETE'])
+@login_required
+def job_delete(favoriteId, jobId):
+    filtered_job = Job.query.get(jobId)
+    db.session.delete(filtered_job)
+    db.session.commit()
+    return {
+        'message':'comment successfully deleted'
+    }
+
+
+
     

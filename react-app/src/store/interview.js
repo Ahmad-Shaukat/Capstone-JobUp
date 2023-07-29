@@ -75,7 +75,7 @@ export const createInterviewThunk = (interview) => async (dispatch) => {
         body: JSON.stringify(interview)
     });
     if (response.ok) {
-        const data = await response.josn()
+        const data = await response.json()
         dispatch(addInterview(data));
         return data
     }
