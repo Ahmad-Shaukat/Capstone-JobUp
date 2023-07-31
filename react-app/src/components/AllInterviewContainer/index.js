@@ -5,8 +5,8 @@ import {useSelector, useDispatch} from 'react-redux'
 
 const AllInterviews = () => {
     let {interview, isLoading} = useSelector((store)=> store)
-    console.log (interview, '--------------------')
-    console.log (isLoading, '--------------')
+    // console.log (interview, '--------------------')
+    // console.log (isLoading, '--------------')
     interview = Object.values(interview)
     if (isLoading) {
         return <>

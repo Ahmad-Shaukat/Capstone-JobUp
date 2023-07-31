@@ -5,3 +5,10 @@
 .hidden {
   display: none;
 }
+nav {
+  background-color: rgb(251, 255, 0);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}

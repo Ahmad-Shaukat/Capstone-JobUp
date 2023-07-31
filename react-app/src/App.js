@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import { getAllInterviewsThunk } from "./store/interview";
 import { getAllLists, getAllListsThunk } from "./store/favoriteList";
 import AllInterviews from "./components/AllInterviewContainer";
+import GetProfile from "./components/ProfilePage";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route path = '/interviews'>
             <AllInterviews />
+          </Route>
+          <Route path = '/user'>
+            <GetProfile />
           </Route>
         </Switch>
       )}

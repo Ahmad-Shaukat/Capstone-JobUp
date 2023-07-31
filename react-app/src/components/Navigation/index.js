@@ -22,6 +22,7 @@ function Navigation({ isLoaded }) {
 			{sessionUser && (
 				<div>
 					<NavLink exact to = '/interviews'>All Jobs</NavLink>
+					<NavLink exact to = '/user'> User Profile </NavLink>
 				</div>
 			)}
 			
