@@ -4,27 +4,31 @@ import { useEffect } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 
 const AllInterviews = () => {
-    let {interview, isLoading} = useSelector((store)=> store)
-    // console.log (interview, '--------------------')
-    // console.log (isLoading, '--------------')
+    let {interview} = useSelector((store)=> store)
     interview = Object.values(interview)
-    if (isLoading) {
-        return <>
-        <h1>Loading</h1>
-        </>
-    }
-    if (interview.length === 0) {
-        return <>
-        <h2>No jobs to display</h2>
-        </>
-    }
-    // console.log (loading)
+
+
     return <>
-    <InterviewSearchContainer />
-    <InterviewContainer />
+    <div>Hello</div>
+    
     <div>
-        {interview.map((job) => {
-            console.log (job)
+        {interview.map((interview) => {
+            const interviewDate = new Date(interview.date)
+
+            const formattedDate = interviewDate.toLocaleDateString('en-Us', {
+                year:'numeric',
+                month:'long',
+                day: 'numeric'            })
+            return (
+
+            <div> 
+                <p>{interview.position}</p>
+                <p>{interview.company}</p>
+                <p>{interview.location}</p>
+                <p>{interview.status}</p>
+                <p>{formattedDate}</p>
+            </div>
+            )
         })}
     </div>
     

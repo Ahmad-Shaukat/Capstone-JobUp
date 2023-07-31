@@ -45,7 +45,7 @@ export const getAllListsThunk = () => async (dispatch) => {
     if (response.ok) {
         const favorites = await response.json()
         await dispatch(getAllLists(favorites))
-        console.log (favorites, '-----------------favorites')
+        // console.log (favorites, '-----------------favorites')
         return favorites
     }
 }
@@ -108,7 +108,7 @@ export default function favoritesRedcuer (state = {}, action) {
     switch(action.type) {
         case GET_FAVLIST:
             newState = {...state}
-            console.log (action.payload, '--------------------------')
+            // console.log (action.payload, '--------------------------')
             action.payload.forEach(list => {
                 newState[list.id] = list
             });
