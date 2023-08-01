@@ -67,7 +67,9 @@ def interview_post():
     location = data.get('location')
     status = data.get('status')
     date = data.get('date')
-    interivew_date = datetime.strptime(date, '%a, %d %b %Y %H:%M:%S %Z').date()
+    print (date, '---------this is date-----------')
+    interivew_date = datetime.strptime(date, '%Y-%m-%d').date()
+    print(interivew_date, '-----------------formatted')
 
     new_interivew = Interview (
         userId = current_user.id,

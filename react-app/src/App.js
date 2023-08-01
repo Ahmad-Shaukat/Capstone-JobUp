@@ -9,6 +9,7 @@ import { getAllInterviewsThunk } from "./store/interview";
 import { getAllLists, getAllListsThunk } from "./store/favoriteList";
 import AllInterviews from "./components/AllInterviewContainer";
 import GetProfile from "./components/ProfilePage";
+import AddInterviewForm from "./components/InterviewForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,6 +37,10 @@ function App() {
           <Route path = '/user'>
             <GetProfile />
           </Route>
+          <Route path = '/newInterview'>
+            <AddInterviewForm />
+          </Route>
+
         </Switch>
       )}
     </>

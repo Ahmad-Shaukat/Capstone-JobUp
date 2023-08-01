@@ -23,6 +23,7 @@ function Navigation({ isLoaded }) {
 				<div>
 					<NavLink exact to = '/interviews'>All Jobs</NavLink>
 					<NavLink exact to = '/user'> User Profile </NavLink>
+					<NavLink exact to = '/newInterview'>Add Interview</NavLink>
 				</div>
 			)}
 			
