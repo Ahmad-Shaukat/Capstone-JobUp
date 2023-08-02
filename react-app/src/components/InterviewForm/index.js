@@ -59,7 +59,7 @@ function AddInterviewForm () {
             date
         }
         console.log (interview)
-        await dispatch(createInterviewThunk(interview))
+        // await dispatch(createInterviewThunk(interview))
         // let createdInterview  = await dispatch(createInterviewThunk(interview).catch(async (res) => {
         //     const data = await res.json()
         // })) 

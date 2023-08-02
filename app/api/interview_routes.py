@@ -1,7 +1,8 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import Interview, db, Comment
-from datetime import datetime
+from datetime import datetime, time
+# import pytz
 
 interview_routes = Blueprint('interviews', __name__)
 
@@ -97,7 +98,10 @@ def interview_edit(id):
     location = data.get('location')
     status = data.get('status')
     date = data.get('date')
-    interview_date = datetime.strptime(date, '%a, %d %b %Y %H:%M:%S %Z').date()
+    print(date, '--------------this is date')
+    interview_date = datetime.strptime(date, '%Y-%m-%d').date()
+    print(interview_date, '--------------this is interview date')
+    # interview_date = datetime.combine(interview_date, time.min)
 
     filtered_interview.position = position
     filtered_interview.company = company
