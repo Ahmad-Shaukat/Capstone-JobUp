@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import OpenModalButton from '../OpenModalButton'
 import EditInterviewForm from '../EditInterviewForm'
 import {format} from 'date-fns'
+import DeleteInterview from '../DeleteInterviewModal'
 
 const AllInterviews = () => {
     let { interview } = useSelector((store) => store)
@@ -40,6 +41,16 @@ const AllInterviews = () => {
                             />
                     
                 </button>
+                <buton>
+                    <OpenModalButton 
+                    buttonText={'Delete'}
+                    modalComponent={
+                        <DeleteInterview 
+                        interview={interview}
+                        />
+                    }
+                    />
+                </buton>
                     </div>
                 )
             })}
