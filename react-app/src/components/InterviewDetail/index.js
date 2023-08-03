@@ -1,14 +1,35 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, useStore } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { addCommentThunk } from "../../store/interview";
+import { getAllInterviewsThunk } from "../../store/interview";
 
 
 function InterviewDetail ({}) {
     const dispatch = useDispatch()
     const history = useHistory()
     const {id} = useParams() 
+    const [comment, setComment] = useState('')
     let interview = useSelector((store) => store?.interview[id])
+    let user = useSelector((store) => store?.session['user'])
+    console.log (user)
+    console.log (comment, '---------this is the initial comment')
+    useEffect(() => {
+        dispatch(getAllInterviewsThunk())
+    }, [dispatch, id])
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        await dispatch(addCommentThunk(interview.id, {
+            comment: comment
+        }))
+        await dispatch(getAllInterviewsThunk())
+        console.log (comment, '--------------this is the comment before')
+        await setComment('')
+        console.log (comment, '---------------this is comment after')
+        
+    }
     // console.log (interview[1],'---------testing state')
     if (interview) {
        return <>
@@ -25,10 +46,23 @@ function InterviewDetail ({}) {
         <div>
             <h3>Discussion</h3>
             {interview.comments.map((comm) => {
-                return (
-                    <p>{comm['user'].username} {comm.comment}</p>
-                )
+                return <>
+                 <div key={comm.id}> 
+                <p>{comm['user'].username} {comm.comment}</p>  
+                   
+                </div>
+                </>
+               
+                // return (
+                //     
+                //     {user.id === comm['user'].id}  
+                    
+                // )
             })}
+            <form onSubmit={handleSubmit}>
+                <input placeholder=" post a comment" onChange={(e) => setComment(e.target.value)} value={comment} />
+                <button type="submit">Post</button>
+            </form>
         </div>
     
     
