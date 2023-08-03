@@ -67,6 +67,7 @@ def comment_edit(commentId, interviewId):
 @comment_routes.route('/<interviewId>/interviews/<commentId>/delete', methods=['DELETE'])
 @login_required
 def comment_delete(interviewId, commentId):
+    print(interviewId, commentId,'-------------------------all the id')
     filtered_comment = Comment.query.get(commentId)
     db.session.delete(filtered_comment)
     db.session.commit()

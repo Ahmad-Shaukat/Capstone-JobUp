@@ -140,7 +140,7 @@ export const editCommentThunk = (commentId, interviewId, comment) => async (disp
     }
 }
 export const deleteCommentThunk = (interviewId, commentId) => async (dispatch) => {
-    const response = await fetch (`api/comments/${interviewId}/interviews/${commentId}/delete`, {
+    const response = await fetch (`/api/comments/${interviewId}/interviews/${commentId}/delete`, {
         method:'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -187,7 +187,7 @@ export default function interviewsReducer (state ={}, action) {
             newState = {...state}
             const {inteId, commentId} = action.payload;
             if (newState[inteId]) {
-                newState[inteId].comments = newState[inteId].comments.filter((symbollist) => comment.id !== commentId)
+                newState[inteId].comments = newState[inteId].comments.filter((comment) => comment.id !== commentId)
             }
             return newState
         default:

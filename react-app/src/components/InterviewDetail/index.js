@@ -4,6 +4,8 @@ import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { addCommentThunk } from "../../store/interview";
 import { getAllInterviewsThunk } from "../../store/interview";
+import OpenModalButton from "../OpenModalButton";
+import DeleteComment from "../DeleteCommentModal";
 
 
 function InterviewDetail ({}) {
@@ -48,16 +50,27 @@ function InterviewDetail ({}) {
             {interview.comments.map((comm) => {
                 return <>
                  <div key={comm.id}> 
-                <p>{comm['user'].username} {comm.comment}</p>  
+                <p>{comm['user'].username} {comm.comment}</p> 
+                {user.id === comm['user'].id && (
+                    <button>Edit</button>
+                    
+                )}    
+                {user.id === comm['user'].id && (
+                    <button>
+                        <OpenModalButton 
+                            buttonText={'Delete'}
+                            modalComponent={
+                                <DeleteComment 
+                                    interviewId={interview.id} commentId={comm.id}
+                                />
+                            }
+                        />
+                    </button>
+                    
+                )}  
                    
                 </div>
                 </>
-               
-                // return (
-                //     
-                //     {user.id === comm['user'].id}  
-                    
-                // )
             })}
             <form onSubmit={handleSubmit}>
                 <input placeholder=" post a comment" onChange={(e) => setComment(e.target.value)} value={comment} />
