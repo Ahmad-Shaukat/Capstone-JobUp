@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import Interview, db, Comment
+from app.models import Interview, db, Comment, User
 from datetime import datetime, time
 # import pytz
 
@@ -23,6 +23,7 @@ def interviews_current():
     # user_id = current_user.id
     interviews = Interview.query.filter(Interview.userId == 1)
     interviews_list = [interview.to_dict() for interview in interviews]
+    user_Info = User.query.get(current_user.id)
     return jsonify(interviews_list)
 
 

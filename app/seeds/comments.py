@@ -13,9 +13,15 @@ def seed_comments():
         interviewId = 2, 
         comment = 'hey i know this company'
     )
+    comment3 = Comment(
+        userId = 3,
+        interviewId = 1,
+        comment='I hate this company'
+    )
 
     db.session.add(comment1)
     db.session.add(comment2)
+    db.session.add(comment3)
     db.session.commit()
 
 def undo_comments():

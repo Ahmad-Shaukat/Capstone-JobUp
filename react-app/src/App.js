@@ -11,6 +11,7 @@ import AllInterviews from "./components/AllInterviewContainer";
 import GetProfile from "./components/ProfilePage";
 import AddInterviewForm from "./components/InterviewForm";
 import EditInterviewForm from "./components/EditInterviewForm";
+import InterviewDetail from "./components/InterviewDetail";
 
 function App() {
   const dispatch = useDispatch();
@@ -44,6 +45,11 @@ function App() {
           <Route path = '/interview/edit'>
             <EditInterviewForm />
           </Route>
+
+          <Route path='/interview/:id/detail'>
+            <InterviewDetail />
+          </Route>
+
 
         </Switch>
       )}

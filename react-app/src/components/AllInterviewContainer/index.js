@@ -1,4 +1,3 @@
-import InterviewContainer from '../InterviewContainer'
 import InterviewSearchContainer from '../InterviewSearch'
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'

@@ -19,15 +19,28 @@ class Interview(db.Model):
     comment = relationship('Comment', back_populates='interview', cascade="all, delete-orphan")
 
     def to_dict(self):
-        comments1 = [
-                {
-                    'id': com.id,
-                    'userId': com.userId,
-                    'interviewId': com.interviewId,
-                    'comment': com.comment
-                }
-                for com in self.comment
-        ]
+        # comments1 = [
+        #         {
+        #             'id': com.id,
+        #             'userId': com.userId,
+        #             'interviewId': com.interviewId,
+        #             'comment': com.comment
+        #         }
+        #         for com in self.comment
+        # ]
+        
+        comments_data = []
+        for comm in self.comment: 
+            comment_data = {
+                'id': comm.id,
+                'userId': comm.userId,
+                'interviewId': comm.interviewId,
+                'comment': comm.comment,
+                'created_at': comm.created_at
+            }
+            user_info = comm.user.to_dict()
+            comment_data['user'] = user_info
+            comments_data.append(comment_data)
         return {
             'id': self.id,
             'userId': self.userId,
@@ -36,7 +49,7 @@ class Interview(db.Model):
             'location': self.location,
             'status': self.status,
             'date': self.date,
-            'comments': comments1
+            'comments': comments_data
         }
 
 
