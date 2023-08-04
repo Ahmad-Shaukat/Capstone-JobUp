@@ -14,15 +14,16 @@ import EditInterviewForm from "./components/EditInterviewForm";
 import InterviewDetail from "./components/InterviewDetail";
 import { getAllUsersThunk } from "./store/user";
 import AllUsers from "./components/allUsers";
+import SingleUser from "./components/SingleUser";
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
-  dispatch(getAllInterviewsThunk())
-  dispatch(getAllListsThunk())
-  dispatch(getAllUsersThunk())
-  dispatch(authenticate()).then(() => setIsLoaded(true));
+    dispatch(getAllInterviewsThunk())
+    dispatch(getAllListsThunk())
+    dispatch(getAllUsersThunk())
+    dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
   return (
@@ -36,16 +37,16 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path = '/interviews'>
+          <Route path='/interviews'>
             <AllInterviews />
           </Route>
-          <Route path = '/user'>
+          <Route path='/user'>
             <GetProfile />
           </Route>
-          <Route path = '/newInterview'>
+          <Route path='/newInterview'>
             <AddInterviewForm />
           </Route>
-          <Route path = '/interview/edit'>
+          <Route path='/interview/edit'>
             <EditInterviewForm />
           </Route>
 
@@ -54,7 +55,10 @@ function App() {
           </Route>
 
           <Route path='/allUsers'>
-          <AllUsers />
+            <AllUsers />
+          </Route>
+          <Route path='/users/:id/profile'>
+            <SingleUser />
           </Route>
 
 
