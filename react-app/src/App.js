@@ -15,6 +15,8 @@ import InterviewDetail from "./components/InterviewDetail";
 import { getAllUsersThunk } from "./store/user";
 import AllUsers from "./components/allUsers";
 import SingleUser from "./components/SingleUser";
+import FindJobs from "./components/FindJobs";
+import AllFavriteLists from "./components/AllFavoriteList";
 
 function App() {
   const dispatch = useDispatch();
@@ -59,6 +61,13 @@ function App() {
           </Route>
           <Route path='/users/:id/profile'>
             <SingleUser />
+          </Route>
+
+          <Route path ='/findjobs'>
+            <FindJobs />
+          </Route>
+          <Route path = '/favlists'>
+            <AllFavriteLists />
           </Route>
 
 

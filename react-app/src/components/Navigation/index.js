@@ -21,10 +21,14 @@ function Navigation({ isLoaded }) {
 			</ul>
 			{sessionUser && (
 				<div>
-					<NavLink exact to = '/interviews'>All Jobs</NavLink>
+					<NavLink exact to = '/interviews'>My Interviews</NavLink>
 					<NavLink exact to = '/user'> User Profile </NavLink>
 					<NavLink exact to = '/newInterview'>Add Interview</NavLink>
 					<NavLink exact to = '/allUsers'>All Users</NavLink>
+					<NavLink exact to ='/findjobs'>Find Jobs</NavLink>
+					<NavLink exact to ='/favlists'>
+					My Favorites
+					</NavLink>
 					
 				</div>
 			)}
