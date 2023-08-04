@@ -12,13 +12,16 @@ import GetProfile from "./components/ProfilePage";
 import AddInterviewForm from "./components/InterviewForm";
 import EditInterviewForm from "./components/EditInterviewForm";
 import InterviewDetail from "./components/InterviewDetail";
+import { getAllUsersThunk } from "./store/user";
+import AllUsers from "./components/allUsers";
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
-    dispatch(getAllInterviewsThunk())
+  dispatch(getAllInterviewsThunk())
   dispatch(getAllListsThunk())
+  dispatch(getAllUsersThunk())
   dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
@@ -48,6 +51,10 @@ function App() {
 
           <Route path='/interview/:id/detail'>
             <InterviewDetail />
+          </Route>
+
+          <Route path='/allUsers'>
+          <AllUsers />
           </Route>
 
 

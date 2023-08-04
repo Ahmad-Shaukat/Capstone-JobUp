@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session'
 import interview from './interview'
 import favoriteList from './favoriteList'
+import user from './user'
 
 const rootReducer = combineReducers({
   session,
   interview,
-  favoriteList
+  favoriteList,
+  user
 });
 
 
