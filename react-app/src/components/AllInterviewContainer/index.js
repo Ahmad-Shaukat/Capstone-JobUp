@@ -5,6 +5,7 @@ import OpenModalButton from '../OpenModalButton'
 import EditInterviewForm from '../EditInterviewForm'
 import {format} from 'date-fns'
 import DeleteInterview from '../DeleteInterviewModal'
+import { NavLink } from 'react-router-dom/cjs/react-router-dom.min'
 
 const AllInterviews = () => {
     let { interview } = useSelector((store) => store)
@@ -40,7 +41,7 @@ const AllInterviews = () => {
                             />
                     
                 </button>
-                <buton>
+                <button>
                     <OpenModalButton 
                     buttonText={'Delete'}
                     modalComponent={
@@ -49,7 +50,8 @@ const AllInterviews = () => {
                         />
                     }
                     />
-                </buton>
+                </button>
+                <NavLink exact to = {`/interview/${interview.id}/detail`}><button>More</button></NavLink>
                     </div>
                 )
             })}
