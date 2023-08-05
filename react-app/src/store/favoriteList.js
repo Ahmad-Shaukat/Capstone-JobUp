@@ -63,6 +63,20 @@ export const createListThunk = (list) => async (dispatch) => {
         return favList
     }
 }
+export const editListThunk = (listId, updatedList) => async (dispatch) => {
+    const response = fetch(`/api/favorites/${listId}/edit`, {
+        method:'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body:JSON.stringify(updatedList)
+    })
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(addFavlist)
+        return data
+    }
+}
 
 export const deleteListThunk = (list) => async (dispatch) => {
     const response = fetch(`/api/favorites/${list.Id}/delete`, {
@@ -76,6 +90,7 @@ export const deleteListThunk = (list) => async (dispatch) => {
         dispatch(deleteFavlist(list.id))
     }
 }
+
 export const addJobThunk = (listId, job) => async (dispatch) =>  {
     const response = fetch(`/api/favorites/${listId}/jobs/new`, {
         method:'POST',
