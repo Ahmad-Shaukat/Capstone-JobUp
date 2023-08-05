@@ -1,0 +1,40 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.app-container {
+    display: flex; /* Use flexbox to arrange children side by side */
+  }
+  
+  .main-content {
+    flex: 1; /* Allow main content to take remaining space */
+    /* padding: 20px; Add some padding for spacing */
+  }
+  
+  .sidebar {
+    max-width: 250px; /* Set a fixed width for the sidebar */
+    /* background-color: #f0f0f0; */
+    /* padding: 20px;
+    border: 1px solid red; */
+    display: none;
+  }
+  
+
+
+  @media screen and (min-width: 800px) {
+    .sidebar {
+        display: block;
+        width: 250px;
+        background-color: red;
+        min-height: 100vh;
+        height: 100%;
+        /* margin-left: -250px; */
+
+    }
+  }
+  /* @media screen {
+    
+  } */

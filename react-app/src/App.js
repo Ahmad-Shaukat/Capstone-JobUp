@@ -17,6 +17,8 @@ import AllUsers from "./components/allUsers";
 import SingleUser from "./components/SingleUser";
 import FindJobs from "./components/FindJobs";
 import AllFavriteLists from "./components/AllFavoriteList";
+import Sidebar from "./components/SmallSideBar";
+import './app.css'
 
 function App() {
   const dispatch = useDispatch();
@@ -30,49 +32,59 @@ function App() {
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
-        <Switch>
-          <Route path="/login" >
-            <LoginFormPage />
-          </Route>
-          <Route path="/signup">
-            <SignupFormPage />
-          </Route>
-          <Route path='/interviews'>
-            <AllInterviews />
-          </Route>
-          <Route path='/user'>
-            <GetProfile />
-          </Route>
-          <Route path='/newInterview'>
-            <AddInterviewForm />
-          </Route>
-          <Route path='/interview/edit'>
-            <EditInterviewForm />
-          </Route>
+      <div className="app-container">
+        <div className="sidebar">
+          <Sidebar />
 
-          <Route path='/interview/:id/detail'>
-            <InterviewDetail />
-          </Route>
+        </div>
+        <div className="main-content">
+          <Navigation isLoaded={isLoaded} />
+          {isLoaded && (
+            <Switch>
+              <Route path="/login" >
+                <LoginFormPage />
+              </Route>
+              <Route path="/signup">
+                <SignupFormPage />
+              </Route>
+              <Route path='/interviews'>
+                <AllInterviews />
+              </Route>
+              <Route path='/user'>
+                <GetProfile />
+              </Route>
+              <Route path='/newInterview'>
+                <AddInterviewForm />
+              </Route>
+              <Route path='/interview/edit'>
+                <EditInterviewForm />
+              </Route>
 
-          <Route path='/allUsers'>
-            <AllUsers />
-          </Route>
-          <Route path='/users/:id/profile'>
-            <SingleUser />
-          </Route>
+              <Route path='/interview/:id/detail'>
+                <InterviewDetail />
+              </Route>
 
-          <Route path ='/findjobs'>
-            <FindJobs />
-          </Route>
-          <Route path = '/favlists'>
-            <AllFavriteLists />
-          </Route>
+              <Route path='/allUsers'>
+                <AllUsers />
+              </Route>
+              <Route path='/users/:id/profile'>
+                <SingleUser />
+              </Route>
+
+              <Route path='/findjobs'>
+                <FindJobs />
+              </Route>
+              <Route path='/favlists'>
+                <AllFavriteLists />
+              </Route>
 
 
-        </Switch>
-      )}
+            </Switch>
+          )}
+        </div>
+      </div>
+
+
     </>
   );
 }

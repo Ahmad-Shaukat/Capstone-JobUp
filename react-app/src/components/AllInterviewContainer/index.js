@@ -5,15 +5,20 @@ import OpenModalButton from '../OpenModalButton'
 import EditInterviewForm from '../EditInterviewForm'
 import {format} from 'date-fns'
 import DeleteInterview from '../DeleteInterviewModal'
-import { NavLink } from 'react-router-dom/cjs/react-router-dom.min'
+import { NavLink, useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 
 const AllInterviews = () => {
+    const user = useSelector((store) => store.session.user)
     let { interview } = useSelector((store) => store)
+    const history = useHistory()
     interview = Object.values(interview)
     console.log (interview)
 
 
-
+    if (!user) {
+        history.push('/')
+        return null
+    }
     return <>
         <div>Hello</div>
 
