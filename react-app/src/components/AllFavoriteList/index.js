@@ -17,8 +17,8 @@ const AllFavriteLists = () => {
     let allFavLists = useSelector((store) => store?.favoriteList)
     allFavLists = Object.values(allFavLists)
     console.log(allFavLists, '------------thesea are the favoriteList')
-    useEffect(async () => {
-        await getAllListsThunk()
+    useEffect(() => {
+        dispatch(getAllListsThunk())
     }, [dispatch])
 
     return <>

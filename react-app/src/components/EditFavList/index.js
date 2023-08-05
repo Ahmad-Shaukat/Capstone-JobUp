@@ -13,11 +13,11 @@ function EditFavoriteList({list}) {
     const handleSubmit = async (e) => {
         e.preventDefault()
         console.log (listName)
-        await dispatch(editListThunk(list.id, {
+        dispatch(editListThunk(list.id, {
             name:listName
         }))
-        await dispatch(getAllListsThunk())
-
+        
+        dispatch(getAllListsThunk())
         closeModal()
 
     }
