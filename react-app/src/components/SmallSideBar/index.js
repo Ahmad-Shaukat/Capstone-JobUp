@@ -3,6 +3,8 @@ import logo from '../../utilities/logo.png'
 import { NavLink, useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import './app.css'
 import { useSelector } from "react-redux"
+import {BiSolidBarChartAlt2} from 'react-icons/bi'
+
 
 
 const Sidebar = () => {
@@ -16,10 +18,18 @@ const Sidebar = () => {
     return (
         <div className="sidbar-main">
             <div className="logo-cont">
-                <img src={logo} className="logo-img" />
+                <NavLink exact to ='/'>
+                  <img src={logo} className="logo-img" />  
+                </NavLink>
+                
 
             </div>
             <div className="sidbar-links">
+                <div>
+                    <NavLink exact to='/hello'><BiSolidBarChartAlt2 /> Stats </NavLink>
+                    
+                    <p>Stats</p>
+                </div>
                 <div>
                     <NavLink exact to='/interviews'>My Interviews</NavLink>
                 </div>

@@ -19,6 +19,7 @@ import FindJobs from "./components/FindJobs";
 import AllFavriteLists from "./components/AllFavoriteList";
 import Sidebar from "./components/SmallSideBar";
 import './app.css'
+import Stats from "./components/Stats";
 
 function App() {
   const dispatch = useDispatch();
@@ -50,7 +51,7 @@ function App() {
               <Route path='/interviews'>
                 <AllInterviews />
               </Route>
-              <Route path='/user'>
+              <Route exact path='/user'>
                 <GetProfile />
               </Route>
               <Route path='/newInterview'>
@@ -76,6 +77,9 @@ function App() {
               </Route>
               <Route path='/favlists'>
                 <AllFavriteLists />
+              </Route>
+              <Route path='/hello'>
+                <Stats />
               </Route>
 
 

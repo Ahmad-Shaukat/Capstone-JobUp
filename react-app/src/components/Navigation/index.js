@@ -4,39 +4,36 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { ImParagraphLeft } from 'react-icons/im'
+import {FaUserFriends} from 'react-icons/fa'
+
 
 function Navigation({ isLoaded }) {
 	const sessionUser = useSelector(state => state.session.user);
 	const history = useHistory()
 
-	
+
 
 	return (
 		<nav>
-			<ul>
-				<li>
-					<NavLink exact to="/">Home</NavLink>
-				</li>
-				{isLoaded && (
-					<li>
-						<ProfileButton user={sessionUser} />
-					</li>
-				)}
-			</ul>
-			{/* {sessionUser && (
-				<div>
-					<NavLink exact to = '/interviews'>My Interviews</NavLink>
-					<NavLink exact to = '/user'> User Profile </NavLink>
-					<NavLink exact to = '/newInterview'>Add Interview</NavLink>
-					<NavLink exact to = '/allUsers'>All Users</NavLink>
-					<NavLink exact to ='/findjobs'>Find Jobs</NavLink>
-					<NavLink exact to ='/favlists'>
-					My Favorites
-					</NavLink>
+			<div className='nav-opt'>
+				<ImParagraphLeft size={18} color='#4361ee' />
+			</div>
+
+
+			{isLoaded && (
+				<div className='nav-user-connect'>
+					<div className='connect-btn-conta'>
+						<NavLink path to= '/allusers' className='connect-navlink'><button className='connect-btn'><span><FaUserFriends /></span>Connect</button></NavLink>
+					</div>
+						<div className='nav-user'>
 					
+					<ProfileButton user={sessionUser} />
 				</div>
-			)} */}
 			
+				</div>
+			)}
+
 		</nav>
 
 	);
