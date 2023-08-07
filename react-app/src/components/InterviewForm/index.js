@@ -127,8 +127,27 @@ function AddInterviewForm () {
                 {errors && errors.status &&
                                         <p style={{ color: "red" }} className='cre-spt-err'>{errors.status}</p>}
                 <div>
-                    <label for = 'status'>Status</label>
-                    <input id='status' type='text' placeholder='enter city/state' onChange={updateStatus}/>
+                <select
+              className="status-select"
+              name="status"
+              onChange={updateStatus}
+            //   value={t}
+            >
+              <option key={'NA'} value={'wrong'}>
+                Pick an Option
+              </option>
+              <option key={'Pending'} value={'Pending'}>
+                Pending
+              </option>
+              <option key={'Scheduled'} value={'Scheduled'}>
+                Scheduled
+              </option>
+              <option key={'Declined'} value={'Declined'}>
+                Declined
+              </option>
+            </select>
+                    {/* <label for = 'status'>Status</label>
+                    <input id='status' type='text' placeholder='enter city/state' onChange={updateStatus}/> */}
                 </div>
                 {errors && errors.date &&
                                         <p style={{ color: "red" }} className='cre-spt-err'>{errors.date}</p>}

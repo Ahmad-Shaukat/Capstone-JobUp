@@ -60,11 +60,20 @@ function EditInterviewForm({ id, interview }) {
             if (!location) {
                 allErrors['location'] = 'Job location is required'
             }
-            if (!status) {
+            if (!status || status==='wrong')  {
                 allErrors['status'] = 'Interview status is required'
             }
             if (!date) {
                 allErrors['date'] = 'Interview date is required'
+            }
+            if (position.length>15) {
+                allErrors['positionLength'] = 'Position can not be more then 15 letters'
+            }
+            if (company.length>10) {
+                allErrors['companyLength'] = 'Company name can not be more then 1o letters'
+            }
+            if (location.length>10) {
+                allErrors['locationLength'] = 'Location can not be more then 1o letters'
             }
 
             function checkDate(date) {
@@ -116,18 +125,24 @@ function EditInterviewForm({ id, interview }) {
                 <div>
                     {errors && errors.position &&
                         <p style={{ color: "red" }} className='cre-spt-err'>{errors.position}</p>}
+                        {errors && errors.positionLength &&
+                                        <p style={{ color: "red" }} className='cre-spt-err'>{errors.positionLength}</p>}
                     <div>
                         <label for='position'>Position</label>
                         <input id='position' type='text' value={position} placeholder='enter city/state' onChange={updatePosition} />
                     </div>
                     {errors && errors.company &&
                         <p style={{ color: "red" }} className='cre-spt-err'>{errors.company}</p>}
+                         {errors && errors.companyLength &&
+                                        <p style={{ color: "red" }} className='cre-spt-err'>{errors.companyLength}</p>}
                     <div>
                         <label for='company'>Company</label>
                         <input id='company' type='text' value={company} placeholder='enter city/state' onChange={updateCompany} />
                     </div>
                     {errors && errors.location &&
                         <p style={{ color: "red" }} className='cre-spt-err'>{errors.location}</p>}
+                    {errors && errors.locationLength &&
+                                        <p style={{ color: "red" }} className='cre-spt-err'>{errors.locationLength}</p>}
                     <div>
                         <label for='location'>Location</label>
                         <input id='location' type='text' value={location} placeholder='enter city/state' onChange={updateLocation} />
@@ -135,8 +150,25 @@ function EditInterviewForm({ id, interview }) {
                     {errors && errors.status &&
                         <p style={{ color: "red" }} className='cre-spt-err'>{errors.status}</p>}
                     <div>
-                        <label for='status'>Status</label>
-                        <input id='status' type='text' value={status} placeholder='interview Status' onChange={updateStatus} />
+                    <select
+              className="status-select"
+              name="status"
+              onChange={updateStatus}
+              value={status}
+            >
+              <option key={'NA'} value={'wrong'}>
+                Pick an Option
+              </option>
+              <option key={'Pending'} value={'Pending'}>
+                Pending
+              </option>
+              <option key={'Scheduled'} value={'Scheduled'}>
+                Scheduled
+              </option>
+              <option key={'Declined'} value={'Declined'}>
+                Declined
+              </option>
+            </select>
                     </div>
                     {errors && errors.date &&
                         <p style={{ color: "red" }} className='cre-spt-err'>{errors.date}</p>}
