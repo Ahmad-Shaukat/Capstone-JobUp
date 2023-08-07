@@ -40,18 +40,40 @@ function AddInterviewForm () {
             if (!date) {
                 allErrors['date'] = 'Interview date is required'
             }
+            if (position.length>15) {
+                allErrors['positionLength'] = 'Position can not be more then 15 letters'
+            }
+            if (company.length>10) {
+                allErrors['companyLength'] = 'Company name can not be more then 1o letters'
+            }
+            if (location.length>10) {
+                allErrors['locationLength'] = 'Location can not be more then 1o letters'
+            }
+            function checkDate(date) {
+                const currentDate = new Date()
+                const formDate = new Date(date)
+                if (formDate.getTime() < currentDate.getTime()) {
+                    allErrors['pastDate'] = "Interview date can't be in the past"
+                }
+
+            }
+
+            checkDate(date)
+            
             // console.log (allErrors)
             // console.log (Object.values(allErrors).length)
             if (Object.values(allErrors).length > 0) {
                 
                 setErrors(allErrors)
                 console.log (allErrors)
-                return 
+                return true
+            } else {
+                return false
             }
         }
-        checkErrors()
-    
-        const interview = {
+        console.log (checkErrors(), '------------------')
+        if (checkErrors()===false) {
+            const interview = {
             position, 
             company, 
             location, 
@@ -59,13 +81,16 @@ function AddInterviewForm () {
             date
         }
         console.log (interview)
-        // await dispatch(createInterviewThunk(interview))
-        // let createdInterview  = await dispatch(createInterviewThunk(interview).catch(async (res) => {
-        //     const data = await res.json()
-        // })) 
-        // if (createdInterview) {
-        //     history.push('/allInterviews')
-        // }
+        await dispatch(createInterviewThunk(interview))
+        history.push('/interviews')
+
+         
+        } else {
+            return 
+        }
+        
+    
+        
     }
 
     return <>
@@ -77,18 +102,24 @@ function AddInterviewForm () {
             <div>
             {errors && errors.position &&
                                         <p style={{ color: "red" }} className='cre-spt-err'>{errors.position}</p>}
+            {errors && errors.positionLength &&
+                                        <p style={{ color: "red" }} className='cre-spt-err'>{errors.positionLength}</p>}
                 <div>
                     <label for = 'position'>Position</label>
                     <input id='position' type='text' placeholder='enter city/state' onChange={updatePosition}/>
                 </div>
                 {errors && errors.company &&
                                         <p style={{ color: "red" }} className='cre-spt-err'>{errors.company}</p>}
+                {errors && errors.companyLength &&
+                                        <p style={{ color: "red" }} className='cre-spt-err'>{errors.companyLength}</p>}
                 <div>
                     <label for = 'company'>Company</label>
                     <input id='company' type='text' placeholder='enter city/state' onChange={updateCompany}/>
                 </div>
                 {errors && errors.location &&
                                         <p style={{ color: "red" }} className='cre-spt-err'>{errors.location}</p>}
+                {errors && errors.locationLength &&
+                                        <p style={{ color: "red" }} className='cre-spt-err'>{errors.locationLength}</p>}
                 <div>
                     <label for = 'location'>Location</label>
                     <input id='location' type='text' placeholder='enter city/state' onChange={updateLocation}/>
@@ -101,6 +132,8 @@ function AddInterviewForm () {
                 </div>
                 {errors && errors.date &&
                                         <p style={{ color: "red" }} className='cre-spt-err'>{errors.date}</p>}
+                {errors && errors.pastDate &&
+                                        <p style={{ color: "red" }} className='cre-spt-err'>{errors.pastDate}</p>}
                 <div>
                     <label for = 'status'>Date</label>
                     <input id='status' type='date'  onChange={updateDate}/>

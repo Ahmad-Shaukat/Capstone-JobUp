@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
+    font-family: 'Roboto', sans-serif;
 }
 
 
@@ -11,15 +12,22 @@
   
   .main-content {
     flex: 1; /* Allow main content to take remaining space */
-    /* padding: 20px; Add some padding for spacing */
+    /* padding: 20px; Add some padding for spacing 
+    */
+    background-color: #ffc8dd32;
+    /* border: 0.5px solid rgb(215, 211, 211); */
   }
   
   .sidebar {
     /* background-color: #f0f0f0; */
     /* padding: 20px;
     border: 1px solid red; */
-    display: none;
+    /* display: none; */
   }
+  .navigation {
+    border-bottom: .5px solid rgba(105, 105, 105, 0.411);
+  }
+  
   
 
 
@@ -27,10 +35,8 @@
     .sidebar {
         display: block;
         width: 140px;
-        background-color: red;
         min-height: 100vh;
         height: 100%;
-        /* margin-left: -250px; */
 
     }
   }

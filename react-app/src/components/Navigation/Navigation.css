@@ -6,7 +6,9 @@
   display: none;
 }
 nav {
-  background-color: rgb(251, 255, 0);
+  /* background-color: rgb(251, 255, 0); */
+  background-color: white;
+  border-right: white;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

@@ -1,0 +1,14 @@
+.modal-btn {
+     /* background-color: #1e2124; */
+  border: none;
+  /* background: #1e2124; */
+  color: white;
+  font-size: large;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+
+}
+.modal-btn {
+    cursor: pointer;
+}

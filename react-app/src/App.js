@@ -38,8 +38,14 @@ function App() {
           <Sidebar />
 
         </div>
+        {/* <div className="navigation">
+
+        </div> */}
         <div className="main-content">
-          <Navigation isLoaded={isLoaded} />
+          <div className="navigation">
+            <Navigation isLoaded={isLoaded} />
+          </div>
+          
           {isLoaded && (
             <Switch>
               <Route path="/login" >

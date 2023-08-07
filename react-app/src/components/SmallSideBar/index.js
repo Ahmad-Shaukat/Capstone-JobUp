@@ -3,7 +3,13 @@ import logo from '../../utilities/logo.png'
 import { NavLink, useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import './app.css'
 import { useSelector } from "react-redux"
-import {BiSolidBarChartAlt2} from 'react-icons/bi'
+import { BiSolidBarChartAlt2 } from 'react-icons/bi'
+import { BsCalendar4Range } from 'react-icons/bs'
+import { BsFillClipboard2PlusFill } from 'react-icons/bs'
+import { FaSearchDollar } from 'react-icons/fa'
+import { BsSave2Fill } from 'react-icons/bs'
+
+
 
 
 
@@ -12,47 +18,56 @@ const Sidebar = () => {
 
     const sessionUser = useSelector(state => state.session.user);
     if (!sessionUser) {
-		history.push('/')
-		return null
-	}
+        history.push('/')
+        return null
+    }
     return (
         <div className="sidbar-main">
             <div className="logo-cont">
-                <NavLink exact to ='/'>
-                  <img src={logo} className="logo-img" />  
+                <NavLink exact to='/'>
+                    <img src={logo} className="logo-img" />
                 </NavLink>
-                
+
 
             </div>
             <div className="sidbar-links">
-                <div>
-                    <NavLink exact to='/hello'><BiSolidBarChartAlt2 /> Stats </NavLink>
-                    
-                    <p>Stats</p>
+                <div className="stats-cont">
+                    <div className="slide">
+                        <NavLink exact to='/hello' className='stats-nav'><BiSolidBarChartAlt2 className="stats-logo" /> Stats </NavLink>
+                    </div>
+
+
                 </div>
-                <div>
-                    <NavLink exact to='/interviews'>My Interviews</NavLink>
+                <div className="stats-cont" >
+                    <div className="slide">
+                        <NavLink exact to='/interviews' className='stats-nav'> <BsCalendar4Range className="stats-logo" />All Interviews</NavLink>
+                    </div>
+
                 </div>
 
-                <div>
-                    <NavLink exact to='/user'> User Profile </NavLink>
+
+                <div className="stats-cont">
+                    <div className="slide">
+                        <NavLink exact to='/newInterview' className='stats-nav'> <BsFillClipboard2PlusFill className="stats-logo" />Add Interview</NavLink>
+                    </div>
+
                 </div>
-                <div>
-                    <NavLink exact to='/newInterview'>Add Interview</NavLink>
+                <div className="stats-cont">
+                    <div className="slide">
+                        <NavLink exact to='/findjobs' className='stats-nav'> <FaSearchDollar className="stats-logo" />Find Jobs</NavLink>
+                    </div>
+
                 </div>
-                <div>
-                    <NavLink exact to='/allUsers'>All Users</NavLink>
-                </div>
-                <div>
-                    <NavLink exact to='/findjobs'>Find Jobs</NavLink>
-                </div>
-                <div>
-                    <NavLink exact to='/favlists'>
-                        My Favorites
-                    </NavLink>
+                <div className="stats-cont">
+                    <div className="slide">
+                        <NavLink exact to='/favlists' className='stats-nav'><BsSave2Fill className='stats-logo' />
+                            Favorites
+                        </NavLink>
+                    </div>
+
                 </div>
             </div>
-            <div>Hello</div>
+
         </div>
 
     )

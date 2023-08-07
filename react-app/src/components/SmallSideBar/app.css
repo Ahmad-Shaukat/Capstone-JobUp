@@ -1,11 +1,68 @@
 .logo-img {
     width: 150px;
 }
+
 .logo-cont {
-    background-color: green;
+    /* background-color: green; */
     height: 65px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+.stats-cont {
+    /* background-color: teal; */
+    padding: 8px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: red;
+    transition: .3s;
+    /* transform: translateX(0) */
+}
+
+.stats-nav {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 4px;
+    color: rgb(100, 98, 98);
+
+}
+
+.stats-logo {
+    margin-right: 4px;
+    color: rgb(100, 98, 98);
+}
+
+.sidbar-links {
+    color: red;
+}
+
+.stats-cont:hover {
+    background-color: #ffc8dd32;
+    /* transform: translateX(20px); */
+}
+
+.stats-cont:hover .stats-logo {
+    color: #4361ee;
+
+}
+
+.stats-cont:hover .stats-nav {
+    color: #4361ee;
+
+}
+
+.slide {
+    transform: translateX(0);
+    transition: .3s;
+}
+
+.stats-cont:hover .slide {
+    transform: translate(10px);
 }

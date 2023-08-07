@@ -79,11 +79,16 @@ function EditInterviewForm({ id, interview }) {
             if (Object.values(allErrors).length > 0) {
 
                 setErrors(allErrors)
-                console.log(allErrors)
-                return
+                console.log(allErrors, '------------these are errors')
+                return true
+            }
+            else  {
+                return false
             }
         }
+        // if ()
         checkErrors()
+        if (checkErrors()===false) {
 
         const editedInterview = {
             position,
@@ -93,10 +98,11 @@ function EditInterviewForm({ id, interview }) {
             date
         }
         console.log(editedInterview)
-        let created = await dispatch(editInterviewThunk(id, editedInterview))
-        if (created) {
-            closeModal()
+         await dispatch(editInterviewThunk(id, editedInterview))
+         closeModal()
+        
         }
+
     }
 
 
