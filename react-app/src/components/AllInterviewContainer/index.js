@@ -36,7 +36,7 @@ const AllInterviews = () => {
                     <div className='allInt-column'>
                         <div className='allInt-top-cont'>
                             <div className='allInt-com-letter'>
-                                <p>{interview.company[0]}</p>
+                                <p>{interview.company[0].toUpperCase()}</p>
                             </div>
                             <div>
                                 <p className='allInt-com-pos'>{interview.position}</p>
