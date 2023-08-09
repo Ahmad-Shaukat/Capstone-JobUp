@@ -3,8 +3,9 @@
     grid-template-columns: 1fr 1fr;
     flex-wrap: wrap;
     margin-top: 40px;
-    margin-right: 10px;
-    row-gap: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    row-gap: 30px;
 
 }
 .allInt-column {

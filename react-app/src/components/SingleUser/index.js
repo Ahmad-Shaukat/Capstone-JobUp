@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux'
-import { getAllInterviews } from "../../store/interview";
+import { getAllInterviews, getAllInterviewsThunk } from "../../store/interview";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 const SingleUser = () => {
@@ -21,7 +21,9 @@ const SingleUser = () => {
         interview.status = 'Scheduled')
     
    
-    
+    useEffect(async () => 
+        dispatch(getAllInterviewsThunk()), [dispatch]
+    )
     return (
 
         <>
@@ -32,6 +34,8 @@ const SingleUser = () => {
                         <p>{interview.position}</p>
                         <p>{interview.location}</p>
                         <p>{interview.status}</p>
+                        <p>Helooooooooooooooooooo</p>
+
                     </div>
                 )
             })}

@@ -24,6 +24,7 @@ def interviews_current():
     interviews = Interview.query.filter(Interview.userId == 1)
     interviews_list = [interview.to_dict() for interview in interviews]
     user_Info = User.query.get(current_user.id)
+    print(interviews_list)
     return jsonify(interviews_list)
 
 

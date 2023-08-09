@@ -48,43 +48,46 @@ function App() {
           
           {isLoaded && (
             <Switch>
-              <Route path="/login" >
+              <Route exact path = '/'>
+                <Stats />
+              </Route>
+              <Route exact path="/login" >
                 <LoginFormPage />
               </Route>
-              <Route path="/signup">
+              <Route exact path="/signup">
                 <SignupFormPage />
               </Route>
-              <Route path='/interviews'>
+              <Route exact path='/interviews'>
                 <AllInterviews />
               </Route>
               <Route exact path='/user'>
                 <GetProfile />
               </Route>
-              <Route path='/newInterview'>
+              <Route exact path='/newInterview'>
                 <AddInterviewForm />
               </Route>
-              <Route path='/interview/edit'>
+              <Route exact path='/interview/edit'>
                 <EditInterviewForm />
               </Route>
 
-              <Route path='/interview/:id/detail'>
+              <Route exact path='/interview/:id/detail'>
                 <InterviewDetail />
               </Route>
 
-              <Route path='/allUsers'>
+              <Route exact path='/allUsers'>
                 <AllUsers />
               </Route>
-              <Route path='/users/:id/profile'>
+              <Route exact path='/users/:id/profile'>
                 <SingleUser />
               </Route>
 
-              <Route path='/findjobs'>
+              <Route exact path='/findjobs'>
                 <FindJobs />
               </Route>
-              <Route path='/favlists'>
+              <Route exact path='/favlists'>
                 <AllFavriteLists />
               </Route>
-              <Route path='/hello'>
+              <Route exact path='/hello'>
                 <Stats />
               </Route>
 

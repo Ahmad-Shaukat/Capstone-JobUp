@@ -10,14 +10,19 @@ import "./app.css"
 import {FaLocationArrow} from 'react-icons/fa'
 import {MdWork} from 'react-icons/md'
 import {BsCalendar2Week} from 'react-icons/bs'
+import { getAllInterviews, getAllInterviewsThunk } from '../../store/interview'
 
 
 const AllInterviews = () => {
+    const dispatch = useDispatch()
     const user = useSelector((store) => store.session.user)
     let { interview } = useSelector((store) => store)
     const history = useHistory()
     interview = Object.values(interview)
     console.log(interview)
+    useEffect( async () => 
+        dispatch(getAllInterviewsThunk())
+    , [dispatch])
 
 
     if (!user) {

@@ -14,6 +14,11 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    first_name = db.Column(db.String(20), nullable=False)
+    last_name = db.Column(db.String(20), nullable = False)
+    location = db.Column(db.String(20), nullable = False)
+    career = db.Column(db.String(20), nullable = False)
+    image = db.Column(db.String(1000), nullable = True)
 
     interview = relationship('Interview', back_populates='user', cascade='all, delete-orphan')
     list = relationship('FavoriteList', back_populates='user', cascade='all, delete-orphan')
@@ -35,5 +40,10 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'first_name': self.first_name,
+            'last_name': self.last_name,
+            'location': self.location,
+            'career': self.career,
+            'image': self.image
         }
