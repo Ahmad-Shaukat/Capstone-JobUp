@@ -36,6 +36,74 @@ function App() {
 
   return (
     <>
+    {sessionUser && (
+      <div className="app-container">
+      {sessionUser && (
+        <div className="sidebar">
+        <Sidebar isLoaded={isLoaded}/>
+
+      </div>
+      )}
+      
+      <div className="main-content">
+        <div className="navigation">
+          {sessionUser && isLoaded &&(
+            <Navigation isLoaded={isLoaded} />
+          )}
+          
+        </div>
+        
+        {isLoaded && (
+          <Switch>
+            <Route exact path = '/'>
+              {sessionUser?<Stats /> : <LandingPage />}
+              
+            </Route>
+            <Route exact path="/login" >
+              <LoginFormPage />
+            </Route>
+            <Route exact path="/signup">
+              <SignupFormPage />
+            </Route>
+            <Route exact path='/interviews'>
+              <AllInterviews />
+            </Route>
+            <Route exact path='/user'>
+              <GetProfile />
+            </Route>
+            <Route exact path='/newInterview'>
+              <AddInterviewForm />
+            </Route>
+            <Route exact path='/interview/edit'>
+              <EditInterviewForm />
+            </Route>
+
+            <Route exact path='/interview/:id/detail'>
+              <InterviewDetail />
+            </Route>
+            <Route exact path='/allUsers'>
+              <AllUsers />
+            </Route>
+            <Route exact path='/users/:id/profile'>
+              <SingleUser />
+            </Route>
+
+            <Route exact path='/findjobs'>
+              <FindJobs />
+            </Route>
+            <Route exact path='/favlists'>
+              <AllFavriteLists />
+            </Route>
+            <Route exact path='/hello'>
+              <Stats />
+            </Route>
+
+
+          </Switch>
+        )}
+      </div>
+    </div>
+    )}
       <div className="app-container">
         {sessionUser && (
           <div className="sidebar">

@@ -1,0 +1,98 @@
+.land-logo img {
+    width: 150px;
+    height: 100px;
+
+}
+.land-logo {
+    margin-left: 120px;
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    
+}
+
+.land-nav-cont {
+    background-color: #caf0f81c;
+    margin-bottom: 20px;
+    
+} 
+
+.landing-body-cont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.land-main-cion {
+    height: 100vh;
+}
+.landing-img img {
+    width: 400px;
+    height: 300px;
+}
+.landing-img {
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.landing-desc-text {
+    font-size: 12px;
+    letter-spacing: 1px;
+    width: 300px;
+    margin-bottom: 10px;
+}
+.landing-body-description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    margin-left: 40px;
+    /* background-color: blue; */
+}
+.landing-bod-content {
+    /* background-color: teal; */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.landing-bod-content p {
+    padding: 5px;
+}
+.landing-heading {
+    font-size: 26px;
+    /* background-color: red; */
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+.landing-heading span {
+    color: #4361ee;
+}
+.landing-btns {
+    /* border: 1px solid red; */
+    width: 160px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.landing-btns button {
+    width: 75px;
+    height: 25px;
+    font-size: 10px;
+    border: none;
+    background-color:#4361ee;
+    letter-spacing: 1px;
+}
+.landing-demo-button button {
+    border: none;
+    width: 160px;
+    background-color:#4361ee;
+    height: 25px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color:white;
+
+
+}
