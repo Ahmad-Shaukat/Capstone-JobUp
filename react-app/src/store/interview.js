@@ -4,6 +4,7 @@ const DELETE_INTERVIEW = 'interview/DELETE_INTERVIEW';
 const ADD_COMMENT = 'interview/ADD_COMMENT'
 const DELETE_COMMENT = 'interview/DELETE_COMMENT'
 const EDIT_COMMENT = 'interview/EDIT_COMMENT'
+const CLEAR_INTERVIEW = 'interview/CLEAR_INTERVIEW'
 
 export const getAllInterviews = (interviews) => {
     return {
@@ -54,6 +55,11 @@ export const editComment = (commentId, interviewId, comment) => {
         }
     }
 }
+export const clearInterview= () => {
+    return {
+        type:CLEAR_INTERVIEW
+    }
+} 
 
 
 export const getAllInterviewsThunk = () => async (dispatch) => {
@@ -204,6 +210,8 @@ export default function interviewsReducer (state ={}, action) {
                 newState[inteId].comments = newState[inteId].comments.filter((comment) => comment.id !== commentId)
             }
             return newState
+        case CLEAR_INTERVIEW:
+            return {}
         default:
             return state
 

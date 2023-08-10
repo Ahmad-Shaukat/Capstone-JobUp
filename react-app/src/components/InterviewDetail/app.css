@@ -2,7 +2,7 @@
     display: grid;
     grid-template-rows: 1fr 1fr;
     flex-wrap: wrap;
-    margin-top: -30px;
+    /* margin-top: -30px; */
     margin-right: 20px;
     margin-left: 20px;
     row-gap: 0px;
@@ -15,9 +15,9 @@
     box-sizing: border-box;
     background-color: white;
     /* background-color: teal; */
-    /* margin-top: 20px; */
     margin-left: 10px;
     margin: auto;
+    margin-top: 40px;
     /* background-color: green; */
     /* margin: auto; */
 }
@@ -27,7 +27,7 @@
     display: grid;
     grid-template-columns: 1fr;
     margin: auto;
-    margin-top: -20px;
+    margin-top: 20px;
 
 
     /* margin-top: 5px; */

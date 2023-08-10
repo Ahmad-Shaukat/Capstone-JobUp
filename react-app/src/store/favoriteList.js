@@ -3,6 +3,7 @@ const ADD_FAVLIST = 'favoriteList/ADD_FAVLIST'
 const DELETE_FAVLIST = 'favoriteList/DELETE_FAVLIST'
 const ADD_JOB = 'favoriteList/ADD_JOB'
 const DELETE_JOB = 'favoriteLIst/DELETE_JOB'
+const CLEAR_FAVORITELIST = 'favoriteList/CLEAR_FAVORITELIST'
 
 export const getAllLists = (lists) => {
     return {
@@ -37,6 +38,11 @@ export const deleteJob = (listId, jobId) => {
         payload: {
             listId, jobId
         }
+    }
+}
+export const clearfavlist = () => {
+    return {
+        type: CLEAR_FAVORITELIST
     }
 }
 
@@ -148,6 +154,8 @@ export default function favoritesRedcuer (state = {}, action) {
             const {favListId, listJob} = action.payload
             delete newState[favListId].jobs[listJob]
             return newState
+        case CLEAR_FAVORITELIST:
+            return {}
         
         default:
             return state

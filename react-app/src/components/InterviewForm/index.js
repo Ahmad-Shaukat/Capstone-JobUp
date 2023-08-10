@@ -50,16 +50,16 @@ function AddInterviewForm() {
             if (location.length > 10) {
                 allErrors['locationLength'] = 'Location can not be more then 1o letters'
             }
-            function checkDate(date) {
-                const currentDate = new Date()
-                const formDate = new Date(date)
-                if (formDate.getTime() < currentDate.getTime()) {
-                    allErrors['pastDate'] = "Interview date can't be in the past"
-                }
+            // function checkDate(date) {
+            //     const currentDate = new Date()
+            //     const formDate = new Date(date)
+            //     if (formDate <= currentDate) {
+            //         allErrors['pastDate'] = "Interview date can't be in the past"
+            //     }
 
-            }
+            // }
 
-            checkDate(date)
+            // checkDate(date)
 
             // console.log (allErrors)
             // console.log (Object.values(allErrors).length)

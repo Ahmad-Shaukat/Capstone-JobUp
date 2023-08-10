@@ -1,4 +1,5 @@
 const GET_USERS = 'user/GET_USERS'
+const CLEAR_USERS = 'users/CLEAR_USERS'
 
 export const getAllUsers=(users) => {
     return {
@@ -7,6 +8,11 @@ export const getAllUsers=(users) => {
     }
 }
 
+export const clearUsers = () =>  {
+    return {
+        type: CLEAR_USERS
+    }
+}
 export const getAllUsersThunk = () => async (dispatch) => {
     const response = await fetch ('/api/users/');
     if (response.ok) {
@@ -26,6 +32,8 @@ export default function usersReducer (state={}, action) {
                 newState[user.id] = user
             })
             return newState
+        case CLEAR_USERS:
+            return {}
         default:
             return state
     }

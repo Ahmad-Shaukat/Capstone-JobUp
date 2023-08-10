@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
@@ -20,10 +21,12 @@ import AllFavriteLists from "./components/AllFavoriteList";
 import Sidebar from "./components/SmallSideBar";
 import './app.css'
 import Stats from "./components/Stats";
+import LandingPage from "./components/LandingPage";
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  const sessionUser = useSelector((state) => state.session.user);
   useEffect(() => {
     dispatch(getAllInterviewsThunk())
     dispatch(getAllListsThunk())
@@ -34,13 +37,13 @@ function App() {
   return (
     <>
       <div className="app-container">
-        <div className="sidebar">
-          <Sidebar />
+        {sessionUser && (
+          <div className="sidebar">
+          <Sidebar isLoaded={isLoaded}/>
 
         </div>
-        {/* <div className="navigation">
-
-        </div> */}
+        )}
+        
         <div className="main-content">
           <div className="navigation">
             <Navigation isLoaded={isLoaded} />
@@ -49,7 +52,8 @@ function App() {
           {isLoaded && (
             <Switch>
               <Route exact path = '/'>
-                <Stats />
+                {sessionUser?<Stats /> : <LandingPage />}
+                
               </Route>
               <Route exact path="/login" >
                 <LoginFormPage />
@@ -73,7 +77,6 @@ function App() {
               <Route exact path='/interview/:id/detail'>
                 <InterviewDetail />
               </Route>
-
               <Route exact path='/allUsers'>
                 <AllUsers />
               </Route>

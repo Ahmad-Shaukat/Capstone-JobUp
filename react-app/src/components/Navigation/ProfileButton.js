@@ -7,6 +7,11 @@ import SignupFormModal from "../SignupFormModal";
 import './ProfileButton.css'
 import { AiFillCaretDown } from 'react-icons/ai'
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import { clearInterview } from "../../store/interview";
+import { clearfavlist } from "../../store/favoriteList";
+// import { clearInterview } from "../../store/interview";
+import { clearUsers } from "../../store/user";
+
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -34,6 +39,9 @@ function ProfileButton({ user }) {
 
   const handleLogout = (e) => {
     e.preventDefault();
+    dispatch(clearInterview())
+    dispatch(clearfavlist())
+    dispatch(clearUsers())
     dispatch(logout());
   };
 
