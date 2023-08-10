@@ -46,7 +46,10 @@ function App() {
         
         <div className="main-content">
           <div className="navigation">
-            <Navigation isLoaded={isLoaded} />
+            {sessionUser && isLoaded &&(
+              <Navigation isLoaded={isLoaded} />
+            )}
+            
           </div>
           
           {isLoaded && (
