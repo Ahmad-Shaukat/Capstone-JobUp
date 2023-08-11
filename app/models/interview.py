@@ -14,6 +14,7 @@ class Interview(db.Model):
     location = db.Column(db.String(100), nullable=False)
     status = db.Column(db.String, nullable=False)
     date = db.Column(db.Date)
+    type = db.Column (db.String, nullable = False)
 
     user = relationship("User", back_populates="interview")
     comment = relationship('Comment', back_populates='interview', cascade="all, delete-orphan")

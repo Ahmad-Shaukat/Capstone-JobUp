@@ -41,11 +41,11 @@ const AllUsers = () => {
                                     <img src='https://static.vecteezy.com/system/resources/previews/009/749/751/original/avatar-man-icon-cartoon-male-profile-mascot-illustration-head-face-business-user-logo-free-vector.jpg'/>
                                 </div>
                                 <div className="allusers-name">
-                                    <p className="allusers-firstname">{user.first_name}</p>
-                                    <p>{user.last_name}</p>
+                                    <p className="allusers-firstname">{user.username}</p>
+                                    {/* <p>{user.last_name}</p> */}
                                 </div>
                                 <div>
-                                    <p className="allusers-location">{user.career}</p>
+                                    <p className="allusers-location">Software Engineer</p>
                                 </div>
                                 <div className="allusers-connect-btn-ctn">
                                     <button className="allusers-connect-btn">Connect</button>
