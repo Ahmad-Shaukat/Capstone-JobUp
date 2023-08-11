@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { editCommentThunk, getAllInterviewsThunk } from '../../store/interview'
 import { useModal } from '../../context/Modal'
+import { editUserCommentThunk } from '../../store/allinterviews'
+import { getAllUsersInterviewThunk } from '../../store/allinterviews'
 import './app.css'
 
 
@@ -36,10 +38,11 @@ function EditCommentForm({ commentId, interviewId, comment }) {
 
         }
         if (checkErrors() === false) {
-             await dispatch(editCommentThunk(commentId, interviewId, {
+             await dispatch(editUserCommentThunk(commentId, interviewId, {
             comment: newComment
         }))
         await dispatch(getAllInterviewsThunk())
+        await dispatch(getAllUsersInterviewThunk())
         closeModal()
         }
          

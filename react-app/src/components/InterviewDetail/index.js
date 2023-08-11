@@ -90,7 +90,7 @@ function InterviewDetail({ }) {
                         <div className='allInt-loc-type-cont'>
                             <p className='allInt-loc-text'><FaLocationArrow className='allInt-loc-logo' />{interview.location}</p>
                             <p>
-                                <MdWork className='allInt-type-logo' />type
+                                <MdWork className='allInt-type-logo' />{interview.type}
                             </p>
                         </div>
 

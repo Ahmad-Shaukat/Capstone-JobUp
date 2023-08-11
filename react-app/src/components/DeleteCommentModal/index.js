@@ -3,6 +3,8 @@ import {useDispatch, useSelector} from 'react-redux'
 import {useHistory} from 'react-router-dom'
 import { deleteCommentThunk, getAllInterviewsThunk } from '../../store/interview';
 import { useModal } from '../../context/Modal';
+import { deleteUserCommentThunk } from '../../store/allinterviews';
+import { getAllUsersInterviewThunk } from '../../store/allinterviews';
 
 
 function DeleteComment ({interviewId, commentId}) {
@@ -15,7 +17,8 @@ function DeleteComment ({interviewId, commentId}) {
     const handleDelete = async (e) => {
         e.preventDefault()
         console.log ('deleting comment')
-        await dispatch(deleteCommentThunk(interviewId, commentId))
+        await dispatch(deleteUserCommentThunk(interviewId, commentId))
+        await getAllUsersInterviewThunk()
         await dispatch(getAllInterviewsThunk())
         closeModal()
     }
