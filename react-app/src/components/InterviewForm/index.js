@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { createInterviewThunk } from '../../store/interview'
+import { createInterviewThunk, getAllInterviewsThunk } from '../../store/interview'
 import './app.css'
 
 function AddInterviewForm() {
@@ -12,6 +12,7 @@ function AddInterviewForm() {
     const [location, setLocation] = useState('')
     const [status, setStatus] = useState('')
     const [date, setDate] = useState('')
+    const [type, setType] = useState('')
     const [errors, setErrors] = useState({})
 
     const updatePosition = (e) => setPosition(e.target.value)
@@ -19,6 +20,7 @@ function AddInterviewForm() {
     const updateLocation = (e) => setLocation(e.target.value)
     const updateStatus = (e) => setStatus(e.target.value)
     const updateDate = (e) => setDate(e.target.value)
+    const updateType = (e) => setType(e.target.value)
 
 
     const handleSubmit = async (e) => {
@@ -50,6 +52,10 @@ function AddInterviewForm() {
             if (location.length > 10) {
                 allErrors['locationLength'] = 'Location can not be more then 1o letters'
             }
+            if (!type || type ==='wrong') {
+                allErrors['type'] = 'Type is required'
+            }
+
             // function checkDate(date) {
             //     const currentDate = new Date()
             //     const formDate = new Date(date)
@@ -74,16 +80,19 @@ function AddInterviewForm() {
         }
         console.log(checkErrors(), '------------------')
         if (checkErrors() === false) {
+            console.log('------------------in the function ')
             const interview = {
                 position,
                 company,
                 location,
                 status,
-                date
+                date,
+                type
             }
             console.log(interview)
             await dispatch(createInterviewThunk(interview))
-            history.push('/interviews')
+            await dispatch(getAllInterviewsThunk())
+            await history.push('/interviews')
 
 
         } else {
@@ -104,10 +113,13 @@ function AddInterviewForm() {
 
 
                     <div>
-                        {errors && errors.position &&
-                            <p style={{ color: "red" }} className='cre-spt-err'>{errors.position}</p>}
-                        {errors && errors.positionLength &&
-                            <p style={{ color: "red" }} className='cre-spt-err'>{errors.positionLength}</p>}
+                        <div className='cre-int-err-cont'>
+                            {errors && errors.position &&
+                                <p style={{ color: "red" }} className='cre-spt-err'>{errors.position}</p>}
+                            {errors && errors.positionLength &&
+                                <p style={{ color: "red" }} className='cre-spt-err'>{errors.positionLength}</p>}
+
+                        </div>
                         <div className='cre-int-pos-cont'>
                             <label for='position'>Position</label>
                             <input id='position' type='text' onChange={updatePosition} />
@@ -116,10 +128,13 @@ function AddInterviewForm() {
 
                     </div>
                     <div>
-                        {errors && errors.company &&
-                            <p style={{ color: "red" }} className='cre-spt-err'>{errors.company}</p>}
-                        {errors && errors.companyLength &&
-                            <p style={{ color: "red" }} className='cre-spt-err'>{errors.companyLength}</p>}
+                        <div className='cre-int-err-cont'>
+                            {errors && errors.company &&
+                                <p style={{ color: "red" }} className='cre-spt-err'>{errors.company}</p>}
+                            {errors && errors.companyLength &&
+                                <p style={{ color: "red" }} className='cre-spt-err'>{errors.companyLength}</p>}
+                        </div>
+
                         <div className='cre-int-pos-cont'>
 
                             <label for='company'>Company</label>
@@ -127,10 +142,13 @@ function AddInterviewForm() {
                         </div>
                     </div>
                     <div>
-                        {errors && errors.location &&
-                            <p style={{ color: "red" }} className='cre-spt-err'>{errors.location}</p>}
-                        {errors && errors.locationLength &&
-                            <p style={{ color: "red" }} className='cre-spt-err'>{errors.locationLength}</p>}
+                        <div className='cre-int-err-cont'>
+                            {errors && errors.location &&
+                                <p style={{ color: "red" }} className='cre-spt-err'>{errors.location}</p>}
+                            {errors && errors.locationLength &&
+                                <p style={{ color: "red" }} className='cre-spt-err'>{errors.locationLength}</p>}
+                        </div>
+
 
                         <div className='cre-int-pos-cont'>
                             <label for='location'>Location</label>
@@ -139,8 +157,26 @@ function AddInterviewForm() {
 
                     </div>
                     <div>
-                        {errors && errors.status &&
-                            <p style={{ color: "red" }} className='cre-spt-err'>{errors.status}</p>}
+                        <div className='cre-int-err-cont'>
+                            {errors && errors.type &&
+                                <p style={{ color: "red" }} className='cre-spt-err'>{errors.type}</p>}
+                        </div>
+                        <div className='cre-int-type-cont'>
+                            <label>Type</label>
+                            <select id='type' name='type' onChange={updateType}>
+                                <option key={'NA'} value={'wrong'}>Pick One</option>
+                                <option key={'Onsite'} value={'Onsite'}>Onsite</option>
+                                <option key={'Remote'} value={'Remote'}>Remote</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div className='cre-int-err-cont'>
+                            {errors && errors.status &&
+                                <p style={{ color: "red" }} className='cre-spt-err'>{errors.status}</p>}
+                        </div>
+
                         <div className='cre-int-status-cont'>
 
                             <label id='status'>Status</label>
@@ -167,15 +203,18 @@ function AddInterviewForm() {
                     </div>
 
                     <div>
-                        {errors && errors.date &&
-                            <p style={{ color: "red" }} className='cre-spt-err'>{errors.date}</p>}
-                        {errors && errors.pastDate &&
-                            <p style={{ color: "red" }} className='cre-spt-err'>{errors.pastDate}</p>}
-                            <div className='cre-int-date-cont'>
-                                <label for='status'>Date</label>
-                        <input id='status' type='date' onChange={updateDate} />
-                            </div>
-                        
+                        <div className='cre-int-err-cont'>
+                            {errors && errors.date &&
+                                <p style={{ color: "red" }} className='cre-spt-err'>{errors.date}</p>}
+                            {errors && errors.pastDate &&
+                                <p style={{ color: "red" }} className='cre-spt-err'>{errors.pastDate}</p>}
+                        </div>
+
+                        <div className='cre-int-date-cont'>
+                            <label for='status'>Date</label>
+                            <input id='status' type='date' onChange={updateDate} />
+                        </div>
+
                     </div>
                     <div className='cre-int-sub-btn'>
                         <button type='submit' id='cre-itn-sub-button'>Submit</button>

@@ -30,7 +30,7 @@ def interviews_current():
     interviews = Interview.query.filter(Interview.userId == 1)
     interviews_list = [interview.to_dict() for interview in interviews]
     user_Info = User.query.get(current_user.id)
-    print(interviews_list)
+    # print(interviews_list)
     return jsonify(interviews_list)
 
 
@@ -76,6 +76,7 @@ def interview_post():
     location = data.get('location')
     status = data.get('status')
     date = data.get('date')
+    type = data.get('type')
     print (date, '---------this is date-----------')
     interivew_date = datetime.strptime(date, '%Y-%m-%d').date()
     print(interivew_date, '-----------------formatted')
@@ -86,7 +87,9 @@ def interview_post():
         company = company,
         location = location,
         status = status,
-        date = interivew_date
+        date = interivew_date,
+        type = type
+
 
     )
     db.session.add(new_interivew)
