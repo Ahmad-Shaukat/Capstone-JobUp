@@ -1,0 +1,54 @@
+.del-int-main-cont {
+    /* background-color: green; */
+    padding: 5px;
+}
+.del-int-heading p {
+    margin: auto;
+    /* background-color: purple; */
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    /* color:#4361ee ; */
+    /* background-color: #ef233c; */
+    color: #ef233c;
+
+}
+.del-int-heading {
+    margin-bottom: 10px;
+}
+.del-int-text p {
+    font-size: 12px;
+    margin:auto;
+}
+.del-int-text {
+    margin-bottom: 5px;
+}
+.del-int-btn {
+    width: 160px;
+    /* background-color: aqua; */
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+
+
+}
+.del-int-btn button {
+    height: 20px;
+    width: 70px;
+}
+.del-int-del-btn {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border: none;
+    background-color: #ef233c;
+    color: white;
+}
+.del-int-can-btn {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border: none;
+    background-color: #4361ee ;
+    color: white;
+}
