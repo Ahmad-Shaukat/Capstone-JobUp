@@ -7,11 +7,13 @@ import { getAllInterviewsThunk } from "../../store/interview";
 import OpenModalButton from "../OpenModalButton";
 import DeleteComment from "../DeleteCommentModal";
 import EditCommentForm from "../EditCommentModal";
+import { addUserCommentThunk } from "../../store/allinterviews";
 import { FaLocationArrow } from 'react-icons/fa'
 import { MdWork } from 'react-icons/md'
 import { BsCalendar2Week } from 'react-icons/bs'
 import './app.css'
 import userImage from '../../utilities/user_image.jpg'
+import { getAllUsersInterviewThunk } from "../../store/allinterviews";
 
 
 function InterviewDetail({ }) {
@@ -19,7 +21,9 @@ function InterviewDetail({ }) {
     const history = useHistory()
     const { id } = useParams()
     const [comment, setComment] = useState('')
-    let interview = useSelector((store) => store?.interview[id])
+    let interview = useSelector((store) => store.allinterviews[id] )
+    console.log (interview, '------------------this is interview id')
+    // console.log 
     const [errors, setErrors] = useState({})
     console.log(interview)
     let user = useSelector((store) => store?.session['user'])
@@ -27,6 +31,7 @@ function InterviewDetail({ }) {
     console.log(comment, '---------this is the initial comment')
     useEffect(() => {
         dispatch(getAllInterviewsThunk())
+        dispatch(getAllUsersInterviewThunk())
     }, [dispatch, id])
     if (!user) {
         history.push('/')
@@ -53,10 +58,11 @@ function InterviewDetail({ }) {
 
         }
         if (checkErrors() === false) {
-            await dispatch(addCommentThunk(interview.id, {
+            await dispatch(addUserCommentThunk(interview.id, {
                 comment: comment
             }))
             await dispatch(getAllInterviewsThunk())
+            await dispatch(getAllUsersInterviewThunk())
             await setComment('')
             await setErrors({})
 

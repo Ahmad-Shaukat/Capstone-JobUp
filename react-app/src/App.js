@@ -22,6 +22,7 @@ import Sidebar from "./components/SmallSideBar";
 import './app.css'
 import Stats from "./components/Stats";
 import LandingPage from "./components/LandingPage";
+import  { getAllUsersInterviewThunk } from "./store/allinterviews";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ function App() {
     dispatch(getAllInterviewsThunk())
     dispatch(getAllListsThunk())
     dispatch(getAllUsersThunk())
+    dispatch(getAllUsersInterviewThunk())
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
 

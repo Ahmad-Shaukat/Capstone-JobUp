@@ -13,7 +13,13 @@ def watchlist_test():
     return jsonify(in_route)
 
 
-
+# GEt all interviews of all the users
+@interview_routes.route('/allinterviews')
+@login_required
+def all_interviews ():
+    interviews = Interview.query.all()
+    interviews_list = [interview.to_dict() for interview in interviews]
+    return jsonify(interviews_list)
 
 # GET /api/interviews/current
 # get all interviews for the current user

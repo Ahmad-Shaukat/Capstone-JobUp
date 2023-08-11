@@ -4,12 +4,14 @@ import session from './session'
 import interview from './interview'
 import favoriteList from './favoriteList'
 import user from './user'
+import allinterviews from './allinterviews'
 
 const rootReducer = combineReducers({
   session,
   interview,
   favoriteList,
-  user
+  user,
+  allinterviews
 });
 
 
