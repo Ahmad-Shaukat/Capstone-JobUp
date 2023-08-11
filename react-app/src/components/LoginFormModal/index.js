@@ -23,6 +23,8 @@ function LoginFormModal() {
 
   return (
     <>
+      <div className="login-main-container">
+
         <h1>Log In</h1>
         <form onSubmit={handleSubmit}>
           <ul>
@@ -50,6 +52,7 @@ function LoginFormModal() {
           </label>
           <button type="submit">Log In</button>
         </form>
+      </div>
     </>
   );
 }

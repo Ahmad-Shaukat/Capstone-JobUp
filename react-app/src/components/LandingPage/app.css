@@ -72,10 +72,11 @@
 }
 .landing-btns {
     /* border: 1px solid red; */
-    width: 160px;
+    width: 170px;
     display: flex;
     justify-content: space-between;
     margin-bottom: 5px;
+    margin-top: 15px;
 }
 .landing-btns button {
     width: 75px;
@@ -84,15 +85,19 @@
     border: none;
     background-color:#4361ee;
     letter-spacing: 1px;
+    border-radius: 3px;
+    
 }
 .landing-demo-button button {
     border: none;
-    width: 160px;
+    width: 170px;
     background-color:#4361ee;
     height: 25px;
     font-size: 10px;
     letter-spacing: 1px;
     color:white;
+    margin-top: 5px;
+    border-radius: 3px;
 
 
 }

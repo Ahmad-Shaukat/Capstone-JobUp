@@ -18,9 +18,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 12px;
+    font-size: 11px;
     color: red;
     transition: .3s;
+    letter-spacing: 1px;
     /* transform: translateX(0) */
 }
 
@@ -44,7 +45,7 @@
 }
 
 .stats-cont:hover {
-    background-color: #ffc8dd32;
+    background-color: #caf0f863;
     /* transform: translateX(20px); */
 }
 

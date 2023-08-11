@@ -11,6 +11,7 @@ import { FaLocationArrow } from 'react-icons/fa'
 import { MdWork } from 'react-icons/md'
 import { BsCalendar2Week } from 'react-icons/bs'
 import './app.css'
+import userImage from '../../utilities/user_image.jpg'
 
 
 function InterviewDetail({ }) {
@@ -19,6 +20,7 @@ function InterviewDetail({ }) {
     const { id } = useParams()
     const [comment, setComment] = useState('')
     let interview = useSelector((store) => store?.interview[id])
+    const [errors, setErrors] = useState({})
     console.log(interview)
     let user = useSelector((store) => store?.session['user'])
     console.log(user)
@@ -33,13 +35,34 @@ function InterviewDetail({ }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await dispatch(addCommentThunk(interview.id, {
-            comment: comment
-        }))
-        await dispatch(getAllInterviewsThunk())
-        console.log(comment, '--------------this is the comment before')
-        await setComment('')
-        console.log(comment, '---------------this is comment after')
+        function checkErrors() {
+            let allErrors = {}
+            if (comment === '') {
+                allErrors['minLength'] = "Comment can't be empty"
+            }
+            if (comment.length > 300) {
+                allErrors['maxLength'] = "Comment can't be more then 300 Character Long"
+            }
+            if (Object.values(allErrors).length > 0) {
+                setErrors(allErrors)
+                console.log(errors, '---------------these are errors')
+                return true
+            } else {
+                return false
+            }
+
+        }
+        if (checkErrors() === false) {
+            await dispatch(addCommentThunk(interview.id, {
+                comment: comment
+            }))
+            await dispatch(getAllInterviewsThunk())
+            await setComment('')
+            await setErrors({})
+
+        }
+
+
 
     }
     // console.log (interview[1],'---------testing state')
@@ -71,7 +94,10 @@ function InterviewDetail({ }) {
 
                     </div>
                     <div className='allInt-btm-right-container'>
-                        <p className='allInt-date'><BsCalendar2Week className='allInt-int-logo' />{interview['date'].slice(0, 17)}</p>
+                        {user.id === interview.userId && (
+
+                            <p className='allInt-date'><BsCalendar2Week className='allInt-int-logo' />{interview['date'].slice(0, 17)}</p>
+                        )}
                         {interview.status === 'Pending' && (
                             <p className='allInt-Pending'>{interview.status}</p>
                         )}
@@ -90,13 +116,30 @@ function InterviewDetail({ }) {
 
             </div>
 
+
             <div className="int-det-comm-cont">
                 <div>
-                    {interview.comments.map((comm) => {
+                <div className="new-comm-err-cont">
+                        {errors && errors.maxLength && <p>{errors.maxLength}</p>}
+                        {errors && errors.minLength && <p>{errors.minLength}</p>}
+                    </div>
+                    <div className="comm-post-cont">
+                        <form onSubmit={handleSubmit} className="comm-post-form">
+                            <div>
+                                <textarea placeholder="Write your comment here" onChange={(e) => setComment(e.target.value)} value={comment} />
+                            </div>
+
+                            <div className="comm-post-btn">
+                                <button type="submit">Submit</button>
+                            </div>
+
+                        </form>
+                    </div>
+                    {interview.comments.reverse().map((comm) => {
                         return <>
                             <div key={comm.id} className="int-det-sin-comm">
                                 <div className="comm-img">
-                                    <img src={comm['user'].image} />
+                                    <img src={userImage} />
                                 </div>
                                 <div className="comm-user-name-comm">
                                     <p><span className="comm-user-text-name">{comm['user'].username}</span> <span id="comm-text">{comm.comment}</span></p>
@@ -132,25 +175,29 @@ function InterviewDetail({ }) {
                                     </div>
                                 </div>
                                 <div className="comm-time">
-                                    <p>{comm.created_at.slice(4,16)}</p>
+                                    <p>{comm.created_at.slice(4, 16)}</p>
                                 </div>
 
                             </div>
                         </>
                     })}
-                    <div className="comm-post-cont">
-                     <form onSubmit={handleSubmit} className="comm-post-form">
-                        <div>
-                          <textarea placeholder="Write your comment here" onChange={(e) => setComment(e.target.value)} value={comment} />  
-                        </div>
-
-                        <div className="comm-post-btn">
-                           <button type="submit">Submit</button> 
-                        </div>
-        
-                    </form>   
+                    {/* <div className="new-comm-err-cont">
+                        {errors && errors.maxLength && <p>{errors.maxLength}</p>}
+                        {errors && errors.minLength && <p>{errors.minLength}</p>}
                     </div>
-                    
+                    <div className="comm-post-cont">
+                        <form onSubmit={handleSubmit} className="comm-post-form">
+                            <div>
+                                <textarea placeholder="Write your comment here" onChange={(e) => setComment(e.target.value)} value={comment} />
+                            </div>
+
+                            <div className="comm-post-btn">
+                                <button type="submit">Submit</button>
+                            </div>
+
+                        </form>
+                    </div> */}
+
                 </div>
             </div>
         </main>

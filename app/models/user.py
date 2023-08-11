@@ -18,7 +18,6 @@ class User(db.Model, UserMixin):
     last_name = db.Column(db.String(20), nullable = False)
     location = db.Column(db.String(20), nullable = False)
     career = db.Column(db.String(20), nullable = False)
-    image = db.Column(db.String(1000), nullable = True)
 
     interview = relationship('Interview', back_populates='user', cascade='all, delete-orphan')
     list = relationship('FavoriteList', back_populates='user', cascade='all, delete-orphan')
@@ -45,5 +44,4 @@ class User(db.Model, UserMixin):
             'last_name': self.last_name,
             'location': self.location,
             'career': self.career,
-            'image': self.image
         }

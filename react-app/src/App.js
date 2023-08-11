@@ -36,7 +36,7 @@ function App() {
 
   return (
     <>
-    {sessionUser && (
+    {/* {sessionUser && (
       <div className="app-container">
       {sessionUser && (
         <div className="sidebar">
@@ -52,6 +52,7 @@ function App() {
           )}
           
         </div>
+    
         
         {isLoaded && (
           <Switch>
@@ -103,7 +104,7 @@ function App() {
         )}
       </div>
     </div>
-    )}
+    )} */}
       <div className="app-container">
         {sessionUser && (
           <div className="sidebar">
