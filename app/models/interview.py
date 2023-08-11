@@ -48,6 +48,7 @@ class Interview(db.Model):
             'position': self.position,
             'company': self.company,
             'location': self.location,
+            'type': self.type,
             'status': self.status,
             'date': self.date,
             'comments': comments_data

@@ -40,8 +40,8 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            'first_name': self.first_name,
-            'last_name': self.last_name,
-            'location': self.location,
-            'career': self.career,
+            # 'first_name': self.first_name,
+            # 'last_name': self.last_name,
+            # 'location': self.location,
+            # 'career': self.career,
         }
