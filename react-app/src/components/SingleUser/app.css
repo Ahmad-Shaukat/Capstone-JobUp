@@ -1,0 +1,17 @@
+.no-user-int-cont {
+    max-width: 300px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: white; */
+    margin-top: 20px;
+    background-color: #4361ee;
+    padding: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.no-user-int-cont p {
+    color: white;
+    font-size: 10px;
+    font-weight: 500;
+}
