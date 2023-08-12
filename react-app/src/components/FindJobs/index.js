@@ -2,6 +2,8 @@
 import React from "react"
 import { useSelector } from "react-redux"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
+import { useState } from "react"
+import './app.css'
 
 
 
@@ -14,7 +16,9 @@ const FindJobs = () => {
         return null
     }
     return (
-        <div>All jobs go here</div>
+        <div className="all-jobs-cont">
+            <p>This feature is currently unavailable</p>
+        </div>
     )
 }
 

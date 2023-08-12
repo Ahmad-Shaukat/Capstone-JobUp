@@ -11,21 +11,38 @@ function SignupFormModal() {
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [errors, setErrors] = useState([]);
+	const [validations, setValidations] = useState({})
+	
 	const { closeModal } = useModal();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		if (password === confirmPassword) {
-			const data = await dispatch(signUp(username, email, password));
-			if (data) {
-				setErrors(data);
-			} else {
-				closeModal();
+
+		function checkErrors () {
+			const allErrors = {}
+			if (username.length<4) {
+					allErrors['minUsername'] = 'Username must be longer then 4 character'
 			}
+			if (username.length>10) {
+					allErrors['maxUsername'] = "Username can't be more then 10 character long"
+			}
+			if (password !== confirmPassword) {
+				allErrors['password'] = "Confirm Password field must be the same as the Password field"
+			}
+			if (Object.values(allErrors).length>0) {
+				setValidations(allErrors)
+				console.log (validations)
+				return true
+			} else {
+				return false
+			}
+
+		}
+		if (checkErrors() === false) {
+			await dispatch(signUp(username, email, password))
+			closeModal()
 		} else {
-			setErrors([
-				"Confirm Password field must be the same as the Password field",
-			]);
+			return
 		}
 	};
 
@@ -37,15 +54,16 @@ function SignupFormModal() {
 			<p>jobSphere</p>
 		</div>
 			<form onSubmit={handleSubmit} className="sign-up-form">
-				<ul>
-					{errors.map((error, idx) => (
-						<li key={idx}>{error}</li>
-					))}
-				</ul>
+				
+				<div className="sign-up-err-cont">
+					{validations && validations['minUsername'] && <p>{validations['minUsername']}</p>}
+					{validations && validations['maxUsername'] && <p>{validations['maxUsername']}</p>}
+					{validations && validations['password'] && <p>{validations['password']}</p>}
+				</div>
 				
 					<input
 						placeholder="Email"
-						type="text"
+						type="email"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 						required
@@ -75,8 +93,8 @@ function SignupFormModal() {
 						required
 					/>
 					<div className="sign-up-form-btns"> 
-				<button type="submit">Sign Up</button>
-				<button onClick={() => closeModal()}>Cancel</button>
+				<button type="submit" className="sign-up-sub-btn">Sign Up</button>
+				<button onClick={() => closeModal()} className="sign-up-can-btn">Cancel</button>
 
 					</div>
 			</form>

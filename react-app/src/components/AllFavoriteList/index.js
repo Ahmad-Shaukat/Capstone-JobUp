@@ -6,14 +6,15 @@ import CreateFavoriteList from "../CreateFavListModal"
 import { useModal } from "../../context/Modal"
 import EditFavoriteList from "../EditFavList"
 import { getAllListsThunk } from "../../store/favoriteList"
+import { useState } from "react"
 
 
 
 const AllFavriteLists = () => {
     const dispatch = useDispatch()
+    const [feature, noFeature] = useState(false)
 
-    // const store = useSelector((store) => store)
-    // console.log (store, '-----------this is store')
+   
     const history = useHistory()
     const user = useSelector((store) => store.session.user)
     let allFavLists = useSelector((store) => store?.favoriteList)
@@ -26,6 +27,22 @@ const AllFavriteLists = () => {
         history.push('/')
         return null
     }
+
+    if (!feature) {
+        return (
+            <div className="all-jobs-cont">
+                <p>This feature is currently unavailable</p>
+            </div>
+        )
+    }
+
+
+
+
+
+
+
+    // this is the actual feature
 
     return <>
         <button>
@@ -44,12 +61,6 @@ const AllFavriteLists = () => {
                         return (
                             <div>
                                 <p key={job.id}>{job.position}</p>
-                                {/* <OpenModalButton
-                                    buttonText={'Edit List'}
-                                    modalComponent={
-                                        <EditFavoriteList list={list}/>
-                                    }
-                                /> */}
                             </div>
 
 

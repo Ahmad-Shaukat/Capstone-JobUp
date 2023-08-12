@@ -28,6 +28,19 @@ const AllInterviews = () => {
         history.push('/')
         return null
     }
+    if (interview.length<1) {
+        return <>
+            <div className='no-int-cont'>
+                <div className='no-int-text'>
+                <p>No Interview</p>
+
+                </div>
+                <div className='no-int-link'>
+                    <NavLink exact to ='/newinterview'><button>Add Interview</button></NavLink>
+                </div>
+            </div>
+        </>
+    }
     return <>
         <div className='allInt-container'>
             {interview.map((interview) => {
