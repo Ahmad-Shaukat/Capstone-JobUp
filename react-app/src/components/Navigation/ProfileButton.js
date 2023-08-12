@@ -11,6 +11,7 @@ import { clearInterview } from "../../store/interview";
 import { clearfavlist } from "../../store/favoriteList";
 // import { clearInterview } from "../../store/interview";
 import { clearUsers } from "../../store/user";
+import { clearAllInterviews } from "../../store/allinterviews";
 
 
 function ProfileButton({ user }) {
@@ -39,6 +40,7 @@ function ProfileButton({ user }) {
 
   const handleLogout = (e) => {
     e.preventDefault();
+    // dispatch(clearAllInterviews())
     dispatch(clearInterview())
     dispatch(clearfavlist())
     dispatch(clearUsers())
@@ -47,6 +49,7 @@ function ProfileButton({ user }) {
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
+  
 
   return (
     <>

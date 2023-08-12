@@ -27,7 +27,7 @@ def all_interviews ():
 @login_required
 def interviews_current():
     # user_id = current_user.id
-    interviews = Interview.query.filter(Interview.userId == 1)
+    interviews = Interview.query.filter(Interview.userId == current_user.id)
     interviews_list = [interview.to_dict() for interview in interviews]
     user_Info = User.query.get(current_user.id)
     # print(interviews_list)
@@ -109,6 +109,7 @@ def interview_edit(id):
     location = data.get('location')
     status = data.get('status')
     date = data.get('date')
+    type = data.get('type')
     print(date, '--------------this is date')
     interview_date = datetime.strptime(date, '%Y-%m-%d').date()
     print(interview_date, '--------------this is interview date')
@@ -119,6 +120,7 @@ def interview_edit(id):
     filtered_interview.location = location
     filtered_interview.status = status 
     filtered_interview.date = interview_date
+    filtered_interview.type = type
 
     db.session.commit()
 

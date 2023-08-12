@@ -1,0 +1,70 @@
+.edit-int-cont {
+    /* background-color: red; */
+    padding: 20px;
+}
+.edit-int-head p {
+    margin: auto;
+    font-size: 18px;
+    font-weight: 500px;
+    text-align: center;
+}
+.edit-int-head {
+    margin-bottom: 20px;
+}
+.edit-int-post {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+.edit-int-post label {
+    margin-left: 10px;
+    font-size: 10px;
+    margin-bottom: 5px;  
+}
+.edit-int-post input {
+    width: 150px;
+    margin-left: 10px;
+    height: 16px;
+    background-color: #caf0f863;
+    border: none;
+    border: 0.5px solid rgba(0, 0, 0, 0.174);
+    border-radius: 2px;
+    outline-color:#4361ee;
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 2px;
+}
+.edit-int-post select {
+    width: 150px;
+    margin-left: 10px;
+    height: 16px;
+    letter-spacing: 1px;
+    font-size: 10px;
+    background-color: #caf0f863;
+    border: 0.5px solid rgba(0, 0, 0, 0.174);
+    border-radius: 2px; 
+    outline-color: #4361ee;
+}
+.edit-int-btn {
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+
+}
+.edit-int-btn button {
+    width: 70px;
+    height: 20px;
+    font-size: 10px;
+    font-weight: 500;
+    border: none;
+    color: white;
+
+}
+.edit-int-sub-btn {
+    background-color: #4361ee;
+}
+.edit-int-can-btn {
+    background-color: #ef233c;
+}
+

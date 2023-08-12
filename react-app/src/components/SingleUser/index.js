@@ -7,8 +7,10 @@ import { FaLocationArrow } from 'react-icons/fa'
 import { MdWork } from 'react-icons/md'
 import { BsCalendar2Week } from 'react-icons/bs'
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const SingleUser = () => {
+    const history = useHistory()
     const { id } = useParams()
     const dispatch = useDispatch()
     console.log(id, '-------------this is id')
@@ -32,6 +34,10 @@ const SingleUser = () => {
     useEffect(async () =>
         dispatch(getAllUsersInterviewThunk()), [dispatch]
     )
+    if (!user) {
+        history.push('/')
+        return null
+    }
     return (
 
 
