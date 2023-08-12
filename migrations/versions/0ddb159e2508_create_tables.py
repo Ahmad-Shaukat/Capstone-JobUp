@@ -1,8 +1,8 @@
 """create tables
 
-Revision ID: 82b4efc15921
+Revision ID: 0ddb159e2508
 Revises: 
-Create Date: 2023-07-24 17:09:13.495955
+Create Date: 2023-08-11 23:59:10.813054
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '82b4efc15921'
+revision = '0ddb159e2508'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -42,6 +42,7 @@ def upgrade():
     sa.Column('location', sa.String(length=100), nullable=False),
     sa.Column('status', sa.String(), nullable=False),
     sa.Column('date', sa.Date(), nullable=True),
+    sa.Column('type', sa.String(), nullable=False),
     sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
@@ -50,6 +51,7 @@ def upgrade():
     sa.Column('userId', sa.Integer(), nullable=False),
     sa.Column('interviewId', sa.Integer(), nullable=False),
     sa.Column('comment', sa.String(length=500), nullable=False),
+    sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.ForeignKeyConstraint(['interviewId'], ['interviews.id'], ),
     sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
@@ -61,8 +63,7 @@ def upgrade():
     sa.Column('location', sa.String(length=50), nullable=False),
     sa.Column('description', sa.String(length=1000), nullable=False),
     sa.ForeignKeyConstraint(['listId'], ['favoritelists.id'], ),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('listId')
+    sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###
 

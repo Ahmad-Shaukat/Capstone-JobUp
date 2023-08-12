@@ -31,51 +31,56 @@ function SignupFormModal() {
 
 	return (
 		<>
-			<h1>Sign Up</h1>
-			<form onSubmit={handleSubmit}>
+		<main className="sign-up-form-cont">
+		<div className="sign-up-head">
+
+			<p>jobSphere</p>
+		</div>
+			<form onSubmit={handleSubmit} className="sign-up-form">
 				<ul>
 					{errors.map((error, idx) => (
 						<li key={idx}>{error}</li>
 					))}
 				</ul>
-				<label>
-					Email
+				
 					<input
+						placeholder="Email"
 						type="text"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 						required
 					/>
-				</label>
-				<label>
-					Username
+				
 					<input
+						placeholder="Username"
 						type="text"
 						value={username}
 						onChange={(e) => setUsername(e.target.value)}
 						required
 					/>
-				</label>
-				<label>
-					Password
+				
+				
 					<input
+					placeholder="Password"
 						type="password"
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
 						required
 					/>
-				</label>
-				<label>
-					Confirm Password
 					<input
+					placeholder="Confirm Password"
 						type="password"
 						value={confirmPassword}
 						onChange={(e) => setConfirmPassword(e.target.value)}
 						required
 					/>
-				</label>
+					<div className="sign-up-form-btns"> 
 				<button type="submit">Sign Up</button>
+				<button onClick={() => closeModal()}>Cancel</button>
+
+					</div>
 			</form>
+		</main>
 		</>
 	);
 }

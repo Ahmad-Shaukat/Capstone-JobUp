@@ -1,0 +1,189 @@
+.allInt-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    margin-right: 20px;
+    margin-left: 20px;
+    row-gap: 30px;
+
+}
+.allInt-column {
+    flex: 1;
+    /* padding: 20px; */
+    /* border: 2px solid red; */
+    box-sizing: border-box;
+    background-color: white;
+    /* background-color: teal; */
+    /* margin-top: 20px; */
+    margin-left: 10px;
+}
+.allInt-top-cont {
+    /* background-color: yellow; */
+    display: grid;
+    grid-template-columns: .5fr 2fr;
+    padding: 10px;
+    border-bottom: 0.5px solid rgba(128, 128, 128, 0.325);
+    
+}
+.allInt-com-letter {
+    background-color: #4361ee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    color: white;
+    font-weight: 900;
+    border-radius: 3px;
+    height: 40px;
+}  
+.allInt-btm-container {
+    /* background-color: blue; */
+    display: grid;
+    grid-template-columns: .5fr 2fr;
+    padding: 10px;
+}
+.allInt-btm-bttns {
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.allInt-btm-left-cont {
+    /* background-color: yellow; */
+    padding: 5px;
+}
+.allInt-loc-type-cont {
+    /* background-color: red; */
+    padding: px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 11px;
+    color: rgb(100, 98, 98);
+    /* align-items: center; */
+}
+.allInt-loc-text {
+    /* background-color: teal; */
+    margin-bottom: 5px;
+} 
+.allInt-loc-logo {
+     /* padding-top: 3px; */
+     margin-bottom: -1px;
+     /* background-color: blue; */
+     color: rgb(100, 98, 98);
+     /* width: 16px; */
+     padding-top: 3px;
+     font-size: 12px;
+     margin-right: 2px
+     ;
+}
+.allInt-type-logo {
+    /* padding-top: 3px; */
+    margin-bottom: -3px;
+    /* background-color: blue; */
+    color: rgb(100, 98, 98);
+    /* width: 16px; */
+    padding-top: 3px;
+    font-size: 14px;
+    margin-right: 2px
+    ;
+}
+.allInt-btm-bttns {
+    /* background-color: blue; */
+    margin-top: 10px;
+    width: 150px;
+    
+    
+}
+.allInt-btm-bttns button {
+    border: none;
+    margin-right: 5px;
+    font-size: 9px;
+    text-align: center;
+    width: 40px;
+    height: 21px;
+    border-radius: 2px;
+    /* color: white; */
+    /* background-color: black; */
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+    /* z-index: 1; */
+
+} 
+.allInt-btns-more {
+    height: 21px;
+    background-color: #4361ee;
+    font-size: 10px;
+    width: 40px ;
+    padding: 1px;
+    margin-bottom: 1px;
+    color: white;
+    
+
+}
+
+.allInt-edit-btn {
+    background-color:#99d98c ;
+    height: 21px;
+    /* background-color: #4361ee; */
+    font-size: 10px;
+    width: 40px ;
+    padding: 1px;
+    margin-bottom: 1px;
+    color: white;
+}
+.allInt-del-btn {
+    background-color: #ee6055;
+    
+}
+.allInt-btm-right-container {
+    /* background-color: yellow; */
+    padding: 6px;
+}
+.allInt-Pending {
+    background-color: #deaaff;
+
+    font-size: 9px;
+    width: 55px;
+    padding: 3px;
+    border-radius: 2px;
+    margin-top: 5px;
+    color:white ;
+    text-align: center;
+}
+.allInt-Scheduled {
+    background-color: #70e000;
+    font-size: 9px;
+    width: 55px;
+    padding: 3px;
+    border-radius: 2px;
+    margin-top: 5px;
+    color:white ;
+    text-align: center;
+}
+
+.allInt-date {
+    font-size: 11px;
+}
+.allInt-int-logo {
+    color: rgb(100, 98, 98);
+    /* width: 12px; */
+    font-size: 13px;
+    padding-top: 3px;
+    margin-right: 3px;
+    margin-bottom: -1px;
+}
+.allInt-com-pos {
+    font-size: 14px;
+}
+.allInt-com-name {
+    font-size: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .allInt-container {
+      grid-template-columns: 1fr;
+      /* margin-top: 40px; */
+    }
+  }

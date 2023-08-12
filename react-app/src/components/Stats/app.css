@@ -1,0 +1,104 @@
+.stats-main-container {
+    margin-top: 20px;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+
+
+
+.stats-card-main-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* background-color: red; */
+    gap: 20px;
+}
+.stats-pending-container {
+    /* background-color: red; */
+    height: 100px;
+    
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+     background-color: white;
+}
+.stats-test {
+    height: 100px;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+    background-color: white;
+    color: #6a82d8,
+}
+#stats-scheduled-text {
+    color: #6a82d8;
+    /* background-color: yellow; */
+    /* background-color: red; */
+}
+.left-card-container {
+    /* background-color: green; */
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+}
+.stats-number {
+    /* background-color: yellow; */
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.stats-number p {
+    font-size: 22px;
+    margin-left: 5px;
+    font-weight: 500;
+    margin-bottom: -5px;
+}
+.stats-text {
+    margin-left: 5px;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+.right-card-container {
+    /* background-color: blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.stats-icon-wrapper {
+/* background-color: ffeeee; */
+width: 30px;
+height: 25px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 16px;
+/* background-color: blue; */
+}
+.stats-icon-wrapper-scheduled {
+    background-color: #e0e8f9;
+}
+.stats-icon-wrapper-pending {
+    background-color: #fcefc7;
+}
+.stats-icon-wrapper-declined {
+    background-color: #ffeeee;
+}
+.stats-declined-colors {
+    
+    color: #d66a6a;
+}
+.stats-pending-colors {
+    color: #e9b949
+}
+.stats-pending-border {
+    border-bottom: 2px solid #e9b949;
+    border-radius: 3px;
+}
+.stats-schduled-border {
+    border-bottom: 2px solid #6a82d8;
+    border-radius: 3px;
+}
+.stats-schduled-declined {
+    border-bottom: 2px solid #d66a6a;
+    border-radius: 3px;
+}

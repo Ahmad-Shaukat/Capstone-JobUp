@@ -1,0 +1,50 @@
+.profile-btn {
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color:#4361ee;
+    border: none;
+    color: white;
+    font-size: 12px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.profile-down {
+    margin-left: 3px;
+    margin-bottom: -2px;
+}
+.user-btns-container {
+    /* background-color: red; */
+    width: 85px;
+    margin-top: 28px;
+}
+/* .profile-btn-logout {
+    background-color: green;
+    
+} */
+.profile-btn-logout button {
+    padding: 4px;
+    width: 100%;
+    border-radius: 3px;
+    border: none;
+    font-size: 11px;
+    background-color:#4362ee35 ;
+    color:#4361ee;
+}
+.profile-btn-profile button {
+    padding: 4px;
+    width: 100%;
+    border-radius: 3px;
+    border: none;
+    font-size: 11px;
+    margin-top: 5px;
+    background-color:#4362ee35 ;
+    color:#4361ee;
+}
+.nav-user-connect {
+    display: flex;
+}
