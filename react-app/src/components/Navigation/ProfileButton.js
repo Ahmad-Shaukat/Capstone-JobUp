@@ -67,7 +67,7 @@ function ProfileButton({ user }) {
                 <button onClick={handleLogout}>Logout</button>
               </div>
               <div className="profile-btn-profile">
-                <NavLink path to='/profile'><button>Profile</button></NavLink>
+                <NavLink path to='/'><button onClick={() => alert('Currently Unavalible')}>Profile</button></NavLink>
               </div>
 
 

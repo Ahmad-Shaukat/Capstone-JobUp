@@ -180,6 +180,44 @@
 .allInt-com-name {
     font-size: 10px;
 }
+.no-int-cont {
+    max-width: 300px;
+    padding: 30px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.no-int-text{
+    margin-bottom: 20px;
+}
+.no-int-text p {
+    font-size: 15px;
+    font-weight: 500;
+    color: #4361ee;
+    letter-spacing: 1px;
+
+}
+.no-int-link button {
+    background-color: #4361ee;
+    color: white;
+    font-size: 10px;
+    font-weight: 500;
+    /* padding: 5px; */
+    width: 90px;
+    height: 25px;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 3px;
+
+    
+}
+
 
 @media screen and (max-width: 768px) {
     .allInt-container {

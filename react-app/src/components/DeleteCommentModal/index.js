@@ -21,6 +21,7 @@ function DeleteComment({ interviewId, commentId }) {
         await dispatch(deleteUserCommentThunk(interviewId, commentId))
         await getAllUsersInterviewThunk()
         await dispatch(getAllInterviewsThunk())
+        dispatch(getAllUsersInterviewThunk())
         closeModal()
     }
 

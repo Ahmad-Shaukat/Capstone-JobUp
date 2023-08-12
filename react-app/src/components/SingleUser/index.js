@@ -8,6 +8,7 @@ import { MdWork } from 'react-icons/md'
 import { BsCalendar2Week } from 'react-icons/bs'
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import './app.css'
 
 const SingleUser = () => {
     const history = useHistory()
@@ -37,6 +38,15 @@ const SingleUser = () => {
     if (!user) {
         history.push('/')
         return null
+    }
+
+
+    if (userInterviews.length<1) {
+        return <>
+        <div className="no-user-int-cont">
+            <p> This user does not have any interviews</p>
+        </div>
+        </>
     }
     return (
 
