@@ -6,12 +6,26 @@ import LoginFormPage from "../LoginFormPage"
 import logo from "../../utilities/logo.png"
 import landingImage from "../../utilities/office.png"
 import './app.css'
+import { useModal } from "../../context/Modal"
+import { useDispatch } from "react-redux"
+import { login } from "../../store/session"
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 
 
 
 
 
 const LandingPage = () => {
+    const history = useHistory()
+    const dispatch = useDispatch()
+    const {closeModal} = useModal()
+    const demoLogin = async (e) => {
+        e.preventDefault()
+        const data = await dispatch(login('demo@aa.io', 'password'))
+            closeModal();
+            history.push('/')
+          }
+    
     return <>
         <div className="land-main-cion">
             <nav className="land-nav-cont">
@@ -44,7 +58,7 @@ const LandingPage = () => {
                                 </button>
                             </div>
                             <div className="landing-demo-button">
-                                <button>Demo User</button>
+                                <button onClick={demoLogin}>Demo User</button>
                             </div>
                         </div>
                     </div>

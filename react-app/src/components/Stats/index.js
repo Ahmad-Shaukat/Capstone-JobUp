@@ -4,6 +4,7 @@ import OpenModalButton from "../OpenModalButton"
 import { getAllInterviewsThunk } from "../../store/interview"
 import { FaSuitcaseRolling, FaCalendarCheck, FaBug } from 'react-icons/fa';
 import './app.css'
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 
@@ -12,7 +13,9 @@ import './app.css'
 function Stats() {
     
     const dispatch = useDispatch()
+    const history = useHistory()
     let state = useSelector((store) => store)
+    let user = useSelector((store) => store.session['user'])
     console.log (state, '--------------------this is state')
     let interviews = useSelector((store) => store.interview)
     interviews = Object.values(interviews)
@@ -38,6 +41,12 @@ function Stats() {
     useEffect( async () => 
         dispatch(getAllInterviewsThunk())
     , [dispatch])
+
+
+    if (!user) {
+        history.push('/')
+        return null
+    }
     if (interviews) {
         return (
             <main className="stats-main-container">
