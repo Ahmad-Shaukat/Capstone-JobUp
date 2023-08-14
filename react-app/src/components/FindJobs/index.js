@@ -7,7 +7,7 @@ import './app.css'
 import { useState } from "react"
 import ReactJobs from "../ReactJobs"
 import FullStack from "../FullstackJobs"
-// import { set } from "date-fns"
+import ShowPythonJobs from "../PythonJobs"
 
 
 
@@ -80,6 +80,7 @@ const FindJobs = () => {
             <div>
             {reactJobs && <ReactJobs />}
             {fullstackJobs && <FullStack />}
+            {pythonJobs && <ShowPythonJobs /> }
 
             </div>
 

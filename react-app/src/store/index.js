@@ -7,6 +7,7 @@ import user from './user'
 import allinterviews from './allinterviews'
 import fullstack from './fullstack'
 import reactJobs from './reactJobs'
+import python from './python'
 
 const rootReducer = combineReducers({
   session,
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
   user,
   allinterviews,
   fullstack,
-  reactJobs
+  reactJobs,
+  python
 });
 
 
