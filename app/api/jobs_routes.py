@@ -1,4 +1,5 @@
 
+import requests
 from flask import Blueprint, jsonify, request
 import datetime
 from flask_login import login_required, current_user
@@ -7,7 +8,6 @@ from urllib.request import urlopen
 from datetime import datetime
 
 
-import requests
 
 
 jobs_routes = Blueprint('jobs', __name__)
