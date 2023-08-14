@@ -51,7 +51,7 @@ function SignupFormModal() {
 		<main className="sign-up-form-cont">
 		<div className="sign-up-head">
 
-			<p>jobSphere</p>
+			<p>JobSphere</p>
 		</div>
 			<form onSubmit={handleSubmit} className="sign-up-form">
 				

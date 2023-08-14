@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getAllUsersThunk } from "../../store/user";
 import { NavLink, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import './app.css'
+import { getFullStackJobs, getFullStackJobsThunk } from "../../store/fullstack";
 
 
 
@@ -20,6 +21,9 @@ const FullStack = () => {
     // }
     // }
     console.log(fullStackJobs, '-------------these are all the fullstack jobs')
+    useEffect(() => {
+        dispatch(getFullStackJobsThunk())
+    }, [dispatch])
 
     return (
         <>

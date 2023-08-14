@@ -15,6 +15,11 @@
     border-bottom: 2px solid #4361ee;
     transition: .5s;
     cursor: pointer;
+    /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+}
+.allJobs-single-cont:hover {
+    transform: scale(1.1);
+    box-shadow: none;
 }
 .allJobs-single-cont:hover p {
     color: #4361ee;
@@ -67,6 +72,7 @@
     /* background-color: #4361ee; */
     background-color: transparent;
     border: 1px solid #4361ee;
+    cursor: pointer;
     
     /* color: white; */
     /* color: #4361ee; */

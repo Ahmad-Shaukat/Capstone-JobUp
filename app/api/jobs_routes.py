@@ -13,7 +13,11 @@ import requests
 jobs_routes = Blueprint('jobs', __name__)
 
 
+# /api/jobs/fullstack
+# GET get all the full stack jobs
+
 @jobs_routes.route('/fullstack')
+@login_required
 def full_stack():
 
     url = "https://usa-jobs-for-it.p.rapidapi.com/FullStack"
