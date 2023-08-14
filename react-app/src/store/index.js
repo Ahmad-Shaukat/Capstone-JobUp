@@ -5,13 +5,21 @@ import interview from './interview'
 import favoriteList from './favoriteList'
 import user from './user'
 import allinterviews from './allinterviews'
+import fullstack from './fullstack'
+import reactJobs from './reactJobs'
+import python from './python'
+import dataEngineer from './dataEngineer'
 
 const rootReducer = combineReducers({
   session,
   interview,
   favoriteList,
   user,
-  allinterviews
+  allinterviews,
+  fullstack,
+  reactJobs,
+  python,
+  dataEngineer
 });
 
 

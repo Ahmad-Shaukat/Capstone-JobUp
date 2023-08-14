@@ -69,10 +69,10 @@ function EditInterviewForm({ id, interview }) {
             if (!date) {
                 allErrors['date'] = 'Interview date is required'
             }
-            if (position.length > 24) {
+            if (position.length > 50) {
                 allErrors['positionLength'] = 'Position can not be more then 15 letters'
             }
-            if (company.length > 10) {
+            if (company.length > 20) {
                 allErrors['companyLength'] = 'Company name can not be more then 1o letters'
             }
             if (location.length > 10) {
@@ -90,7 +90,7 @@ function EditInterviewForm({ id, interview }) {
                 }
 
             }
-            checkDate(date)
+            // checkDate(date)
             if (Object.values(allErrors).length > 0) {
 
                 setErrors(allErrors)

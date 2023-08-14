@@ -45,7 +45,8 @@
 }
 
 .stats-cont:hover {
-    background-color: #caf0f863;
+    /* background-color: #caf0f863; */
+    background-color: #4362ee1c;
     /* transform: translateX(20px); */
 }
 

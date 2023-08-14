@@ -23,6 +23,10 @@ import './app.css'
 import Stats from "./components/Stats";
 import LandingPage from "./components/LandingPage";
 import  { getAllUsersInterviewThunk } from "./store/allinterviews";
+import { getFullStackJobsThunk } from "./store/fullstack";
+import { getReactJobsThunk } from "./store/reactJobs";
+import { getPythonJobsThunk } from "./store/python";
+import { getDataEngineerJobsThunk } from "./store/dataEngineer";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +37,10 @@ function App() {
     dispatch(getAllListsThunk())
     dispatch(getAllUsersThunk())
     dispatch(getAllUsersInterviewThunk())
+    dispatch(getFullStackJobsThunk())
+    dispatch(getReactJobsThunk())
+    dispatch(getPythonJobsThunk())
+    dispatch(getDataEngineerJobsThunk())
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
 

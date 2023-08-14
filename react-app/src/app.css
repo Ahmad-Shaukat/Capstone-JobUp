@@ -14,7 +14,8 @@
     flex: 1; /* Allow main content to take remaining space */
     /* padding: 20px; Add some padding for spacing 
     */
-    background-color: #caf0f863;
+    /* background-color: #caf0f863; */
+    background-color: #4362ee1c;
     /* background-color: red; */
     /* border: 0.5px solid rgb(215, 211, 211); */
   }
