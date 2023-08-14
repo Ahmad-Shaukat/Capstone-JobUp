@@ -4,6 +4,8 @@ import { getAllUsersThunk } from "../../store/user";
 import { NavLink, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import './app.css'
 import { getFullStackJobs, getFullStackJobsThunk } from "../../store/fullstack";
+import { createInterviewThunk } from "../../store/interview";
+import { getAllInterviewsThunk } from "../../store/interview";
 
 
 
@@ -21,9 +23,28 @@ const FullStack = () => {
     // }
     // }
     console.log(fullStackJobs, '-------------these are all the fullstack jobs')
+
+    const handleAddInterview = async (title) => {
+        // e.preventDefault()
+        const today = new Date(); // Get today's date
+    const formattedDate = today.toISOString().split("T")[0]; // Format it as YYYY-
+        await dispatch(createInterviewThunk({
+            position:title,
+            company:'Unavailible',
+            location:'Unavilible',
+            status:'Pending',
+            date:formattedDate,
+            type:'Remote'
+
+        }))
+        await dispatch(getAllInterviewsThunk())
+            await history.push('/interviews')
+        // await history.push('/interviews')
+    }
     useEffect(() => {
         dispatch(getFullStackJobsThunk())
     }, [dispatch])
+
 
     return (
         <>
@@ -41,10 +62,10 @@ const FullStack = () => {
                                 <p>{job.source}</p>
                             </div>
                             <div className="allJobs-btns">
-                            <a href="https://www.google.com" target="_blank">
+                            <a href={job.url} target="_blank">
   <button>View</button>
 </a>
-                                <button>Add Interview</button>
+<button onClick={() => handleAddInterview(job.title)}>Add Interview</button>
                                 <button>Add to Favorite</button>
                             </div>
 

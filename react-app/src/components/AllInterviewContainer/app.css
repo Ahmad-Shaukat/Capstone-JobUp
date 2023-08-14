@@ -36,6 +36,7 @@
     font-weight: 900;
     border-radius: 3px;
     height: 40px;
+    letter-spacing: 1px;
 }  
 .allInt-btm-container {
     /* background-color: blue; */
@@ -193,9 +194,11 @@
 }
 .allInt-com-pos {
     font-size: 14px;
+    letter-spacing: 1px;
 }
 .allInt-com-name {
     font-size: 10px;
+    letter-spacing: 1px;
 }
 .no-int-cont {
     max-width: 300px;

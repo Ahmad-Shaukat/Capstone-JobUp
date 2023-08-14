@@ -39,7 +39,7 @@ def full_stack():
 @jobs_routes.route('/react')
 @login_required
 def react_jobs():
-        url = "https://usa-jobs-for-it.p.rapidapi.com/Python"
+        url = "https://usa-jobs-for-it.p.rapidapi.com/React"
 
         headers = {
         "X-RapidAPI-Key": "80ebbdc656mshc458e5c641670d2p11724fjsnc5d0cc104089",

@@ -7,6 +7,7 @@ import { useModal } from "../../context/Modal"
 import EditFavoriteList from "../EditFavList"
 import { getAllListsThunk } from "../../store/favoriteList"
 import { useState } from "react"
+import './app.css'
 
 
 
@@ -30,8 +31,11 @@ const AllFavriteLists = () => {
 
     if (!feature) {
         return (
-            <div className="all-jobs-cont">
+            <div>
+
+            <div id="all-fav-cont">
                 <p>This feature is currently unavailable</p>
+            </div>
             </div>
         )
     }
