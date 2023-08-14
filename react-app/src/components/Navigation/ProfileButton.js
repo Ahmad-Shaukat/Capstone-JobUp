@@ -12,6 +12,10 @@ import { clearfavlist } from "../../store/favoriteList";
 // import { clearInterview } from "../../store/interview";
 import { clearUsers } from "../../store/user";
 import { clearAllInterviews } from "../../store/allinterviews";
+import { clearReactJobs } from "../../store/reactJobs";
+import { clearFullStack } from "../../store/fullstack";
+import { clearDataEngineerJobs } from "../../store/dataEngineer";
+import { clearPython } from "../../store/python";
 
 
 function ProfileButton({ user }) {
@@ -44,6 +48,10 @@ function ProfileButton({ user }) {
     dispatch(clearInterview())
     dispatch(clearfavlist())
     dispatch(clearUsers())
+    dispatch(clearDataEngineerJobs())
+    dispatch(clearFullStack())
+    dispatch(clearPython())
+    dispatch(clearReactJobs())
     dispatch(logout());
   };
 

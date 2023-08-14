@@ -1,9 +1,15 @@
 const GET_DATAENGINEER = 'dataEngineer/GET_DATAENGINEER'
+const CLEAR_DATAENGINEER = 'dataEngineer/CLEAR_DATAENGINEER'
 
 export const getDataEngineerJobs = (jobs) => {
     return {
         type: GET_DATAENGINEER,
         payload: jobs
+    }
+}
+export const clearDataEngineerJobs = () => {
+    return {
+        type:CLEAR_DATAENGINEER
     }
 }
 
@@ -25,6 +31,8 @@ export default function dataEngineerReducer (state = {}, action) {
                 newState[job.IdNumber] = job
             })
             return newState
+        case CLEAR_DATAENGINEER:
+            return {}
         default:
             return state
     }

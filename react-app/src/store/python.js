@@ -1,9 +1,15 @@
 const GET_PYTHON = 'python/GET_PYTHON'
+const CLEAR_PYTHON = 'python/CLEAR_PYTHON'
 
 export const getPythonJobs = (jobs) => {
     return {
         type:GET_PYTHON,
         payload: jobs
+    }
+}
+export const clearPython = () => {
+    return {
+        type: CLEAR_PYTHON
     }
 }
 
@@ -25,6 +31,8 @@ pythonReducer (state = {}, action) {
                 newState[job.IdNumber] = job
             })
             return newState
+        case CLEAR_PYTHON:
+            return {}
         default:
             return state
     }

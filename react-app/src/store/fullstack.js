@@ -1,9 +1,16 @@
 const GET_FULLSTACK = 'fullstack/GET_FULLSTACK'
+const CLEAR_FULLSTACK = 'fullstack/CLEAR_FULLSTACK'
 
 export const getFullStackJobs = (jobs) => {
     return {
         type: GET_FULLSTACK,
         payload: jobs
+    }
+}
+export const clearFullStack = () => {
+    return {
+        type:CLEAR_FULLSTACK
+
     }
 }
 
@@ -26,6 +33,8 @@ export default function fullStackReducer(state = {}, action) {
                 newState[job.IdNumber] = job
             })
             return newState
+        case CLEAR_FULLSTACK:
+            return {}
         default:
             return state
 

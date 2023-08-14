@@ -1,9 +1,15 @@
 const GET_REACT = 'reactJobs/GET_REACT'
+const CLEAR_REACT = 'reactJobs/CLEAR_REACT'
 
 export const  getReactJobs = (jobs) => {
     return {
         type: GET_REACT,
         payload: jobs
+    }
+}
+export const clearReactJobs = () => {
+    return {
+        type: CLEAR_REACT
     }
 }
 
@@ -25,6 +31,8 @@ export default function reactReducer(state = {}, action) {
                 newState[job.IdNumber] = job
             })
             return newState
+        case CLEAR_REACT:
+            return {}
         default:
             return state
     }
