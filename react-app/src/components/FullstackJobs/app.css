@@ -1,0 +1,82 @@
+.allJobs-main-cont {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+.allJobs-single-cont {
+    /* background-color: red; */
+    padding: 10px;
+    background-color: white;
+    border-radius: 3px;
+    border-bottom: 2px solid #4361ee;
+    transition: .5s;
+    cursor: pointer;
+}
+.allJobs-single-cont:hover p {
+    color: #4361ee;
+}
+.allJobs-single-cont:hover button {
+    background-color: #4361ee;
+    color: white;
+}
+.allJobs-btns {
+    
+}
+.single-job-title p {
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-align: center;
+    font-weight: 500;
+    /* background-color: #4361ee; */
+    /* color:#4361ee; */
+    color: rgb(100, 98, 98);
+    margin: auto;
+    width:80%
+}
+.single-job-source p {
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-align: center;
+    font-weight: 500;
+    /* background-color: #4361ee; */
+    /* color:#4361ee; */
+    color: rgb(100, 98, 98);
+    width: 40%;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+.allJobs-btns {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    margin-top: 15px;
+
+}
+.allJobs-btns button {
+    /* width: 100px; */
+    height: 25px;
+    background-color: rgba(128, 128, 128, 0.205);
+    transition: .5s;
+    /* background-color: #4361ee; */
+    background-color: transparent;
+    border: 1px solid #4361ee;
+    
+    /* color: white; */
+    /* color: #4361ee; */
+    color: rgb(100, 98, 98);
+    /* color: black; */
+
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 5px;
+    font-weight: 500;
+    /* border: none; */
+    border-radius: 3px;
+}

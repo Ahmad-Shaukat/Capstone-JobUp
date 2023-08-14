@@ -20,7 +20,7 @@ function Navigation({ isLoaded }) {
 			<nav>
 			{sessionUser && (
 				<div className='nav-opt'>
-					<ImParagraphLeft size={18} color='#4361ee' />
+					<ImParagraphLeft size={18} color='#ffff' />
 				</div>
 			)}
 
