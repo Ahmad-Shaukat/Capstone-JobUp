@@ -63,3 +63,23 @@ def python_jobs():
         response = requests.get(url, headers=headers)
         # print(response.json())
         return jsonify(response.json())
+
+
+
+# /api/jobs/DataEngineer
+# Get get all dataengineer jobs
+@jobs_routes.route('/dataengineer')
+@login_required
+def data_jobs():
+        url = "https://usa-jobs-for-it.p.rapidapi.com/DataEngineer"
+
+        headers = {
+        "X-RapidAPI-Key": "80ebbdc656mshc458e5c641670d2p11724fjsnc5d0cc104089",
+        "X-RapidAPI-Host": "usa-jobs-for-it.p.rapidapi.com"
+    }
+
+        response = requests.get(url, headers=headers)
+        # print(response.json())
+        return jsonify(response.json())
+
+

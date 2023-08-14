@@ -8,6 +8,7 @@ import { useState } from "react"
 import ReactJobs from "../ReactJobs"
 import FullStack from "../FullstackJobs"
 import ShowPythonJobs from "../PythonJobs"
+import DataEngineerJobs from "../DataEngineer"
 
 
 
@@ -81,6 +82,7 @@ const FindJobs = () => {
             {reactJobs && <ReactJobs />}
             {fullstackJobs && <FullStack />}
             {pythonJobs && <ShowPythonJobs /> }
+            {dataJobs && <DataEngineerJobs />}
 
             </div>
 

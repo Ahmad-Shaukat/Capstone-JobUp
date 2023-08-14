@@ -1,26 +1,27 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux'
-import { getAllUsersThunk } from "../../store/user";
 import { NavLink, useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { getPythonJobsThunk } from "../../store/python";
+import { getDataEngineerJobsThunk } from "../../store/dataEngineer";
 import './app.css'
-import { getReactJobsThunk } from "../../store/reactJobs";
 
-
-
-const ReactJobs = () => {
+const DataEngineerJobs = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const user = useSelector((store) => store.session.user)
-    let reactJobs = useSelector((store) => store.reactJobs)
-    reactJobs = Object.values(reactJobs)
+    let dataEgJobs = useSelector((store) => store.dataEngineer)
+    dataEgJobs = Object.values(dataEgJobs)
+
     useEffect(() => {
-        dispatch(getReactJobsThunk())
+        dispatch(getDataEngineerJobsThunk())
+
     }, [dispatch])
+
     return (
         <>
             <div className="allJobs-main-cont">
 
-                {reactJobs.map(job => {
+                {dataEgJobs.map(job => {
                     return (
                         <div className="allJobs-single-cont">
                             <div className="single-job-title">
@@ -32,9 +33,9 @@ const ReactJobs = () => {
                                 <p>{job.source}</p>
                             </div>
                             <div className="allJobs-btns">
-                            <a href={job.url} target="_blank">
-  <button>View</button>
-</a>
+                                <a href={job.url} target="_blank">
+                                    <button>View</button>
+                                </a>
                                 <button>Add Interview</button>
                                 <button>Add to Favorite</button>
                             </div>
@@ -47,4 +48,4 @@ const ReactJobs = () => {
     )
 }
 
-export default ReactJobs
+export default DataEngineerJobs
