@@ -31,3 +31,21 @@ def full_stack():
     print(response.json())
     return jsonify(response.json())
     # print(response.json())
+
+    
+
+# /api/jobs/react
+# Get get all react jobs
+@jobs_routes.route('/react')
+# @login_required
+def react_jobs():
+        url = "https://usa-jobs-for-it.p.rapidapi.com/React"
+
+        headers = {
+        "X-RapidAPI-Key": "80ebbdc656mshc458e5c641670d2p11724fjsnc5d0cc104089",
+        "X-RapidAPI-Host": "usa-jobs-for-it.p.rapidapi.com"
+    }
+
+        response = requests.get(url, headers=headers)
+        # print(response.json())
+        return jsonify(response.json())

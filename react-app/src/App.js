@@ -24,6 +24,7 @@ import Stats from "./components/Stats";
 import LandingPage from "./components/LandingPage";
 import  { getAllUsersInterviewThunk } from "./store/allinterviews";
 import { getFullStackJobsThunk } from "./store/fullstack";
+import { getReactJobsThunk } from "./store/reactJobs";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,6 +36,7 @@ function App() {
     dispatch(getAllUsersThunk())
     dispatch(getAllUsersInterviewThunk())
     dispatch(getFullStackJobsThunk())
+    dispatch(getReactJobsThunk())
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
 

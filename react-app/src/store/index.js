@@ -6,6 +6,7 @@ import favoriteList from './favoriteList'
 import user from './user'
 import allinterviews from './allinterviews'
 import fullstack from './fullstack'
+import reactJobs from './reactJobs'
 
 const rootReducer = combineReducers({
   session,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   favoriteList,
   user,
   allinterviews,
-  fullstack
+  fullstack,
+  reactJobs
 });
 
 
