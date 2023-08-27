@@ -5,7 +5,7 @@ from flask_login import UserMixin
 from datetime import datetime
 
 class Profile (db.Model):
-    __tablename__ = 'comments'
+    __tablename__ = 'profiles'
 
     if environment == 'production':
         __table_args__ = {'schema':SCHEMA}
