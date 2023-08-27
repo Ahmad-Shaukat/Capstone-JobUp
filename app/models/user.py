@@ -22,6 +22,7 @@ class User(db.Model, UserMixin):
     interview = relationship('Interview', back_populates='user', cascade='all, delete-orphan')
     list = relationship('FavoriteList', back_populates='user', cascade='all, delete-orphan')
     comment = relationship('Comment', back_populates='user', cascade='all, delete-orphan')
+    profile = relationship('Profile', back_populates = 'user', cascade='all, delete-orphan')
 
 
     @property
@@ -40,8 +41,4 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            # 'first_name': self.first_name,
-            # 'last_name': self.last_name,
-            # 'location': self.location,
-            # 'career': self.career,
         }
