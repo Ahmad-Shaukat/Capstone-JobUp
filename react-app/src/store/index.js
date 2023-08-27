@@ -9,6 +9,7 @@ import fullstack from './fullstack'
 import reactJobs from './reactJobs'
 import python from './python'
 import dataEngineer from './dataEngineer'
+import userProfile from './profile'
 
 const rootReducer = combineReducers({
   session,
@@ -19,7 +20,8 @@ const rootReducer = combineReducers({
   fullstack,
   reactJobs,
   python,
-  dataEngineer
+  dataEngineer,
+  userProfile
 });
 
 

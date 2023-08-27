@@ -27,6 +27,7 @@ import { getFullStackJobsThunk } from "./store/fullstack";
 import { getReactJobsThunk } from "./store/reactJobs";
 import { getPythonJobsThunk } from "./store/python";
 import { getDataEngineerJobsThunk } from "./store/dataEngineer";
+import { getProfileThunk } from "./store/profile";
 
 function App() {
   const dispatch = useDispatch();
@@ -41,6 +42,7 @@ function App() {
     dispatch(getReactJobsThunk())
     dispatch(getPythonJobsThunk())
     dispatch(getDataEngineerJobsThunk())
+    dispatch(getProfileThunk())
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
