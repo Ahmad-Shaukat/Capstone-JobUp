@@ -30,6 +30,8 @@ def seed_profiles():
     db.session.add(profile_1)
     db.session.add(profile_2)
     db.session.add(profile_3)
+    db.session.commit()
+
 
 def undo_profiles():
     if environment == "production":
