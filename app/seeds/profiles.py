@@ -31,7 +31,7 @@ def seed_profiles():
     db.session.add(profile_2)
     db.session.add(profile_3)
 
-def undo_users():
+def undo_profiles():
     if environment == "production":
         db.session.execute(f"TRUNCATE table {SCHEMA}.profiles RESTART IDENTITY CASCADE;")
     else:
