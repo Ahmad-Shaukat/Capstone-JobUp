@@ -1,47 +1,65 @@
-*{
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
-    font-family: 'Roboto', sans-serif;
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Roboto', sans-serif;
 }
 
 
 .app-container {
-    display: flex; /* Use flexbox to arrange children side by side */
-  }
-  
-  .main-content {
-    flex: 1; /* Allow main content to take remaining space */
-    /* padding: 20px; Add some padding for spacing 
+  display: flex;
+  /* Use flexbox to arrange children side by side */
+}
+
+.main-content {
+  flex: 1;
+  /* Allow main content to take remaining space */
+  /* padding: 20px; Add some padding for spacing 
     */
-    /* background-color: #caf0f863; */
-    background-color: #4362ee1c;
-    /* background-color: red; */
-    /* border: 0.5px solid rgb(215, 211, 211); */
-  }
-  
-  .sidebar {
-    /* background-color: #f0f0f0; */
-    /* padding: 20px;
+  /* background-color: #caf0f863; */
+  background-color: #4362ee1c;
+  /* background-color: red; */
+  /* border: 0.5px solid rgb(215, 211, 211); */
+}
+
+.sidebar {
+  /* background-color: #f0f0f0; */
+  /* padding: 20px;
     border: 1px solid red; */
-    /* display: none; */
+  /* background-color: red; */
+  /* display: none; */
+}
+
+.navigation {
+  /* border-bottom: .5px solid rgba(105, 105, 105, 0.411); */
+}
+
+
+
+
+@media screen and (min-width: 800px) {
+  .sidebar {
+    display: block;
+    width: 140px;
+    min-height: 100vh;
+    height: 100%;
+
   }
-  .navigation {
-    /* border-bottom: .5px solid rgba(105, 105, 105, 0.411); */
-  }
-  
-  
 
+}
+  @media screen and (width < 795px) {
+    #main-sidebar {
+      background-color: red;
+      /* display: none; */
+      display: none;
+    }
 
-  @media screen and (min-width: 800px) {
-    .sidebar {
-        display: block;
-        width: 140px;
-        min-height: 100vh;
-        height: 100%;
-
+    #man-sidebar {
+      background-color: green;
     }
   }
-  /* @media screen {
+
+
+/* @media screen {
     
   } */

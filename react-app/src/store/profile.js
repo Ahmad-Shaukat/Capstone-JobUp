@@ -1,10 +1,17 @@
 const GET_PROFILE = 'profile/GET_PROFILE';
+const CLEAR_PROFILE = 'profile/CLEAR_PROFILE'
+
 
 
 export const getProfile = (profile) => {
     return {
         type:GET_PROFILE,
         payload:profile
+    }
+}
+export const clearProfile = () => {
+    return {
+        type: CLEAR_PROFILE
     }
 }
 
@@ -27,6 +34,8 @@ export default function profileReducer(state = {}, action) {
             newState = {...state};
             newState['profile'] = action.payload
             return newState
+        case CLEAR_PROFILE:
+            return {}
         default:
             return state
     }

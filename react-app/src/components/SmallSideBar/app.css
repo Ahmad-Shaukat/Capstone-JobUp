@@ -68,3 +68,13 @@
 .stats-cont:hover .slide {
     transform: translate(10px);
 }
+
+/* @media screen and (max-width:1000px) {
+    .sidebar-container {
+        
+        visibility: hidden;
+        background-color: #4362ee1c;
+    }
+} */
+
+

@@ -16,6 +16,7 @@ import { clearReactJobs } from "../../store/reactJobs";
 import { clearFullStack } from "../../store/fullstack";
 import { clearDataEngineerJobs } from "../../store/dataEngineer";
 import { clearPython } from "../../store/python";
+import { clearProfile } from "../../store/profile";
 
 
 function ProfileButton({ user }) {
@@ -52,6 +53,7 @@ function ProfileButton({ user }) {
     dispatch(clearFullStack())
     dispatch(clearPython())
     dispatch(clearReactJobs())
+    dispatch(clearProfile())
     dispatch(logout());
   };
 
@@ -75,7 +77,7 @@ function ProfileButton({ user }) {
                 <button onClick={handleLogout}>Logout</button>
               </div>
               <div className="profile-btn-profile">
-                <NavLink path to='/'><button onClick={() => alert('Currently Unavalible')}>Profile</button></NavLink>
+                <NavLink path to='/user'><button >Profile</button></NavLink>
               </div>
 
 

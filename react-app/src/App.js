@@ -9,7 +9,7 @@ import Navigation from "./components/Navigation";
 import { getAllInterviewsThunk } from "./store/interview";
 import { getAllLists, getAllListsThunk } from "./store/favoriteList";
 import AllInterviews from "./components/AllInterviewContainer";
-import GetProfile from "./components/ProfilePage";
+import UserProfile from "./components/UserProfile";
 import AddInterviewForm from "./components/InterviewForm";
 import EditInterviewForm from "./components/EditInterviewForm";
 import InterviewDetail from "./components/InterviewDetail";
@@ -119,8 +119,8 @@ function App() {
     )} */}
       <div className="app-container">
         {sessionUser && (
-          <div className="sidebar">
-          <Sidebar isLoaded={isLoaded}/>
+          <div className="sidebar" id="main-sidebar">
+          <Sidebar isLoaded={isLoaded} id='man-sidebar'/>
 
         </div>
         )}
@@ -149,7 +149,7 @@ function App() {
                 <AllInterviews />
               </Route>
               <Route exact path='/user'>
-                <GetProfile />
+                <UserProfile />
               </Route>
               <Route exact path='/newInterview'>
                 <AddInterviewForm />
