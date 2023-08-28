@@ -12,7 +12,7 @@ from .api.favoritelist_routes import favorites_routes
 from .api.comment_routes import comment_routes
 from .api.jobs_routes import jobs_routes
 from .seeds import seed_commands
-from .api.profile_routes import profile_routes
+# from .api.profile_routes import profile_routes
 from .config import Config
 
 app = Flask(__name__, static_folder='../react-app/build', static_url_path='/')
@@ -37,7 +37,7 @@ app.register_blueprint(interview_routes, url_prefix='/api/interviews')
 app.register_blueprint(favorites_routes, url_prefix='/api/favorites')
 app.register_blueprint(comment_routes, url_prefix='/api/comments')
 app.register_blueprint(jobs_routes, url_prefix='/api/jobs')
-app.register_blueprint(profile_routes, url_prefix='/api/profiles')
+# app.register_blueprint(profile_routes, url_prefix='/api/profiles')
 db.init_app(app)
 Migrate(app, db)
 

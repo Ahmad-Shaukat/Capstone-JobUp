@@ -18,19 +18,19 @@ const UserProfile = () => {
         <div className="user-profile-info">
             <div>
                 <label for="user-first-name">First Name</label>
-                <input id="user-first-name" value={userProfile?.first_name}></input>
+                <input id="user-first-name" value={user.firstName}></input>
             </div>
             <div>
                 <label for="user-first-name">Last Name</label>
-                <input id="user-first-name" value={userProfile?.last_name}></input>
+                <input id="user-first-name" value={user.last_name}></input>
             </div>
             <div>
                 <label for='user-career'>Career</label>
-                <input id="user-career" value={userProfile?.career}></input>
+                <input id="user-career" value={user.career}></input>
             </div>
             <div>
                 <label for='user-location'>Location</label>
-                <input id="user-location" value={userProfile?.location}></input>
+                <input id="user-location" value={user.location}></input>
             </div>
             <div>
                 <label for='user-username'>Username</label>
@@ -46,9 +46,6 @@ const UserProfile = () => {
                 <button className="user-info-edit-btn">Edit Info</button>
             </div>
     </section>
-    <h3>Profile</h3>
-    <p>{user.username}</p>
-    <p>{user.email}</p>
     </>
 }
 

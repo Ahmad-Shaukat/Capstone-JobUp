@@ -4,7 +4,7 @@ from .favoriteLists import seed_favoritelists, undo_favoriteLists
 from .interviews import seed_interviews, undo_interviews
 from .jobs import seed_jobs,undo_jobs
 from .comments import seed_comments, undo_comments
-from .profiles import seed_profiles, undo_profiles
+# from .profiles import seed_profiles, undo_profiles
 from app.models.db import db, environment, SCHEMA
 
 # Creates a seed group to hold our commands
@@ -26,7 +26,7 @@ def seed():
     seed_interviews()
     seed_comments()
     seed_jobs()
-    seed_profiles()
+    # seed_profiles()
     # Add other seed functions here
 
 
@@ -38,5 +38,5 @@ def undo():
     undo_interviews()
     undo_comments()
     undo_jobs()
-    undo_profiles()
+    # undo_profiles()
     # Add other undo functions here

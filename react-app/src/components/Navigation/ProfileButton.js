@@ -53,7 +53,7 @@ function ProfileButton({ user }) {
     dispatch(clearFullStack())
     dispatch(clearPython())
     dispatch(clearReactJobs())
-    dispatch(clearProfile())
+    // dispatch(clearProfile())
     dispatch(logout());
   };
 
