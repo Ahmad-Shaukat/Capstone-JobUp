@@ -97,7 +97,7 @@ export const signUp = (username, email, password) => async (dispatch) => {
 	}
 };
 
-export const EditUser = (id, updatedUser) => async (dispatch) => {
+export const EditUserThunk = (id, updatedUser) => async (dispatch) => {
 	const response = await fetch(`/api/users/${id}/edit`, {
 		method:'PUT',
 		headers: {

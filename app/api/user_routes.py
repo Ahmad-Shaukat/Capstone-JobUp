@@ -33,6 +33,7 @@ def edit_info(id):
     data = request.get_json()
     username = data.get('username')
     email = data.get('email')
+    career = data.get('career')
     first_name = data.get('firstName')
     last_name = data.get('last_name')
     location = data.get('location')
@@ -43,6 +44,7 @@ def edit_info(id):
     user.last_name = last_name
     user.location = location
     user.bio = bio
+    user.career = career
 
     db.session.commit()
 

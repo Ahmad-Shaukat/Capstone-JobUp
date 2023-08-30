@@ -27,6 +27,7 @@ import { getFullStackJobsThunk } from "./store/fullstack";
 import { getReactJobsThunk } from "./store/reactJobs";
 import { getPythonJobsThunk } from "./store/python";
 import { getDataEngineerJobsThunk } from "./store/dataEngineer";
+import Testing from "./components/testing/testing";
 // import { getProfileThunk } from "./store/profile";
 
 function App() {
@@ -176,6 +177,9 @@ function App() {
               </Route>
               <Route exact path='/hello'>
                 <Stats />
+              </Route>
+              <Route exact path= '/interview/edit'>
+                <Testing />
               </Route>
 
 

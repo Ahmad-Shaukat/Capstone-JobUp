@@ -50,7 +50,7 @@ const ReactJobs = () => {
 
                                 <p>{job.source}</p>
                             </div>
-                            <div className="allJobs-btns">
+                            <div id="allJobs-btns">
                             <a href={job.url} target="_blank">
   <button>View</button>
 </a>

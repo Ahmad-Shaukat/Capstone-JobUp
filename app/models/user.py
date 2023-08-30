@@ -20,7 +20,7 @@ class User(db.Model, UserMixin):
     default='N/A')
     location = db.Column(db.String(100), default='N/A')
     bio = db.Column(db.String(1000), 
-    default='')
+    default='N/A')
 
     
 
