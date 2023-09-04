@@ -65,6 +65,42 @@
     background-color: #4361ee;
 }
 .edit-int-can-btn {
-    background-color: #ef233c;
+   
 }
+.edit-int-form-can-btn {
+     background-color: #ef233c;
+     width: 150px;
+     /* background-color: #4361ee; */
+     border: none;
+     height: 16px;
+     font-size: 10px;
+     font-weight: 500;
+     color: white;
+     border-radius: 3px;
+     letter-spacing: 1px;
+     font-weight: 600;
+     margin-bottom: 10px;
+}
+.edit-int-sub-btn {
+    width: 50%;
+    background-color: white;
+    /* margin-left: 10px; */
+}
+.edit-int-sub-btn button {
+    margin-left: 10px;
+    transition: .5s;
+    padding: 1px;
+}
+#cre-itn-sub-button:hover {
+    background-color: white;
+    color: #4361ee;
+    border: 1px solid #4361ee;
+    cursor: pointer;
+}
+.edit-int-form-can-btn:hover {
+    background-color: white;
+    color: #ef233c;
+    border: 1px solid #ef233c;
+    cursor: pointer;
 
+}

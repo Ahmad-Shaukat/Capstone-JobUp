@@ -6,6 +6,9 @@ import './app.css'
 import { getReactJobsThunk } from "../../store/reactJobs";
 import { createInterviewThunk } from "../../store/interview";
 import { getAllInterviewsThunk } from "../../store/interview";
+import {BiLinkExternal} from 'react-icons/bi'
+import {MdFavorite} from 'react-icons/md'
+import {BsFillCalendarPlusFill} from 'react-icons/bs'
 
 
 
@@ -52,10 +55,10 @@ const ReactJobs = () => {
                             </div>
                             <div id="allJobs-btns">
                             <a href={job.url} target="_blank">
-  <button>View</button>
+  <button><BiLinkExternal/></button>
 </a>
-<button onClick={() => handleAddInterview(job.title)}>Add Interview</button>
-                                <button>Add to Favorite</button>
+<button onClick={() => handleAddInterview(job.title)}><BsFillCalendarPlusFill /></button>
+                                <button><MdFavorite /></button>
                             </div>
 
                         </div>
