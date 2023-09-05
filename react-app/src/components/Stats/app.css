@@ -10,6 +10,7 @@
 .stats-card-main-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    background-color: red;
     /* background-color: red; */
     gap: 20px;
 }
@@ -102,11 +103,13 @@ margin-bottom: 16px;
     border-bottom: 2px solid #d66a6a;
     border-radius: 3px;
 }
-.calander-container {
+.calander-container, .stats__sub {
+    display: grid;
+    grid-template-columns: 1fr;
     background-color: white;
     padding: 5px;
-    width: 650px;
-    height: 558px;
+    width: 900px;
+    height: 700px;
     margin-top: 20px;
     margin-bottom: 20px;
     position: relative;
@@ -120,15 +123,15 @@ margin-bottom: 16px;
     /* display: flex;
     justify-content: center;
     align-items: center; */
-    width: 600px;
-    height: 508;
+    width: 90%;
+    height: 90%;
     margin-top: 10px;
     margin-left: 10px;
 }
 .add-event-btn {
     position: absolute;
     bottom: 45px;
-    right: 65px;
+    right: 35px;
     width: 35px;
     height: 35px;
     border-radius: 50%;
@@ -154,6 +157,54 @@ margin-bottom: 16px;
 .my-calendar {
   background-color: lightblue; /* Change the background color here */
 }
+.main-stats-btm {
+    /* background-color: red; */
+    background-color: green;
+    flex-direction: row;
+    display: flex;
+    /* gap: 20px; */
+    justify-content: space-around;
+   
+    
+}
+.right-side-main {
+    background-color: pink;
+    /* width: 90%; */
+}
+
+
+@media (max-width: 1110px) {
+    .stats-card-main-container {
+        grid-template-columns: 1fr; /*
+         Change to a single column 
+         layout */
+         width: 400px;
+         margin: auto;
+    }
+    .calander-container {
+        width: 530px;
+        height: 480px;
+        overflow-y: hidden;
+    }
+    .calander {
+        width: 90%;
+        overflow-y: hidden; /* Hide vertical scrollbar */
+    }
+    .add-event-btn {
+        right: 10px;
+    }
+}
+@media (max-width : 570px) {
+    .calander-container {
+        width: 400px;
+        ;
+    }
+    .calander {
+        width: 90%;
+        height: 90%;
+    }
+}
+
 
 
 
