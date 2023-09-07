@@ -8,16 +8,22 @@
 
 .app-container {
   display: flex;
+  width: 1200px;
+  /* background-color: red; */
+  width: 100vw;
+  /* overflow-x: hidden; */
   /* Use flexbox to arrange children side by side */
 }
 
 .main-content {
-  flex: 1;
+  /* flex: 1; */
+  width: 100%;
   /* Allow main content to take remaining space */
   /* padding: 20px; Add some padding for spacing 
     */
   /* background-color: #caf0f863; */
   background-color: #4362ee1c;
+  /* background-color: teal; */
   /* background-color: red; */
   /* border: 0.5px solid rgb(215, 211, 211); */
 }

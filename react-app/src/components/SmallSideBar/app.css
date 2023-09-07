@@ -68,6 +68,10 @@
 .stats-cont:hover .slide {
     transform: translate(10px);
 }
+#option-selected {
+    color: #4361ee;
+    background-color: #4362ee1c;
+}
 
 /* @media screen and (max-width:1000px) {
     .sidebar-container {

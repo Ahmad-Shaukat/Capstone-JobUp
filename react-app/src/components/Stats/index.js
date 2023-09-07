@@ -13,6 +13,11 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugins from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import { MdAdd } from "react-icons/md";
+import { AiFillHeart } from "react-icons/ai";
+import ShowGraph from "../testGraph";
+import AddInterviewForm from "../InterviewForm";
+import { MdAddCircle } from "react-icons/md";
+import { BiSolidDashboard } from "react-icons/bi";
 // import "@fullcalendar/core/main.css";
 // import "@fullcalendar/daygrid/main.css";
 // import "@fullcalendar/timegrid/main.css";
@@ -23,8 +28,10 @@ function Stats() {
   const history = useHistory();
   let state = useSelector((store) => store);
   let user = useSelector((store) => store.session["user"]);
-  const [showInterviews, setShowInterviews] = useState(false)
-  const [showDashboard, setShowDashboard] = useState(true)
+  const [showInterviews, setShowInterviews] = useState(false);
+  const [showDashboard, setShowDashboard] = useState(true);
+  const [showFavorites, setShowFavorites] = useState(false);
+  const [showAddInterviewForm, setShowAddInterviewForm] = useState(false);
 
   //   const events = []
 
@@ -73,16 +80,50 @@ function Stats() {
       return event.date == args.dateStr;
     });
     if (hasInterviews) {
-        setShowInterviews(true)
-        setShowDashboard(false)
+      setShowInterviews(true);
+      setShowDashboard(false);
     } else {
-        window.alert('Nothing to show')
+      window.alert("Nothing to show");
     }
-
   };
-// this functions controls the dashboard once user opens up the interviews through calander
+  // this functions controls the dashboard once user opens up the interviews through calander
   const closeInterviewsHandle = () => {
-    setShowInterviews(false)
+    setShowInterviews(false);
+    setShowDashboard(true);
+  };
+
+  // this shows favorites
+
+  const showFavoritesHandle = () => {
+    setShowFavorites(true);
+    setShowDashboard(false);
+    setShowAddInterviewForm(false)
+    
+  };
+
+  // this closes the favorites
+  const closeFavoritesHandle = () => {
+    setShowFavorites(false);
+    setShowDashboard(true);
+  };
+
+  // this shows the signup Form
+  const InterviewFormHandle = () => {
+    setShowDashboard(false);
+    setShowAddInterviewForm(true);
+    setShowFavorites(false)
+  };
+
+  // closes the interview form
+  const closeFormHandle = () => {
+    setShowAddInterviewForm(false);
+    setShowDashboard(true);
+  };
+
+  // show dashboard
+  const showDashboardHandle = () => {
+    setShowFavorites(false)
+    setShowAddInterviewForm(false)
     setShowDashboard(true)
   }
   // console.log (pendingInterviews.length, 'these are pending interivew --------------')
@@ -150,9 +191,21 @@ function Stats() {
         </div>
         <div className="main-stats-btm">
           <div className="calander-container">
-            <button className="add-event-btn" id="tests">
-              <MdAdd />
-            </button>
+            <div className="add-event-btn">
+              <BiSolidDashboard className="stat-dash-icon" onClick={showDashboardHandle}  id = {showDashboard ? 'selected': ""}/>
+
+              <AiFillHeart
+                className="stats-fav"
+                onClick={showFavoritesHandle}
+                id={showFavorites ? "selected" : ""}
+              />
+
+              <MdAddCircle
+                onClick={InterviewFormHandle}
+                className="add-int-stat"
+                id={showAddInterviewForm ? "selected" : ""}
+              />
+            </div>
             <div className="calander">
               <FullCalendar
                 id="calander2"
@@ -180,7 +233,23 @@ function Stats() {
 
               {showDashboard ? (
                 <div className="showDashboard">
-                    <h1>show Dashboard</h1>
+                  <div className="graph-container">
+                    <ShowGraph />{" "}
+                  </div>
+                </div>
+              ) : null}
+              {showFavorites ? (
+                <div>
+                  {" "}
+                  Favorites are here{" "}
+                  <button onClick={closeFavoritesHandle}>close</button>
+                </div>
+              ) : null}
+              {showAddInterviewForm ? (
+                <div>
+                  {" "}
+                  <AddInterviewForm />
+                  
                 </div>
               ) : null}
             </div>
