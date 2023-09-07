@@ -48,6 +48,7 @@ export const clearfavlist = () => {
 
 export const getAllListsThunk = () => async (dispatch) => {
     const response = await fetch('/api/favorites/current');
+    console.log ('-------------in the thunk')
     if (response.ok) {
         const favorites = await response.json()
         await dispatch(getAllLists(favorites))
@@ -129,7 +130,7 @@ export default function favoritesRedcuer (state = {}, action) {
     switch(action.type) {
         case GET_FAVLIST:
             newState = {...state}
-            // console.log (action.payload, '--------------------------')
+            console.log (action.payload, '--------------------------')
             action.payload.forEach(list => {
                 newState[list.id] = list
             });

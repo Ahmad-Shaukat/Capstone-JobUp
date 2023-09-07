@@ -20,8 +20,9 @@ class FavoriteList(db.Model):
                 'id': job.id,
                 'listId': job.listId,
                 'position': job.position,
-                'location': job.location,
-                'description': job.description
+                'IdNumber': job.IdNumber
+                # 'location': job.location,
+                # 'description': job.description
             }
             for job in self.jobs
         ]

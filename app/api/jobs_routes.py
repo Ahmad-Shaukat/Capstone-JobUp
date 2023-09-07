@@ -28,7 +28,7 @@ def full_stack():
     }
 
     response = requests.get(url, headers=headers)
-    print(response.json())
+    print(response.json(), '------------yellah')
     return jsonify(response.json())
     # print(response.json())
 

@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { createListThunk } from "../../store/favoriteList";
 import { getAllListsThunk } from "../../store/favoriteList";
 import { useModal } from "../../context/Modal";
-function CreateFavoriteList () {
+function CreateFavoriteList ({closeNewForm}) {
     const dispatch = useDispatch()
     const {closeModal} = useModal()
     const [listName, setListName] = useState('')
@@ -17,7 +17,7 @@ function CreateFavoriteList () {
             name:listName
         }))
         await dispatch(getAllListsThunk())
-        closeModal()
+        closeNewForm()
     }
 
     return <>

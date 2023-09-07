@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { editListThunk, getAllListsThunk } from "../../store/favoriteList";
 import { useModal } from "../../context/Modal";
 
-function EditFavoriteList({list}) {
+function EditFavoriteList({list, closeEditForm}) {
     // console.log (list)
     const dispatch = useDispatch()
     const {closeModal} = useModal()
@@ -18,7 +18,7 @@ function EditFavoriteList({list}) {
         }))
         
         dispatch(getAllListsThunk())
-        closeModal()
+        closeEditForm()
 
     }
 
