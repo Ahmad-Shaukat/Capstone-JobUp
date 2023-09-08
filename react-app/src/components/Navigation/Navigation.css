@@ -14,6 +14,8 @@ nav {
   justify-content: space-between;
   align-items: center;
   height: 65px;
+  /* background-color: green; */
+  width: 100%;
 }
 .nav-opt {
   margin-left: 45px;

@@ -12,7 +12,7 @@ import { BsCalendar2Week } from "react-icons/bs";
 import { getAllInterviews, getAllInterviewsThunk } from "../../store/interview";
 import { useState } from "react";
 
-const AllInterviews = () => {
+const AllInterviews = ({}) => {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.session.user);
   const [editInterview, setEditInterview] = useState({});

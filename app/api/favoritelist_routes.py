@@ -13,11 +13,12 @@ def favorites_current():
     userId = current_user.id
     fav_lists = FavoriteList.query.filter(FavoriteList.userId == userId)
     lists = [fav_list.to_dict() for fav_list in fav_lists ]
+    print(list, '------------this is the list from the database')
     return jsonify(lists)
 
 
 # GET /api/favorites/favoritesList<id>/one
-# get interview by id
+# get favorite List by id
 @favorites_routes.route('/<id>/one')
 # @login_required
 def favorites_one(id):
@@ -79,19 +80,25 @@ def jobs_add(id):
     data = request.get_json()
     userId = current_user.id
     listId = id
-    position = data.get('position')
-    location = data.get('location')
-    description = data.get('description')
+    title = data.get('title')
+    url = data.get('url')
+    IdNumber = data.get('IdNumber')
+    
     new_job = Job(
         listId = listId,
-        position = position,
-        location = location, 
-        description = description
+        IdNumber = IdNumber,
+        url=url,
+        title = title
+
     )
     db.session.add(new_job)
     db.session.commit()
 
-    return new_job.to_dict()
+    # return new_job.to_dict()
+    return 'hello'
+
+
+# Delete a job using through favorite list id
 
 @favorites_routes.route('/<favoriteId>/jobs/<jobId>/delete', methods=['DELETE'])
 @login_required
@@ -100,7 +107,7 @@ def job_delete(favoriteId, jobId):
     db.session.delete(filtered_job)
     db.session.commit()
     return {
-        'message':'comment successfully deleted'
+        'message':'Job successfully deleted'
     }
 
 

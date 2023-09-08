@@ -1,6 +1,8 @@
 .land-logo img {
-    width: 150px;
-    height: 100px;
+    width: 180px;
+    height: 170px;
+    /* background-color: red; */
+    margin-top: 20px;
 
 }
 .land-logo {
@@ -10,11 +12,16 @@
     flex-direction: column;
     justify-content: start;
     align-items: start;
+    /* background-color:   red; */
+    /* width: 400px; */
     
 }
 
 .land-nav-cont {
-    background-color: #caf0f81c;
+    /* background-color: #caf0f81c; */
+    /* background-color: red; */
+    background-color: rgba(68, 99, 238, 0.01);
+
     margin-bottom: 20px;
     
 } 
@@ -22,13 +29,16 @@
 .landing-body-cont {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    /* background-color: green; */
 }
 .land-main-cion {
     height: 100vh;
+    /* background-color: red; */
 }
 .landing-img img {
-    width: 400px;
-    height: 300px;
+    width: 600px;
+    height: 600px;
+    /* background-color: #4361ee; */
 }
 .landing-img {
     /* background-color: red; */
@@ -37,12 +47,15 @@
     align-items: center;
 }
 .landing-desc-text {
-    font-size: 12px;
+    font-size: 20px;
     letter-spacing: 1px;
-    width: 300px;
+    width: 400px;
     margin-bottom: 10px;
+    /* background-color: teal; */
+    
 }
 .landing-body-description {
+    /* background-color: yellow; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,14 +68,16 @@
     padding: 40px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    height: 100%;
+    width: 100%;
 }
 .landing-bod-content p {
     padding: 5px;
 }
 .landing-heading {
-    font-size: 26px;
+    font-size: 40px;
     /* background-color: red; */
     font-weight: 500;
     letter-spacing: 1px;
@@ -72,16 +87,16 @@
 }
 .landing-btns {
     /* border: 1px solid red; */
-    width: 170px;
+    width: 250px;
     display: flex;
     justify-content: space-between;
     margin-bottom: 5px;
     margin-top: 15px;
 }
 .landing-btns button {
-    width: 75px;
-    height: 25px;
-    font-size: 10px;
+    width: 115px;
+    height: 35px;
+    font-size: 16px;
     border: none;
     background-color:#4361ee;
     letter-spacing: 1px;
@@ -90,10 +105,11 @@
 }
 .landing-demo-button button {
     border: none;
-    width: 170px;
+    width: 250px;
+    /* width: 100%; */
     background-color:#4361ee;
-    height: 25px;
-    font-size: 10px;
+    height: 35px;
+    font-size: 16px;
     letter-spacing: 1px;
     color:white;
     margin-top: 5px;
