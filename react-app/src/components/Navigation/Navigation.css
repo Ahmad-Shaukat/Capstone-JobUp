@@ -18,6 +18,7 @@ nav {
 .nav-opt {
   margin-left: 45px;
   color: transparent;
+  display: relative;
 }
 .nav-user {
   margin-right: 45px;
@@ -54,4 +55,40 @@ nav {
   padding-bottom: 0px;
   background-color:#4361ee ;
   color: white;
+}
+.res-nav-btn {
+  padding: 5px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  /* visibility: hidden;
+  opacity: 0; */
+  /* display: none; */
+}
+.res-nav-bar {
+  /* position: fixed; */
+  /* top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%; */
+  display: none;
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  background-color: green;
+  transition: 1s;
+  transform: translateY(-100vh); */
+}
+.res-nav-bar.responsive-nav {
+  display: block;
+  position: absolute;
+}
+
+
+@media screen and (width < 795px) {
+  .nav-opt {
+    color:#4361ee;
+  }
 }

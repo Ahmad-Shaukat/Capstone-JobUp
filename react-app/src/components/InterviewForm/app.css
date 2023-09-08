@@ -59,6 +59,11 @@
     border: 0.5px solid rgba(0, 0, 0, 0.174);
     border-radius: 2px;
     outline-color:#4361ee;
+    font-size: 10px;
+    letter-spacing: 1px;
+    outline: none;
+    padding: 2px;
+    transition: .5s;
     
 
 }
@@ -133,6 +138,7 @@
     margin-left: 10px;
     margin-top: 10px;
     
+    
 }
 #cre-itn-sub-button {
     width: 150px;
@@ -157,6 +163,9 @@
     font-size: 10px;
 
 }
+.cre-int-cont input:hover {
+    border: 1px solid #4361ee;
+}
 
 @media screen and (max-width: 768px) {
     .cre-int-form-cont {
@@ -176,6 +185,7 @@
         margin-bottom: 20px;
         
     }
+    
     
     
   }

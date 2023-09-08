@@ -19,6 +19,7 @@
     height: 20px;
     border: none;
     cursor: pointer;
+    /* background-color: red; */
 }
 .clicked {
     color: #4361ee;

@@ -1,7 +1,7 @@
 .allJobs-main-cont {
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 15px;
     margin-right: 15px;
     margin-left: 15px;
@@ -17,17 +17,17 @@
     cursor: pointer;
     /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
 }
-.allJobs-single-cont:hover {
+/* .allJobs-single-cont:hover {
     transform: scale(1.1);
     box-shadow: none;
 }
 .allJobs-single-cont:hover p {
     color: #4361ee;
 }
-.allJobs-single-cont:hover button {
+#allJobs-btns:hover button {
     background-color: #4361ee;
     color: white;
-}
+} */
 .single-job-title p {
     font-size: 14px;
     letter-spacing: 1px;
@@ -53,22 +53,24 @@
     margin-bottom: 5px;
 
 }
-.allJobs-btns {
+#allJobs-btns {
     display: flex;
     justify-content: space-between;
-    width: 90%;
+    width: 50%;
     margin: auto;
     margin-top: 15px;
+    /* background-color: red; */
 
 }
-.allJobs-btns button {
+#allJobs-btns button {
     /* width: 100px; */
     height: 25px;
     background-color: rgba(128, 128, 128, 0.205);
     transition: .5s;
     /* background-color: #4361ee; */
     background-color: transparent;
-    border: 1px solid #4361ee;
+    /* border: 1px solid #4361ee; */
+    border: none;
     cursor: pointer;
     
     /* color: white; */
@@ -76,10 +78,11 @@
     color: rgb(100, 98, 98);
     /* color: black; */
 
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 1px;
-    padding: 5px;
+    padding: 3px;
     font-weight: 500;
     /* border: none; */
     border-radius: 3px;
+    /* background-color: red; */
 }

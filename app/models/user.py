@@ -14,6 +14,16 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    first_name = db.Column(db.String(100), default='N/A')
+    last_name = db.Column(db.String(100), default='N/A')
+    career = db.Column(db.String(150), 
+    default='N/A')
+    location = db.Column(db.String(100), default='N/A')
+    bio = db.Column(db.String(1000), 
+    default='N/A')
+
+    
+
     # first_name = db.Column(db.String(20), nullable=False)
     # last_name = db.Column(db.String(20), nullable = False)
     # location = db.Column(db.String(20), nullable = False)
@@ -22,6 +32,7 @@ class User(db.Model, UserMixin):
     interview = relationship('Interview', back_populates='user', cascade='all, delete-orphan')
     list = relationship('FavoriteList', back_populates='user', cascade='all, delete-orphan')
     comment = relationship('Comment', back_populates='user', cascade='all, delete-orphan')
+    # profile = relationship('Profile', back_populates = 'user', cascade='all, delete-orphan')
 
 
     @property
@@ -40,8 +51,9 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            # 'first_name': self.first_name,
-            # 'last_name': self.last_name,
-            # 'location': self.location,
-            # 'career': self.career,
+            'firstName': self.first_name,
+            'last_name': self.last_name,
+            'career':self.career,
+            'location': self.location,
+            'bio':self.bio
         }

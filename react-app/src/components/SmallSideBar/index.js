@@ -22,7 +22,7 @@ const Sidebar = ({isLoaded}) => {
     //     return null
     // }
     return (
-        <div>
+        <div className="sidebar-container">
             {isLoaded && (
                 <div className="sidbar-main">
                 <div className="logo-cont">
