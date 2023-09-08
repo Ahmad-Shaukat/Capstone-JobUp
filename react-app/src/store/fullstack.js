@@ -28,7 +28,6 @@ export default function fullStackReducer(state = {}, action) {
     switch (action.type) {
         case GET_FULLSTACK:
             newState = { ...state }
-            console.log (action.payload, '-----------this is payload')
             action.payload.forEach((job) => {
                 newState[job.IdNumber] = job
             })

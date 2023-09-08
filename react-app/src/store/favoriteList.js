@@ -48,7 +48,6 @@ export const clearfavlist = () => {
 
 export const getAllListsThunk = () => async (dispatch) => {
     const response = await fetch('/api/favorites/current');
-    console.log ('-------------in the thunk')
     if (response.ok) {
         const favorites = await response.json()
         await dispatch(getAllLists(favorites))
@@ -131,7 +130,6 @@ export default function favoritesRedcuer (state = {}, action) {
     switch(action.type) {
         case GET_FAVLIST:
             newState = {...state}
-            console.log (action.payload, '--------------------------')
             action.payload.forEach(list => {
                 newState[list.id] = list
             });
@@ -142,8 +140,6 @@ export default function favoritesRedcuer (state = {}, action) {
             return newState
         case DELETE_FAVLIST:
             newState = {...state}
-            console.log (action.payload, '--------this is fromt the reducer for deleting the favlist')
-            console.log (newState, '--------new state from deleteListThunk')
             delete newState[action.payload.id]
             return newState
         case ADD_JOB:

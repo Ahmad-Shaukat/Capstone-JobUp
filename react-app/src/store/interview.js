@@ -139,9 +139,7 @@ export const editCommentThunk = (commentId, interviewId, comment) => async (disp
         }, 
         body: JSON.stringify(comment)
     })
-    console.log ('---------begining thunk')
     if (response.ok) {
-        console.log ('-------------after thunk')
         const data = await response.json()
         dispatch(editComment(commentId,interviewId, data))
         return data
@@ -193,10 +191,6 @@ export default function interviewsReducer (state ={}, action) {
             const commen = action.payload.comment
             // const {interId, commId, commen} = action.payload 
             // console.log (action.payload, '-------------------------------------')
-            console.log (action.payload, '-----------------------------')
-            console.log(interId)
-            console.log (newState)
-            console.log (newState[interId], '----------------------------------')
 
             newState[interId].comments.commId = commen
             // console.log (interId, '----------------id')

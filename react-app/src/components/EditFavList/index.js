@@ -14,7 +14,7 @@ function EditFavoriteList({list, closeEditForm}) {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log (listName)
+        
         const checkErrors = () => {
             let allErros = {}
 

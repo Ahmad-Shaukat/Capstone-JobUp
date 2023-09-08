@@ -31,7 +31,6 @@ function SignupFormModal() {
 			}
 			if (Object.values(allErrors).length>0) {
 				setValidations(allErrors)
-				console.log (validations)
 				return true
 			} else {
 				return false

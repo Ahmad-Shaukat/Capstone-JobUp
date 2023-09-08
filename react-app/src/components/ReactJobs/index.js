@@ -30,7 +30,6 @@ const ReactJobs = () => {
     let Jobs = allFavLists.map((list) =>
     Object.values(list.jobs))
     let allJobs = {}
-    console.log (Jobs, '-----------all the jobs array')
     for (let items of Jobs) {
         for (let innerItems of items ) {
 
@@ -39,7 +38,6 @@ const ReactJobs = () => {
     }
     
     allJobs = Object.values(allJobs)
-    console.log (allJobs, '--------------all the fav lists')
 
     const handleFavorite = (job) => {
         job.title = job.title.trim()

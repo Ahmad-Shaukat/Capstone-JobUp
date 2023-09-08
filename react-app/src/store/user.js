@@ -27,7 +27,6 @@ export default function usersReducer (state={}, action) {
     switch (action.type) {
         case GET_USERS:
             newState = {...state}
-            console.log (action.payload, '---------------action from users')
             action.payload['users'].forEach((user) => {
                 newState[user.id] = user
             })

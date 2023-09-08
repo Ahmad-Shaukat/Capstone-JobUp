@@ -40,7 +40,6 @@ const AllFavriteLists = ({options, favJob, closeFavFunc, stats}) => {
     closeFavFunc()
   }
   const deleteListHandle = async (list) => {
-    console.log (list, '---------this is list')
     await dispatch(deleteListThunk(list))
     // await dispatch(getAllListsThunk())
   }
