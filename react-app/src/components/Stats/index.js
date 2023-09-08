@@ -18,6 +18,9 @@ import ShowGraph from "../testGraph";
 import AddInterviewForm from "../InterviewForm";
 import { MdAddCircle } from "react-icons/md";
 import { BiSolidDashboard } from "react-icons/bi";
+import {FcCancel} from 'react-icons/fc'
+import {AiFillCheckSquare} from 'react-icons/ai'
+
 // import "@fullcalendar/core/main.css";
 // import "@fullcalendar/daygrid/main.css";
 // import "@fullcalendar/timegrid/main.css";
@@ -73,6 +76,7 @@ function Stats() {
   const declinedInterviews = Object.values(interviews).filter(
     (interview) => interview.status === "Declined"
   );
+  const offeredInterview = Object.values(interviews).filter((interview) => interview.status ==='Offered')
   //   handleDateClicks function checks for inteveiws that are on this
   const handleDateClick = (args) => {
     // use array.some method to see if any interviews exsists on that date
@@ -97,8 +101,7 @@ function Stats() {
   const showFavoritesHandle = () => {
     setShowFavorites(true);
     setShowDashboard(false);
-    setShowAddInterviewForm(false)
-    
+    setShowAddInterviewForm(false);
   };
 
   // this closes the favorites
@@ -111,7 +114,7 @@ function Stats() {
   const InterviewFormHandle = () => {
     setShowDashboard(false);
     setShowAddInterviewForm(true);
-    setShowFavorites(false)
+    setShowFavorites(false);
   };
 
   // closes the interview form
@@ -122,10 +125,10 @@ function Stats() {
 
   // show dashboard
   const showDashboardHandle = () => {
-    setShowFavorites(false)
-    setShowAddInterviewForm(false)
-    setShowDashboard(true)
-  }
+    setShowFavorites(false);
+    setShowAddInterviewForm(false);
+    setShowDashboard(true);
+  };
   // console.log (pendingInterviews.length, 'these are pending interivew --------------')
   // console.log (scheduledInterviews.length, 'these are scheduled interviews')
   // console.log (declinedInterviews.length, 'these are declined interviews')
@@ -184,7 +187,23 @@ function Stats() {
             </div>
             <div className="right-card-container">
               <div className="stats-icon-wrapper stats-icon-wrapper-declined">
-                <FaBug className="stats-declined-colors" />
+                <FcCancel className="stats-declined-colors" />
+              </div>
+            </div>
+          </div>
+          <div className="stats-test stats-schduled-declined">
+            <div className="left-card-container">
+              <div className="stats-number">
+                <p className="stats-offered-colors">
+                  {offeredInterview.length}
+                </p>
+              </div>
+
+              <p className="stats-text">Offered </p>
+            </div>
+            <div className="right-card-container">
+              <div className="stats-icon-wrapper stats-icon-wrapper-offered">
+                <AiFillCheckSquare className="stats-offered-colors" />
               </div>
             </div>
           </div>
@@ -192,7 +211,11 @@ function Stats() {
         <div className="main-stats-btm">
           <div className="calander-container">
             <div className="add-event-btn">
-              <BiSolidDashboard className="stat-dash-icon" onClick={showDashboardHandle}  id = {showDashboard ? 'selected': ""}/>
+              <BiSolidDashboard
+                className="stat-dash-icon"
+                onClick={showDashboardHandle}
+                id={showDashboard ? "selected" : ""}
+              />
 
               <AiFillHeart
                 className="stats-fav"
@@ -249,7 +272,6 @@ function Stats() {
                 <div>
                   {" "}
                   <AddInterviewForm />
-                  
                 </div>
               ) : null}
             </div>

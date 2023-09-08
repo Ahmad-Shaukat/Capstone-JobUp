@@ -18,10 +18,10 @@ export const addFavlist = (favList) => {
         payload: favList
     }
 }
-export const deleteFavlist = (listId) => {
+export const deleteFavlist = (list) => {
     return {
         type: DELETE_FAVLIST,
-        payload: listId
+        payload: list
     }
 }
 export const addJob = (listId, job) => {
@@ -71,7 +71,7 @@ export const createListThunk = (list) => async (dispatch) => {
     }
 }
 export const editListThunk = (listId, updatedList) => async (dispatch) => {
-    const response = fetch(`/api/favorites/${listId}/edit`, {
+    const response = await fetch(`/api/favorites/${listId}/edit`, {
         method:'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -86,7 +86,7 @@ export const editListThunk = (listId, updatedList) => async (dispatch) => {
 }
 
 export const deleteListThunk = (list) => async (dispatch) => {
-    const response = fetch(`/api/favorites/${list.Id}/delete`, {
+    const response = await fetch(`/api/favorites/${list.id}/delete`, {
         method: 'DELETE',
         headers:{
             'Content-Type': 'application/json'
@@ -94,7 +94,8 @@ export const deleteListThunk = (list) => async (dispatch) => {
         body:JSON.stringify(list)
     })
     if (response.ok) {
-        dispatch(deleteFavlist(list.id))
+        // const data = await response.json()
+        dispatch(deleteFavlist(list))
     }
 }
 
@@ -141,6 +142,8 @@ export default function favoritesRedcuer (state = {}, action) {
             return newState
         case DELETE_FAVLIST:
             newState = {...state}
+            console.log (action.payload, '--------this is fromt the reducer for deleting the favlist')
+            console.log (newState, '--------new state from deleteListThunk')
             delete newState[action.payload.id]
             return newState
         case ADD_JOB:

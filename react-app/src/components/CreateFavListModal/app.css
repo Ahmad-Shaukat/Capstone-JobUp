@@ -1,0 +1,99 @@
+.cre-fav-cont {
+    /* background-color: red; */
+    background-color: white;
+    height: 170px;
+    width: 400px;
+    margin: auto;
+    margin-top: 45px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 5px;
+    border-bottom: 3px solid #f4a261;
+}
+.cre-fav-cont p {
+    text-align: center;
+    background-color: #f4a261;
+    /* margin-top: 15px; */
+    font-size: 24px;
+    color: white;
+    letter-spacing: 1px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.cre-fav-cont form {
+    /* background-color: blue; */
+    margin: auto;
+    height: 90px;
+    /* padding: 5px; */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    width: 80%;
+}
+.cre-fav-cont label {
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 3px;
+
+}
+.cre-fav-cont input {
+    height: 25px;
+    padding: 3px;
+    letter-spacing: 1px;
+    border: 2px solid black;
+    transition: .3s;
+
+    outline: none;
+}
+.cre-fav-cont input:focus {
+    border: 2px solid #59cd90;
+}
+.edit-fav-btns-cont {
+    /* background-color: green; */
+    width: 240px;
+    display: flex;
+    justify-content: space-between;
+
+}
+.edit-fav-btns-cont button {
+    width: 100px;
+    height: 25px;
+    transition: .3s;
+}
+.cre-fav-can-btn {
+    background-color: #ff006e;
+    color:white;
+    border: 2px solid white;
+    
+}
+.cre-fav-can-btn:hover {
+    border: 2px solid #ff006e;
+    background-color: white;
+    color: #ff006e;
+    cursor: pointer;
+}
+.cre-fav-sub-btn {
+    background-color: #59cd90;
+    color: white;
+    border: 2px solid white;
+}
+.cre-fav-sub-btn:hover {
+    border: 2px solid #59cd90;
+    background-color: white;
+    color:#59cd90 ;
+    cursor: pointer;
+}
+.cre-fav-error {
+    height: 20px;
+    /* background-color: green; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cre-fav-error p {
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 10px;
+}

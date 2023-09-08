@@ -22,8 +22,9 @@ const ReactJobs = () => {
         // e.preventDefault()
         const today = new Date(); // Get today's date
     const formattedDate = today.toISOString().split("T")[0]; // Format it as YYYY-
+    const formattedTitle = title.trim()
         await dispatch(createInterviewThunk({
-            position:title,
+            position:formattedTitle,
             company:'Unavailible',
             location:'Unavilible',
             status:'Pending',

@@ -108,7 +108,7 @@ function AddInterviewForm() {
             <div className='cre-int-heading'>
                 <p>Add Interview</p>
             </div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className='cre-int-form'>
                 <div className='cre-int-form-cont'>
 
 

@@ -1,3 +1,16 @@
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+const GraphData = () => {
+  
+}
+
+
+
+
+
+
+
 export const Data = [
   {
     id: 1,

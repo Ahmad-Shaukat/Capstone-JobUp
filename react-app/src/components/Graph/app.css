@@ -20,13 +20,36 @@
     letter-spacing: 1px;
     transition: .3s;
 }
-.graphs-btns button:hover {
+/* .graphs-btns button:hover {
     background-color: #a46bf5;
     cursor: pointer;
     color: white;
 
-}
-#graph-selected {
+} */
+.graphs-btns-declined:hover {
     color: white;
-    background-color: #a46bf5;
+    background-color:#ee6055 ;
+    border: 1px solid #ee6055;
+    cursor: pointer;
+}
+.graphs-btns-offered:hover {
+    color: white;
+    background-color: #80ed99;
+    border: 1px solid #80ed99;
+    cursor: pointer;
+}
+#graph-selected-declined {
+    color: white;
+    background-color:#ee6055 ;
+    border: 1px solid #ee6055;
+}
+#graph-selected-offered {
+    color: white;
+    background-color: #80ed99;
+    border: 1px solid #80ed99;
+}
+#graph-selected-pending {
+    color:white;
+    background-color: #e9b949;
+    border: 1px solid #e9b949;
 }

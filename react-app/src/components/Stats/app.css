@@ -9,7 +9,9 @@
 
 .stats-card-main-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 400px 400px 400px 400px;
+    /* background-color: green; */
+    justify-content: center;
     /* background-color: red; */
     /* background-color: red; */
     gap: 20px;
@@ -22,6 +24,7 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
      background-color: white;
+     /* background-color: green; */
 }
 .stats-test {
     height: 100px;
@@ -29,7 +32,8 @@
     display: grid;
     grid-template-columns: 2fr 1fr; 
     background-color: white;
-    color: #6a82d8,
+    /* background-color: red; */
+
 }
 #stats-scheduled-text {
     color: #6a82d8;
@@ -55,7 +59,7 @@
 }
 .stats-text {
     margin-left: 5px;
-    font-size: 10px;
+    font-size: 13px;
     letter-spacing: 1px;
 }
 .right-card-container {
@@ -102,6 +106,14 @@ margin-bottom: 16px;
 .stats-schduled-declined {
     border-bottom: 2px solid #d66a6a;
     border-radius: 3px;
+}
+.stats-offered-colors {
+    color: #67c805;
+    width: 50px;
+
+}
+.stats-icon-wrapper-offered {
+    background-color:#cdf7ba ;
 }
 .calander-container {
     display: grid;
