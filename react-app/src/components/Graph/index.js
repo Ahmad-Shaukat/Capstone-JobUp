@@ -1,12 +1,18 @@
 import { Bar } from "react-chartjs-2";
 import "./app.css";
 import { useState } from "react";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getAllInterviewsThunk } from "../../store/interview";
 // import { Data } from "../testGraph/utilites/data";
 
 export const BarChart = ({ chartData }) => {
+  const dispatch = useDispatch()
   const [showDeclined, setShowDeclined] = useState(false);
   const [showScheduled, setShowScheduled] = useState(false);
   const [showOffered, setShowOffered] = useState(false);
+  useEffect( () =>dispatch(getAllInterviewsThunk()), [dispatch] )
+  
 
   const handleShowDeclined = () => {
     setShowDeclined(true);

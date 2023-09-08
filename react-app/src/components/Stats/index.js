@@ -20,6 +20,7 @@ import { MdAddCircle } from "react-icons/md";
 import { BiSolidDashboard } from "react-icons/bi";
 import {FcCancel} from 'react-icons/fc'
 import {AiFillCheckSquare} from 'react-icons/ai'
+import AllFavriteLists from "../AllFavoriteList";
 
 // import "@fullcalendar/core/main.css";
 // import "@fullcalendar/daygrid/main.css";
@@ -35,6 +36,8 @@ function Stats() {
   const [showDashboard, setShowDashboard] = useState(true);
   const [showFavorites, setShowFavorites] = useState(false);
   const [showAddInterviewForm, setShowAddInterviewForm] = useState(false);
+  const hideFunc = false
+  
 
   //   const events = []
 
@@ -137,7 +140,7 @@ function Stats() {
   // console.log(pendingInterviews, '--------------these are pending ')
   // console.log (interviews, '--------------------')
 
-  useEffect(async () => dispatch(getAllInterviewsThunk()), [dispatch]);
+  useEffect(async () => await dispatch(getAllInterviewsThunk()), [dispatch]);
 
   if (!user) {
     history.push("/");
@@ -263,15 +266,14 @@ function Stats() {
               ) : null}
               {showFavorites ? (
                 <div>
-                  {" "}
-                  Favorites are here{" "}
+                 <AllFavriteLists stats={true} />
                   <button onClick={closeFavoritesHandle}>close</button>
                 </div>
               ) : null}
               {showAddInterviewForm ? (
                 <div>
                   {" "}
-                  <AddInterviewForm />
+                  <AddInterviewForm  />
                 </div>
               ) : null}
             </div>

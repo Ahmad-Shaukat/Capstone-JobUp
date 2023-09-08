@@ -141,13 +141,18 @@
 }
 .fav-job-view-btn {
     /* background-color: #4361ee; */
-    width: 75px;
+    width: 85px;
     border: 1px solid #4361ee;
     background-color: white;
     color: #4361ee;
     transition: .3s;
+    text-decoration: none;
+    text-align: center;
+    padding: 2px;
+    font-weight: 400;
+    font-size: 16px;
     
-    height: 20px;
+    height: 28px;
 }
 .fav-job-view-btn:hover {
     background-color: #4361ee;

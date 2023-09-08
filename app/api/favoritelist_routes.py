@@ -80,19 +80,22 @@ def jobs_add(id):
     data = request.get_json()
     userId = current_user.id
     listId = id
-    position = data.get('position')
-    location = data.get('location')
-    description = data.get('description')
+    title = data.get('title')
+    url = data.get('url')
+    IdNumber = data.get('IdNumber')
+    
     new_job = Job(
         listId = listId,
-        position = position,
-        location = location, 
-        description = description
+        IdNumber = IdNumber,
+        url=url,
+        title = title
+
     )
     db.session.add(new_job)
     db.session.commit()
 
-    return new_job.to_dict()
+    # return new_job.to_dict()
+    return 'hello'
 
 
 # Delete a job using through favorite list id

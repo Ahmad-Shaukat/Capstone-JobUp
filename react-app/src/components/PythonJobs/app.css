@@ -22,7 +22,7 @@
     box-shadow: none;
 } */
 .allJobs-single-cont:hover p {
-    color: #4361ee;
+    /* color: #4361ee; */
 }
 /* .allJobs-single-cont:hover button {
     background-color: #4361ee;
@@ -76,12 +76,13 @@
     color: rgb(100, 98, 98);
     /* color: black; */
 
-    font-size: 15px;
+    /* font-size: 15px; */
     letter-spacing: 1px;
     padding: 5px;
     /* font-weight: 500; */
     /* border: none; */
     border-radius: 3px;
+    font-size: 20px;
     /* background-color: red; */
 }
 #allJobs-btns button:hover {

@@ -114,7 +114,7 @@ export const addJobThunk = (listId, job) => async (dispatch) =>  {
     }
 }
 export const deleteJobThunk = (listId, jobId) => async (dispatch) => {
-    const response = fetch (`/api/favorties/${listId}/jobs/${jobId}/delete`, {
+    const response = fetch (`/api/favorites/${listId}/jobs/${jobId}/delete`, {
        method:'DELETE',
        headers: {
         'Content-Type': 'application.json'

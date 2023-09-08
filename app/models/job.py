@@ -10,9 +10,10 @@ class Job(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     listId = db.Column(db.Integer, ForeignKey(add_prefix_for_prod("favoritelists.id")), nullable=False)
-    position=db.Column(db.String(50), nullable=False)
+    title=db.Column(db.String(50), nullable=False)
     # location=db.Column(db.String(50), nullable=False)
     # description=db.Column(db.String(1000), nullable=False)
+    url = db.Column(db.String, nullable=False)
     IdNumber = db.Column(db.Integer, nullable = False)
 
     list = relationship('FavoriteList', back_populates='jobs')
@@ -21,8 +22,9 @@ class Job(db.Model):
         return {
             'id': self.id,
             'listId': self.listId, 
-            'position': self.position,
+            'title': self.position,
             'IdNumber': self.IdNumber,
+            'url': self.url
             # 'description': self.description
         }
 

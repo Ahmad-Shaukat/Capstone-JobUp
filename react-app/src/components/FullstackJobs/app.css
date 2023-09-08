@@ -64,8 +64,9 @@
 }
 #allJobs-btns button {
     /* width: 100px; */
+    
     height: 25px;
-    background-color: rgba(128, 128, 128, 0.205);
+    /* background-color: rgba(128, 128, 128, 0.205); */
     transition: .5s;
     /* background-color: #4361ee; */
     background-color: transparent;
@@ -77,8 +78,9 @@
     /* color: #4361ee; */
     color: rgb(100, 98, 98);
     /* color: black; */
-
+    
     font-size: 12px;
+    font-size: 30px;
     letter-spacing: 1px;
     padding: 3px;
     font-weight: 500;
