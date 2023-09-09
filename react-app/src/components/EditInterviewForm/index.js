@@ -324,6 +324,9 @@ function EditInterviewForm({ id, interview, onCancel, afterSaving }) {
                                 <option key={'Declined'} value={'Declined'}>
                                     Declined
                                 </option>
+                                <option key={'Offered'} value={'Offered'}>
+                                    Offered
+                                </option>
                             </select>
                         </div>
 

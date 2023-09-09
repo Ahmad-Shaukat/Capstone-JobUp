@@ -65,7 +65,7 @@
 }
 .landing-bod-content {
     /* background-color: teal; */
-    padding: 40px;
+    /* padding: 40px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -117,4 +117,24 @@
     cursor: pointer;
 
 
+}
+@media screen and (max-width:1160px ) {
+    .landing-body-cont {
+        grid-template-columns: 1fr;
+
+    }
+    .landing-img img {
+        max-width: 300px;
+        max-height: 340px;
+    }
+}
+@media screen and (max-width:505px ) {
+    .landing-desc-text {
+        font-size: 15px;
+        letter-spacing: 1px;
+        width: 300px;
+        margin-bottom: 10px;
+        /* background-color: teal; */
+        
+    }
 }

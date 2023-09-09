@@ -6,7 +6,7 @@
     background-color:#4361ee;
     border: none;
     color: white;
-    font-size: 11px;
+    font-size: 13px;
     border-radius: 3px;
     display: flex;
     justify-content: center;
@@ -18,11 +18,13 @@
 .profile-down {
     margin-left: 3px;
     margin-bottom: -2px;
+    /* background-color: red; */
 }
 .user-btns-container {
     /* background-color: red; */
     width: 85px;
-    margin-top: 28px;
+    margin-top: 34px;
+    margin-left: 10px;
 }
 /* .profile-btn-logout {
     background-color: green;
@@ -33,7 +35,7 @@
     width: 100%;
     border-radius: 3px;
     border: none;
-    font-size: 11px;
+    font-size: 13px;
     /* background-color:#4362ee35 ; */
     background-color: transparent;
     color:#4361ee;
@@ -45,7 +47,7 @@
     width: 100%;
     border-radius: 3px;
     border: none;
-    font-size: 11px;
+    font-size: 13px;
     margin-top: 5px;
     /* background-color:#4362ee35 ; */
     background-color: transparent;

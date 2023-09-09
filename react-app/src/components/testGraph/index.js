@@ -100,7 +100,7 @@ export default function ShowGraph() {
     labels: graphData.map((data) => data.month),
     datasets: [
       {
-        label: "Scheduled ",
+        label: "Pending",
         data: graphData.map((data) => data.Pending),
         barPercentage: 0.25,
         borderRadius: 10,
@@ -124,8 +124,8 @@ export default function ShowGraph() {
         categoryPercentage: 0.5,
         borderRadius: 10,
         backgroundColor: [
-          "black",
-          "black",
+          "blue",
+          "blue",
           //   "#50AF95",
           //   "#f3ba2f",
           //   "#2a71d0"
@@ -163,8 +163,8 @@ export default function ShowGraph() {
         categoryPercentage: 0.5,
         borderRadius: 10,
         backgroundColor: [
-          "black",
-          "black",
+          "blue",
+          "blue",
           //   "#50AF95",
           //   "#f3ba2f",
           //   "#2a71d0"
@@ -185,8 +185,8 @@ export default function ShowGraph() {
         categoryPercentage: 0.5,
         // barThickness: 5,
         backgroundColor: [
-          "#e9b949",
-          "#e9b949",
+          "#5dc847",
+          "#5dc847",
           //   "purple",
           //   "#f3ba2f",
           //   "#2a71d0"
@@ -202,8 +202,8 @@ export default function ShowGraph() {
         categoryPercentage: 0.5,
         borderRadius: 10,
         backgroundColor: [
-          "black",
-          "black",
+          "blue",
+          "blue",
           //   "#50AF95",
           //   "#f3ba2f",
           //   "#2a71d0"

@@ -45,7 +45,7 @@ function Navigation({ isLoaded }) {
 				<div className='nav-user-connect'>
 					
 						<div className='connect-btn-conta'>
-							<NavLink path to='/allusers' className='connect-navlink'><button className='connect-btn'><span><FaUserFriends /></span>Connect</button></NavLink>
+							<NavLink path to='/allusers' className='connect-navlink'><button className='connect-btn'><span><FaUserFriends className='connect-icon'/></span>Connect</button></NavLink>
 						</div>
 					
 

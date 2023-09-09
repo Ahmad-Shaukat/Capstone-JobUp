@@ -96,15 +96,19 @@ margin-bottom: 16px;
     color: #e9b949
 }
 .stats-pending-border {
-    border-bottom: 2px solid #e9b949;
+    border-bottom: 3px solid #e9b949;
     border-radius: 3px;
 }
 .stats-schduled-border {
-    border-bottom: 2px solid #6a82d8;
+    border-bottom: 3px solid #6a82d8;
     border-radius: 3px;
 }
 .stats-schduled-declined {
-    border-bottom: 2px solid #d66a6a;
+    border-bottom: 3px solid #d66a6a;
+    border-radius: 3px;
+}
+.stats-schduled-Offered {
+    border-bottom: 3px solid #67c805;
     border-radius: 3px;
 }
 .stats-offered-colors {
@@ -255,7 +259,7 @@ flex-direction: column;
 .main-stats-btm {
     /* background-color: red; */
     /* background-color: green; */
-    background-color: transparent;
+    /* background-color: transparent; */
     flex-direction: row;
     display: flex;
     gap: 10px;
@@ -286,15 +290,34 @@ flex-direction: column;
     
     /* height: 100%; */
 }
+.allInt-column-stat {
+    margin-bottom: 10px;
+}
+.showInterviews {
+    margin-top: 18px;
+}
+.testi {
+    width: 100%;
+}
+.showdashboard {
+    /* background-color: red; */
+    width: 100%;
+}
 
 
-@media (max-width: 1110px) {
+
+@media (max-width: 1750px) {
     .stats-card-main-container {
         grid-template-columns: 1fr; /*
          Change to a single column 
          layout */
          width: 400px;
          margin: auto;
+    }
+    .main-stats-btm {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     .calander-container {
         width: 530px;
@@ -308,6 +331,11 @@ flex-direction: column;
     .add-event-btn {
         right: 10px;
     }
+    .graph-container {
+        width: 500px;
+        height: 400px;
+        margin: auto;
+    }
 }
 @media (max-width : 570px) {
     .calander-container {
@@ -317,6 +345,9 @@ flex-direction: column;
     .calander {
         width: 90%;
         height: 90%;
+    }
+    .graph-container {
+        width: 400px;
     }
 }
 
