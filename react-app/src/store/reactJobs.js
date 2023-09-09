@@ -26,7 +26,6 @@ export default function reactReducer(state = {}, action) {
     switch(action.type) {
         case GET_REACT:
             newState = { ...state }
-            console.log (action.payload)
             action.payload.forEach((job) => {
                 newState[job.IdNumber] = job
             })

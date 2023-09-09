@@ -15,6 +15,7 @@ function DeleteInterview({ interview }) {
         e.preventDefault()
         await dispatch(deleteInterviewThunk(interview))
         closeModal()
+        history.push('/hello')
     }
 
     return <>

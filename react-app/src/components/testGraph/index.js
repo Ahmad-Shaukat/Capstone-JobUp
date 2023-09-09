@@ -24,43 +24,50 @@ export default function ShowGraph() {
       Declined: 0,
       Pending: 0,
       Scheduled: 0,
+      Offered: 0
     },
-    { month: "Feb", Declined: 0, Pending: 0, Scheduled: 0 },
+    { month: "Feb", Declined: 0, Pending: 0, Scheduled: 0,
+  Offered: 0},
     {
       month: "Mar",
       Declined: 0,
       Pending: 0,
       Scheduled: 0,
+      Offered: 0
     },
-    { month: "Apr", Declined: 0, Pending: 0, Scheduled: 0 },
+    { month: "Apr", Declined: 0, Pending: 0, Scheduled: 0, Offered: 0},
     {
       month: "May",
       Declined: 0,
       Pending: 0,
       Scheduled: 0,
+      Offered: 0
     },
-    { month: "Jun", Declined: 0, Pending: 0, Scheduled: 0 },
+    { month: "Jun", Declined: 0, Pending: 0, Scheduled: 0, Offered: 0 },
     {
       month: "Jul",
       Declined: 0,
       Pending: 0,
       Scheduled: 0,
+      Offered: 0
     },
-    { month: "Aug", Declined: 0, Pending: 0, Scheduled: 0 },
+    { month: "Aug", Declined: 0, Pending: 0, Scheduled: 0, Offered: 0 },
     {
       month: "Sep",
       Declined: 0,
       Pending: 0,
       Scheduled: 0,
+      Offered: 0
     },
-    { month: "Oct", Declined: 0, Pending: 0, Scheduled: 0 },
+    { month: "Oct", Declined: 0, Pending: 0, Scheduled: 0, Offered: 0 },
     {
       month: "Nov",
       Declined: 0,
       Pending: 0,
       Scheduled: 0,
+      Offered: 0
     },
-    { month: "Dec", Declined: 0, Pending: 0, Scheduled: 0 },
+    { month: "Dec", Declined: 0, Pending: 0, Scheduled: 0, Offered: 0 },
   ];
   let { interview } = useSelector((store) => store);
   interview = Object.values(interview);
@@ -84,7 +91,7 @@ export default function ShowGraph() {
 
   for (let i = 0; i < graphData.length; i++) {
     const totalInterview =
-      graphData[i].Pending + graphData[i].Declined + graphData[i].Scheduled;
+      graphData[i].Pending + graphData[i].Declined + graphData[i].Scheduled+graphData[i].Offered;
     graphData[i]["totalInterviews"] = totalInterview;
   }
   console.log(graphData, "-------------------graph data after");
@@ -93,7 +100,7 @@ export default function ShowGraph() {
     labels: graphData.map((data) => data.month),
     datasets: [
       {
-        label: "Scheduled ",
+        label: "Pending",
         data: graphData.map((data) => data.Pending),
         barPercentage: 0.25,
         borderRadius: 10,
@@ -117,8 +124,8 @@ export default function ShowGraph() {
         categoryPercentage: 0.5,
         borderRadius: 10,
         backgroundColor: [
-          "black",
-          "black",
+          "blue",
+          "blue",
           //   "#50AF95",
           //   "#f3ba2f",
           //   "#2a71d0"
@@ -156,8 +163,8 @@ export default function ShowGraph() {
         categoryPercentage: 0.5,
         borderRadius: 10,
         backgroundColor: [
-          "black",
-          "black",
+          "blue",
+          "blue",
           //   "#50AF95",
           //   "#f3ba2f",
           //   "#2a71d0"
@@ -167,6 +174,45 @@ export default function ShowGraph() {
       },
     ],
   });
+  const [offered, setOffered] = useState({
+    labels: graphData.map((data) => data.month),
+    datasets: [
+      {
+        label: "Offered ",
+        data: graphData.map((data) => data.Offered),
+        barPercentage: 0.25,
+        borderRadius: 10,
+        categoryPercentage: 0.5,
+        // barThickness: 5,
+        backgroundColor: [
+          "#5dc847",
+          "#5dc847",
+          //   "purple",
+          //   "#f3ba2f",
+          //   "#2a71d0"
+        ],
+        // borderColor: "red",
+        // borderWidth: 2
+      },
+      {
+        label: "Total Interviews",
+        data: graphData.map((data) => data.totalInterviews),
+        // barThickness: 20,
+        barPercentage: 0.25,
+        categoryPercentage: 0.5,
+        borderRadius: 10,
+        backgroundColor: [
+          "blue",
+          "blue",
+          //   "#50AF95",
+          //   "#f3ba2f",
+          //   "#2a71d0"
+        ],
+        // borderColor: "red",
+        // borderWidth: 2
+      },
+    ],
+  })
 
   const [chartData, setChartData] = useState(scheduled);
 
@@ -186,6 +232,7 @@ export default function ShowGraph() {
     setShowDeclined(false);
     setShowOffered(true);
     setShowScheduled(false);
+    setChartData(offered)
   };
 
   return (
@@ -213,7 +260,7 @@ export default function ShowGraph() {
           Offered
         </button>
       </div>
-      {interview.length > 0 && <BarChart chartData={chartData} />}
+      { <BarChart chartData={chartData} />}
     </div>
   );
 }

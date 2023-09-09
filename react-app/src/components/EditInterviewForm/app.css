@@ -31,7 +31,7 @@
     border: 0.5px solid rgba(0, 0, 0, 0.174);
     border-radius: 2px;
     outline-color:#4361ee;
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 1px;
     padding: 2px;
 }
@@ -40,7 +40,7 @@
     margin-left: 10px;
     height: 16px;
     letter-spacing: 1px;
-    font-size: 10px;
+    font-size: 12px;
     background-color: #caf0f863;
     border: 0.5px solid rgba(0, 0, 0, 0.174);
     border-radius: 2px; 
@@ -72,8 +72,8 @@
      width: 150px;
      /* background-color: #4361ee; */
      border: none;
-     height: 16px;
-     font-size: 10px;
+     height: 26px;
+     font-size: 13px;
      font-weight: 500;
      color: white;
      border-radius: 3px;

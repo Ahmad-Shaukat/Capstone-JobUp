@@ -32,26 +32,6 @@ export const BarChart = ({ chartData }) => {
 
   return (
     <div className="chart-container">
-      {/* <div className="graphs-btns">
-        <button
-          onClick={handleShowDeclined}
-          id={showDeclined ? "graph-selected" : ""}
-        >
-          Declined
-        </button>
-        <button
-          onClick={handleShowOffered}
-          id={showOffered ? "graph-selected" : ""}
-        >
-          Offered
-        </button>
-        <button
-          onClick={handleShowScheduled}
-          id={showScheduled ? "graph-selected" : ""}
-        >
-          Scheduled
-        </button>
-      </div> */}
       <h2 style={{ textAlign: "center" }}>Interview Data for 2023</h2>
 
       <Bar

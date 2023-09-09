@@ -29,8 +29,7 @@ const DataEngineerJobs = () => {
     dataEgJobs = Object.values(dataEgJobs)
     const handleFavorite = (job) => {
         job.title = job.title.trim()
-        console.log (job, '-----------this is the trimmed version'
-            )
+       
         setAddFav(job)
         setFavOptions(true)
         setShowJobs(false)

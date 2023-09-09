@@ -152,6 +152,9 @@ const AllInterviews = ({}) => {
                   {interview.status === "Declined" && (
                     <p className="allInt-Declined">{interview.status}</p>
                   )}
+                  {interview.status === "Offered" && (
+                    <p className="allInt-Offered">{interview.status}</p>
+                  )}
                 </div>
               </div>
             </div>

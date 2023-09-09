@@ -21,6 +21,10 @@ import { BiSolidDashboard } from "react-icons/bi";
 import {FcCancel} from 'react-icons/fc'
 import {AiFillCheckSquare} from 'react-icons/ai'
 import AllFavriteLists from "../AllFavoriteList";
+import { FaLocationArrow } from "react-icons/fa";
+import { BsCalendar2Week } from "react-icons/bs";
+import { MdWork } from "react-icons/md";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 // import "@fullcalendar/core/main.css";
 // import "@fullcalendar/daygrid/main.css";
@@ -33,9 +37,11 @@ function Stats() {
   let state = useSelector((store) => store);
   let user = useSelector((store) => store.session["user"]);
   const [showInterviews, setShowInterviews] = useState(false);
-  const [showDashboard, setShowDashboard] = useState(true);
-  const [showFavorites, setShowFavorites] = useState(false);
+  const [showDashboard, setShowDashboard] = useState(false);
+  const [showFavorites, setShowFavorites] = useState(true);
   const [showAddInterviewForm, setShowAddInterviewForm] = useState(false);
+  const [showDateInterview, setShowDateInterview] = useState([])
+  
   const hideFunc = false
   
 
@@ -59,8 +65,8 @@ function Stats() {
     return { ...interview, date: date };
   });
   //   console.log (formatedInterview, '---------------------')
-  console.log(interviews, "-----------------yellah");
-  console.log(formatedInterview, "---------------formated");
+  // console.log(interviews, "-----------------yellah");
+  // console.log(formatedInterview, "---------------formated");
 
   //   using map to make events array
   let events = formatedInterview.map((interview) => ({
@@ -87,10 +93,20 @@ function Stats() {
       return event.date == args.dateStr;
     });
     if (hasInterviews) {
+      console.log (args.dateStr, '-------------date')
+      console.log (formatedInterview, '----------------------formatted ')
+      const showTodays = formatedInterview.filter((interview) => interview.date == args.dateStr)
+      console.log (showTodays)
+      setShowDateInterview(showTodays)
       setShowInterviews(true);
       setShowDashboard(false);
+      setShowFavorites(false)
+      setShowAddInterviewForm(false);
     } else {
-      window.alert("Nothing to show");
+      setShowDashboard(false);
+    setShowAddInterviewForm(true);
+    setShowFavorites(false);
+    setShowInterviews(false)
     }
   };
   // this functions controls the dashboard once user opens up the interviews through calander
@@ -105,6 +121,7 @@ function Stats() {
     setShowFavorites(true);
     setShowDashboard(false);
     setShowAddInterviewForm(false);
+    setShowInterviews(false)
   };
 
   // this closes the favorites
@@ -118,6 +135,7 @@ function Stats() {
     setShowDashboard(false);
     setShowAddInterviewForm(true);
     setShowFavorites(false);
+    setShowInterviews(false)
   };
 
   // closes the interview form
@@ -131,6 +149,7 @@ function Stats() {
     setShowFavorites(false);
     setShowAddInterviewForm(false);
     setShowDashboard(true);
+    setShowInterviews(false)
   };
   // console.log (pendingInterviews.length, 'these are pending interivew --------------')
   // console.log (scheduledInterviews.length, 'these are scheduled interviews')
@@ -156,7 +175,7 @@ function Stats() {
                 <p>{pendingInterviews.length}</p>
               </div>
 
-              <p className="stats-text">Pending Interviews</p>
+              <p className="stats-text">Pending</p>
             </div>
             <div className="right-card-container">
               <div className="stats-icon-wrapper stats-icon-wrapper-pending">
@@ -170,7 +189,7 @@ function Stats() {
                 <p id="stats-scheduled-text">{scheduledInterviews.length}</p>
               </div>
 
-              <p className="stats-text">Scheduled Interviews</p>
+              <p className="stats-text">Scheduled</p>
             </div>
             <div className="right-card-container">
               <div className="stats-icon-wrapper stats-icon-wrapper-scheduled">
@@ -186,7 +205,7 @@ function Stats() {
                 </p>
               </div>
 
-              <p className="stats-text">Declined Interviews</p>
+              <p className="stats-text">Declined</p>
             </div>
             <div className="right-card-container">
               <div className="stats-icon-wrapper stats-icon-wrapper-declined">
@@ -194,7 +213,7 @@ function Stats() {
               </div>
             </div>
           </div>
-          <div className="stats-test stats-schduled-declined">
+          <div className="stats-test stats-schduled-Offered">
             <div className="left-card-container">
               <div className="stats-number">
                 <p className="stats-offered-colors">
@@ -252,9 +271,87 @@ function Stats() {
             <div className="stats__sub">
               {showInterviews ? (
                 <div className="showInterviews">
-                  <h1>showInterviews</h1>
-                  <button onClick={closeInterviewsHandle}>Close</button>
+                  {showDateInterview.map((interview) => (
+                    <div className="allInt-column allInt-column-stat">
+                    <div className="allInt-top-cont">
+                      <div className="allInt-com-letter">
+                        <p>{interview.company[0].toUpperCase()}</p>
+                      </div>
+                      <div>
+                        <p className="allInt-com-pos">{interview.position}</p>
+                        <p className="allInt-com-name">{interview.company}</p>
+                      </div>
+                    </div>
+                    <div className="allInt-btm-container">
+                      <div className="allInt-btm-left-cont">
+                        <div className="allInt-loc-type-cont">
+                          <p className="allInt-loc-text">
+                            <FaLocationArrow className="allInt-loc-logo" />
+                            {interview.location}
+                          </p>
+                          <p>
+                            <MdWork className="allInt-type-logo" />
+                            {interview.type}
+                          </p>
+                        </div>
+      
+                        <div className="allInt-btm-bttns">
+                          {/* <button
+                            className="allInt-edit-btn"
+                            onClick={() => showHandle(interview)}
+                          >
+                            Edit
+                          </button> */}
+      
+                          {/* <button className='allInt-edit-btn'>
+                                              <OpenModalButton
+                                                  buttonText={'Edit'}
+                                                  
+                                                  modalComponent={
+                                                      <EditInterviewForm
+                                                          interview={interview} id={interview.id}
+                                                      />
+                                                  }
+                                              />
+                                          </button> */}
+      
+                          {/* <button className="allInt-del-btn">
+                            <OpenModalButton
+                              buttonText={"Delete"}
+                              modalComponent={
+                                <DeleteInterview interview={interview} />
+                              }
+                            />
+                          </button> */}
+      
+                          <NavLink exact to={`/interview/${interview.id}/detail`}>
+                            <button className="allInt-btns-more">More</button>
+                          </NavLink>
+                        </div>
+                      </div>
+                      <div className="allInt-btm-right-container">
+                        <p className="allInt-date">
+                          <BsCalendar2Week className="allInt-int-logo" />
+                          {interview["date"].slice(0, 17)}
+                        </p>
+                        {interview.status === "Pending" && (
+                          <p className="allInt-Pending">{interview.status}</p>
+                        )}
+                        {interview.status === "Scheduled" && (
+                          <p className="allInt-Scheduled">{interview.status}</p>
+                        )}
+                        {interview.status === "Declined" && (
+                          <p className="allInt-Declined">{interview.status}</p>
+                        )}
+                        {interview.status === "Offered" && (
+                          <p className="allInt-Offered">{interview.status}</p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                  ))}
                 </div>
+                
               ) : null}
 
               {showDashboard ? (
@@ -267,13 +364,15 @@ function Stats() {
               {showFavorites ? (
                 <div>
                  <AllFavriteLists stats={true} />
-                  <button onClick={closeFavoritesHandle}>close</button>
+                  
                 </div>
               ) : null}
               {showAddInterviewForm ? (
-                <div>
-                  {" "}
+                <div className="showdashboard" >
+                  <div className="testi">
+                  {/* {" "} */}
                   <AddInterviewForm  />
+                   </div>
                 </div>
               ) : null}
             </div>
