@@ -36,6 +36,7 @@ function Stats() {
   const [showDashboard, setShowDashboard] = useState(true);
   const [showFavorites, setShowFavorites] = useState(false);
   const [showAddInterviewForm, setShowAddInterviewForm] = useState(false);
+  const [showDateInterview, setShowDateInterview] = useState([])
   const hideFunc = false
   
 
@@ -59,8 +60,8 @@ function Stats() {
     return { ...interview, date: date };
   });
   //   console.log (formatedInterview, '---------------------')
-  console.log(interviews, "-----------------yellah");
-  console.log(formatedInterview, "---------------formated");
+  // console.log(interviews, "-----------------yellah");
+  // console.log(formatedInterview, "---------------formated");
 
   //   using map to make events array
   let events = formatedInterview.map((interview) => ({
@@ -87,6 +88,11 @@ function Stats() {
       return event.date == args.dateStr;
     });
     if (hasInterviews) {
+      console.log (args.dateStr, '-------------date')
+      console.log (formatedInterview, '----------------------formatted ')
+      const showTodays = formatedInterview.filter((interview) => interview.date == args.dateStr)
+      console.log (showTodays)
+      setShowDateInterview(showTodays)
       setShowInterviews(true);
       setShowDashboard(false);
     } else {
@@ -254,7 +260,11 @@ function Stats() {
                 <div className="showInterviews">
                   <h1>showInterviews</h1>
                   <button onClick={closeInterviewsHandle}>Close</button>
+                  {showDateInterview.map((interview) => (
+                    <div>{interview.position} </div>
+                  ))}
                 </div>
+                
               ) : null}
 
               {showDashboard ? (
@@ -267,7 +277,7 @@ function Stats() {
               {showFavorites ? (
                 <div>
                  <AllFavriteLists stats={true} />
-                  <button onClick={closeFavoritesHandle}>close</button>
+                  
                 </div>
               ) : null}
               {showAddInterviewForm ? (

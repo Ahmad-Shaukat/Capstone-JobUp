@@ -17,6 +17,7 @@
     /* border: 2px solid red; */
     box-sizing: border-box;
     background-color: white;
+    /* background-color: purple; */
     /* background-color: teal; */
     /* margin-top: 20px; */
     height: 180px;
@@ -48,6 +49,7 @@
     display: grid;
     grid-template-columns: .5fr 2fr;
     padding: 10px;
+
 }
 .allInt-btm-bttns {
     /* background-color: aqua; */
@@ -169,7 +171,7 @@
     letter-spacing: 1px;
 }
 .allInt-Scheduled {
-    background-color: #06d6a0;
+    background-color: #a2d2ff;
     font-size: 12px;
     width: 75px;
     padding: 3px;
@@ -181,6 +183,17 @@
 }
 .allInt-Declined {
     background-color: #ef233c;
+    font-size: 13px;
+    width: 105px;
+    padding: 3px;
+    border-radius: 2px;
+    margin-top: 5px;
+    color:white ;
+    text-align: center;
+    letter-spacing: 1px;
+}
+.allInt-Offered {
+    background-color: #5dc847;
     font-size: 13px;
     width: 105px;
     padding: 3px;

@@ -52,7 +52,7 @@ const AllFavriteLists = ({options, favJob, closeFavFunc, stats}) => {
   const showNewFormHandle = () => {
     setShowNewForm(true);
     setShowEditForm(false);
-    setShowFavLists(true);
+    setShowFavLists(false);
   };
   const closeNewFormHandle = () => {
     setShowNewForm(false);
@@ -63,7 +63,7 @@ const AllFavriteLists = ({options, favJob, closeFavFunc, stats}) => {
     setEditList(list);
     setShowEditForm(true);
     setShowNewForm(false);
-    setShowFavLists(true);
+    setShowFavLists(false);
   };
 
   const closeEditFormHandle = () => {
@@ -87,7 +87,7 @@ const AllFavriteLists = ({options, favJob, closeFavFunc, stats}) => {
             </div>
           ) : null}
         </div> */}
-        <div className="test">
+        
         {showEditForm ? (
           <div className="fav-list-edit-form">
             <p className="form-edit-list-heading">Edit List</p>
@@ -98,7 +98,7 @@ const AllFavriteLists = ({options, favJob, closeFavFunc, stats}) => {
           </div>
         ) : null}
 
-        </div>
+        
         {showFavLists ? (
           <div className="fav-list-container">
             <p id="fav-list-heading">Favorites</p>
@@ -165,7 +165,7 @@ const AllFavriteLists = ({options, favJob, closeFavFunc, stats}) => {
                 <CreateFavoriteList closeNewForm={closeNewFormHandle} />
               </div>
             </div>
-          ) : null}
+          ) : stats ? (<div> </div>):null}
         </div>
       </>
     );

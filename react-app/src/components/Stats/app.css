@@ -282,6 +282,10 @@ flex-direction: column;
     /* background-color: green; */
     width: 90%;
 }
+.favorite-Cotainer-stat {
+    
+    /* height: 100%; */
+}
 
 
 @media (max-width: 1110px) {
