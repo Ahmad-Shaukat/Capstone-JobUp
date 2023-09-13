@@ -1,7 +1,7 @@
 .allInt-container {
-    display: grid;
+    display: flex;
     
-    grid-template-columns: 500px 500px 500px;
+    /* grid-template-columns: 500px 500px 500px; */
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 40px;
@@ -12,7 +12,7 @@
 
 }
 .allInt-column {
-    flex: 1;
+    /* flex: 1; */
     /* padding: 20px; */
     /* border: 2px solid red; */
     box-sizing: border-box;
@@ -23,6 +23,7 @@
     height: 180px;
     margin-left: 10px;
     padding: 3px;
+    width: 500px;
     
 }
 .allInt-top-cont {

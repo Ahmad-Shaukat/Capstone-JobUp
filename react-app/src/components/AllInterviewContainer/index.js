@@ -24,17 +24,32 @@ const AllInterviews = ({}) => {
   const [searchCompany, setSearchCompany] = useState(false);
   const [searchResult, setSearchResult] = useState([]);
   const [showSearch, setShowSearch] = useState(false);
+  const [searchType, setSearchType] = useState(false)
 
   const history = useHistory();
   interview = Object.values(interview);
-  console.log(interview);
+  // console.log(interview);
   const StatusInterview = (status) => {
-    return interview.filter((interview) => interview.status);
+    status = status.toString().toLowerCase()
+    return interview.filter((interview) => interview.status.toLowerCase()==status);
   };
+  console.log (StatusInterview('Pending'), '-----------all pending interviews')
   const positionInterview = (position) => {
     position = position.toString().toLowerCase(); // Convert to lowercase after ensuring it's a string
     return interview.filter((interview) =>
       interview.position.toLowerCase().includes(position)
+    );
+  };
+  const companyInterview = (company) => {
+    company = company.toString().toLowerCase(); // Convert to lowercase after ensuring it's a string
+    return interview.filter((interview) =>
+      interview.company.toLowerCase().includes(company)
+    );
+  };
+  const companyType = (type) => {
+    type = type.toString().toLowerCase(); // Convert to lowercase after ensuring it's a string
+    return interview.filter((interview) =>
+      interview.type.toLowerCase().includes(type)
     );
   };
   // console.log(StatusInterview("Pending"), "---------------these are pending");
@@ -64,31 +79,90 @@ const AllInterviews = ({}) => {
     history.push("/interviews");
   };
 
-  const handleSearch = (e) => {
+  const handleSearchPosition = (e) => {
     console.log(e.target.value.length);
     if (e.target.value.length == 0) {
       setShowInt(true);
       setShowSearch(false);
     } else {
-      console.log("in the else statement");
       setSearchPosition(e.target.value);
       console.log(searchPosition, "---------------search Position");
       setSearchResult(positionInterview(searchPosition));
-
-      // console.log (poistionInterview(searchPosition, '-----------------result from search Position'))
       setShowSearch(true);
       setShowInt(false);
       setSearchCompany(false);
       setSearchStatus(false);
+      setSearchType(false)
     }
     console.log(searchResult, "--------------searchResult");
     console.log(showSearch);
-    // console.log (e.target.value.length)
-    // setShowInt(false)
-    // return (<>
-    // <h5>{e.target.vlaue}</h5>
-    // </>
-    // )
+    
+  };
+  const handleSearchStatus = (e) => {
+    console.log(e.target.value.length);
+    if (e.target.value.length == 0) {
+      setShowInt(true);
+      setShowSearch(false);
+    } else {
+      console.log(e.target.value, '-------------target value');
+      // console.log("in the else statement");
+      setSearchStatus(e.target.value);
+      setSearchResult(StatusInterview(e.target.value));
+      setSearchPosition(false);
+      // console.log(searchPosition, "---------------search Position");
+      setShowSearch(true);
+      setShowInt(false);
+      setSearchCompany(false);
+      setSearchType(false)
+    }
+    console.log (searchResult, '----------------this is search result')
+    // console.log(searchResult, "--------------searchResult");
+    console.log(showSearch);
+   
+  };
+  const handleSearchCompany = (e) => {
+    console.log(e.target.value.length);
+    if (e.target.value.length == 0) {
+      setShowInt(true);
+      setShowSearch(false);
+    } else {
+      console.log(e.target.value, '-------------target value');
+      // console.log("in the else statement");
+      setSearchCompany(e.target.value);
+      setSearchStatus(false);
+      setSearchResult(companyInterview(e.target.value));
+      setSearchPosition(false);
+      setSearchType(false)
+      // console.log(searchPosition, "---------------search Position");
+      setShowSearch(true);
+      setShowInt(false);
+    }
+    console.log (searchResult, '----------------this is search result')
+    // console.log(searchResult, "--------------searchResult");
+    console.log(showSearch);
+   
+  };
+  const handleSearchType = (e) => {
+    console.log(e.target.value.length);
+    if (e.target.value.length == 0) {
+      setShowInt(true);
+      setShowSearch(false);
+    } else {
+      console.log(e.target.value, '-------------target value');
+      // console.log("in the else statement");
+      setSearchType(e.target.value)
+      setSearchStatus(false);
+      setSearchResult(companyType(e.target.value));
+      setSearchPosition(false);
+      // console.log(searchPosition, "---------------search Position");
+      setSearchCompany(true);
+      setShowSearch(true);
+      setShowInt(false);
+    }
+    console.log (searchResult, '----------------this is search result')
+    // console.log(searchResult, "--------------searchResult");
+    console.log(showSearch);
+   
   };
 
   // condition that opens up the form
@@ -130,12 +204,29 @@ const AllInterviews = ({}) => {
         <h5>Search</h5>
         <div>
           <label>Position </label>
-          <input type="text" onChange={handleSearch}></input>
+          <input type="text" onChange={handleSearchPosition}></input>
         </div>
         <div>
           <label>Status </label>
-          <input type="text" onChange={handleSearch}></input>
+          <select onChange={handleSearchStatus}>
+            <option>Pick One</option>
+            <option value={'Pending'}>Pending</option>
+            <option value={'Scheduled'}>Scheduled</option>
+            <option value={'Declined'}>Declined</option>
+            <option value={'Offered'}>Offered</option>
+          </select>
         </div>
+        <div>
+          <label>Company</label>
+          <input type="text" onChange={handleSearchCompany}></input>
+        </div>
+      </div>
+      <div>
+        <label>Type</label>
+        <select onChange={handleSearchType}>
+          <option value={'onsite'}>OnSite</option>
+          <option value={'remote'}>Remote</option>
+        </select>
       </div>
       {searchResult.length > 0 ? <div className="allInt-container">
 
