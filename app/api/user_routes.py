@@ -73,22 +73,24 @@ def upload_image(userId):
     if user.image == None:
         uploaded_file = request.files['file-to-save']
         new_filename = uuid.uuid4().hex + '.' + uploaded_file.filename.rsplit('.',1)[1].lower()
-        user.image = new_filename
+        new_name =   str(user.id)+uploaded_file.filename
+        user.image = new_name
         db.session.commit()
-        s3.Bucket('jobsphere-profile-images').upload_fileobj(uploaded_file, new_filename)
+        s3.Bucket('jobshpere-profile-images').upload_fileobj(uploaded_file, new_name)
         return {'message': 'successfully'}
     if user.image !=None:
-        # s3_del = boto3.resource("s3",aws_access_key_id='AKIATYZ27NUCOWGZ7CFR',aws_secret_access_key='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')
-        # s3.Object('jobsphere-profile-images', user.image).delete()
+        # s3_del = boto3.resource("s3",aws_access_key_id='AKIATYZ27NUCOWGZ7CFR',aws_secret_access_key='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', region_name ='us-east-1')
+        # s3.Object('jobshpere-profile-images', user.image).delete()
         # client = boto3.client('s3')
         # client.delete_object(Bucket='jobsphere-profile-images',Key=userImage )
         print(user.image, '---------------------')
         uploaded_file = request.files['file-to-save']
         # new_filename = uuid.uuid4().hex + '.' + uploaded_file.filename.rsplit('.',1)[1].lower()
-        # user.image = new_filename
-        # db.session.commit()
-        new_filename = user.image
-        s3.Bucket('jobshpere-profile-images').upload_fileobj(uploaded_file, new_filename)
+        new_name = str(user.id)+uploaded_file.filename 
+        user.image = new_name
+        db.session.commit()
+        # new_filename = user.image
+        s3.Bucket('jobshpere-profile-images').upload_fileobj(uploaded_file, new_name)
         
     return {'message' : 'successfully'}
     
