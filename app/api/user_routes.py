@@ -63,19 +63,48 @@ def allowd_files(filename):
 # upload to the s3 profile iamge 
 @user_routes.route('/<userId>/uploadImage', methods=['PUT'])
 def upload_image(userId):
+    s3 = boto3.resource('s3', aws_access_key_id = 'AKIATYZ27NUCOWGZ7CFR', aws_secret_access_key='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', region_name ='us-east-1'
+                        )
+    # s3_client = boto3.client('s3', aws_access_key_id = 'AKIATYZ27NUCOWGZ7CFR', aws_secret_access_key='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', region_name ='us-east-1'
+    #                     )
     user=User.query.get(userId)
+    userImage = user.image
+    print(user.to_dict(), '-------------this is user')
+    if user.image == None:
+        uploaded_file = request.files['file-to-save']
+        new_filename = uuid.uuid4().hex + '.' + uploaded_file.filename.rsplit('.',1)[1].lower()
+        user.image = new_filename
+        db.session.commit()
+        s3.Bucket('jobsphere-profile-images').upload_fileobj(uploaded_file, new_filename)
+        return {'message': 'successfully'}
+    if user.image !=None:
+        # s3_del = boto3.resource("s3",aws_access_key_id='AKIATYZ27NUCOWGZ7CFR',aws_secret_access_key='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')
+        # s3.Object('jobsphere-profile-images', user.image).delete()
+        # client = boto3.client('s3')
+        # client.delete_object(Bucket='jobsphere-profile-images',Key=userImage )
+        print(user.image, '---------------------')
+        uploaded_file = request.files['file-to-save']
+        # new_filename = uuid.uuid4().hex + '.' + uploaded_file.filename.rsplit('.',1)[1].lower()
+        # user.image = new_filename
+        # db.session.commit()
+        new_filename = user.image
+        s3.Bucket('jobshpere-profile-images').upload_fileobj(uploaded_file, new_filename)
+        
+    return {'message' : 'successfully'}
     
-    uploaded_file = request.files['file-to-save']
+
+    
+    # uploaded_file = request.files['file-to-save']
     
     # if not allowd_files(uploaded_file.filename):
     #     return 'File not Allowed'
-    # print(uploaded_file, '---------------------------')
-    new_filename= uuid.uuid4().hex + '.'+uploaded_file.filename.rsplit('.', 1)[1].lower()
-    user.image = new_filename
-    db.session.commit()
-    s3 = boto3.resource('s3', aws_access_key_id = 'AKIATYZ27NUCOWGZ7CFR', aws_secret_access_key='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', region_name ='us-east-1'
-                        )
-    s3.Bucket('jobshpere-profile-images').upload_fileobj(uploaded_file, new_filename)
-    return jsonify({'MESSAGE': 'uPLOADED'})
+    
+    # new_filename= uuid.uuid4().hex + '.'+uploaded_file.filename.rsplit('.', 1)[1].lower()
+    # user.image = new_filename
+    # db.session.commit()
+    # s3 = boto3.resource('s3', aws_access_key_id = 'AKIATYZ27NUCOWGZ7CFR', aws_secret_access_key='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', region_name ='us-east-1'
+    #                     )
+    # s3.Bucket('jobshpere-profile-images').upload_fileobj(uploaded_file, new_filename)
+    return user.to_dict()
 
 
