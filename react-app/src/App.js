@@ -179,7 +179,7 @@ function App() {
               <Route exact path='/hello'>
                 <Stats />
               </Route>
-              <Route exact path= '/interview/edit'>
+              <Route exact path= '/testing'>
                 <Testing />
               </Route>
               <Route exact path = '/testing/graph'>

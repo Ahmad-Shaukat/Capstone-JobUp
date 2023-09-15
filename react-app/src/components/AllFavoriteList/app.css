@@ -39,6 +39,7 @@
     font-size: 18px;
     /* background-color: blue; */
 }
+
 .fav-list-name {
     font-size: 24px;
     font-weight: 600;
@@ -280,4 +281,33 @@
     background-color: #4361ee;
     border-top-right-radius: 3px;
     border-top-left-radius: 3px;
+}
+.add-job-cancel-btn {
+    background-color: purple;
+    border: none;
+    font-size: 16px;
+    width: 130px;
+    padding: 3px;
+    display: inline-block;
+    margin: auto;
+    color: white;
+    background-color: #e5383b;
+    border: 2px solid white;
+    transition: .3s;
+
+}
+.add-job-cancel-btn:hover {
+    border-color: #e5383b;
+    background-color: white;
+    color: #e5383b;
+    cursor: pointer;
+    
+}
+.add-job-cancel-btn-cont {
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
 }

@@ -24,16 +24,18 @@ const AllInterviews = ({}) => {
   const [searchCompany, setSearchCompany] = useState(false);
   const [searchResult, setSearchResult] = useState([]);
   const [showSearch, setShowSearch] = useState(false);
-  const [searchType, setSearchType] = useState(false)
+  const [searchType, setSearchType] = useState(false);
 
   const history = useHistory();
   interview = Object.values(interview);
   // console.log(interview);
   const StatusInterview = (status) => {
-    status = status.toString().toLowerCase()
-    return interview.filter((interview) => interview.status.toLowerCase()==status);
+    status = status.toString().toLowerCase();
+    return interview.filter(
+      (interview) => interview.status.toLowerCase() == status
+    );
   };
-  console.log (StatusInterview('Pending'), '-----------all pending interviews')
+  console.log(StatusInterview("Pending"), "-----------all pending interviews");
   const positionInterview = (position) => {
     position = position.toString().toLowerCase(); // Convert to lowercase after ensuring it's a string
     return interview.filter((interview) =>
@@ -78,6 +80,16 @@ const AllInterviews = ({}) => {
     setEditInterview({});
     history.push("/interviews");
   };
+  const handleClearSearch = () => {
+    setSearchCompany(false)
+    setSearchCompany(false)
+    setSearchPosition(false)
+    setSearchType(false)
+    setSearchResult([])
+    setShowSearch(false)
+    setShowInt(true)
+    
+  }
 
   const handleSearchPosition = (e) => {
     console.log(e.target.value.length);
@@ -92,11 +104,10 @@ const AllInterviews = ({}) => {
       setShowInt(false);
       setSearchCompany(false);
       setSearchStatus(false);
-      setSearchType(false)
+      setSearchType(false);
     }
     console.log(searchResult, "--------------searchResult");
     console.log(showSearch);
-    
   };
   const handleSearchStatus = (e) => {
     console.log(e.target.value.length);
@@ -104,7 +115,7 @@ const AllInterviews = ({}) => {
       setShowInt(true);
       setShowSearch(false);
     } else {
-      console.log(e.target.value, '-------------target value');
+      console.log(e.target.value, "-------------target value");
       // console.log("in the else statement");
       setSearchStatus(e.target.value);
       setSearchResult(StatusInterview(e.target.value));
@@ -113,12 +124,11 @@ const AllInterviews = ({}) => {
       setShowSearch(true);
       setShowInt(false);
       setSearchCompany(false);
-      setSearchType(false)
+      setSearchType(false);
     }
-    console.log (searchResult, '----------------this is search result')
+    console.log(searchResult, "----------------this is search result");
     // console.log(searchResult, "--------------searchResult");
     console.log(showSearch);
-   
   };
   const handleSearchCompany = (e) => {
     console.log(e.target.value.length);
@@ -126,31 +136,32 @@ const AllInterviews = ({}) => {
       setShowInt(true);
       setShowSearch(false);
     } else {
-      console.log(e.target.value, '-------------target value');
+      console.log(e.target.value, "-------------target value");
       // console.log("in the else statement");
       setSearchCompany(e.target.value);
       setSearchStatus(false);
       setSearchResult(companyInterview(e.target.value));
       setSearchPosition(false);
-      setSearchType(false)
+      setSearchType(false);
       // console.log(searchPosition, "---------------search Position");
       setShowSearch(true);
       setShowInt(false);
     }
-    console.log (searchResult, '----------------this is search result')
+    console.log(searchResult, "----------------this is search result");
     // console.log(searchResult, "--------------searchResult");
     console.log(showSearch);
-   
   };
   const handleSearchType = (e) => {
-    console.log(e.target.value.length);
-    if (e.target.value.length == 0) {
+    if (e.target.value === 'Pick One') {
+      handleClearSearch()
+    } else if 
+     (e.target.value.length == 0) {
       setShowInt(true);
       setShowSearch(false);
     } else {
-      console.log(e.target.value, '-------------target value');
+      console.log(e.target.value, "-------------target value");
       // console.log("in the else statement");
-      setSearchType(e.target.value)
+      setSearchType(e.target.value);
       setSearchStatus(false);
       setSearchResult(companyType(e.target.value));
       setSearchPosition(false);
@@ -159,12 +170,12 @@ const AllInterviews = ({}) => {
       setShowSearch(true);
       setShowInt(false);
     }
-    console.log (searchResult, '----------------this is search result')
+    console.log(searchResult, "----------------this is search result");
     // console.log(searchResult, "--------------searchResult");
     console.log(showSearch);
-   
   };
 
+ 
   // condition that opens up the form
   if (showEdit) {
     return (
@@ -200,71 +211,77 @@ const AllInterviews = ({}) => {
 
   return (
     <>
-      <div>
-        <h5>Search</h5>
+      <div className="int-search-cont">
         <div>
-          <label>Position </label>
-          <input type="text" onChange={handleSearchPosition}></input>
+          <p>Search</p>
         </div>
-        <div>
-          <label>Status </label>
-          <select onChange={handleSearchStatus}>
-            <option>Pick One</option>
-            <option value={'Pending'}>Pending</option>
-            <option value={'Scheduled'}>Scheduled</option>
-            <option value={'Declined'}>Declined</option>
-            <option value={'Offered'}>Offered</option>
-          </select>
+        <div className="int-search-body">
+          <div>
+            <label>Position </label>
+            <input type="text" onChange={handleSearchPosition}></input>
+          </div>
+          <div>
+            <label>Status </label>
+            <select onChange={handleSearchStatus}>
+              <option value={'Pick One'}>Pick One</option>
+              <option value={"Pending"}>Pending</option>
+              <option value={"Scheduled"}>Scheduled</option>
+              <option value={"Declined"}>Declined</option>
+              <option value={"Offered"}>Offered</option>
+            </select>
+          </div>
+          <div>
+            <label>Company</label>
+            <input type="text" onChange={handleSearchCompany}></input>
+          </div>
+          <div>
+            <label>Type </label>
+            <select onChange={handleSearchType}>
+            <option value={'Pick One'}>Pick One</option>
+              <option value={"onsite"}>OnSite</option>
+              <option value={"remote"}>Remote</option>
+            </select>
+          </div>
         </div>
-        <div>
-          <label>Company</label>
-          <input type="text" onChange={handleSearchCompany}></input>
-        </div>
+          <button className="clear-search-btn" onClick={handleClearSearch}>Clear Search</button>
       </div>
-      <div>
-        <label>Type</label>
-        <select onChange={handleSearchType}>
-          <option value={'onsite'}>OnSite</option>
-          <option value={'remote'}>Remote</option>
-        </select>
-      </div>
-      {searchResult.length > 0 ? <div className="allInt-container">
-
-        {searchResult.map((interview) => (
-          <div key={interview.id} className="">
-            {showSearch ? (
-              <div className="allInt-column">
-                <div className="allInt-top-cont">
-                  <div className="allInt-com-letter">
-                    <p>{interview.company[0].toUpperCase()}</p>
-                  </div>
-                  <div>
-                    <p className="allInt-com-pos">{interview.position}</p>
-                    <p className="allInt-com-name">{interview.company}</p>
-                  </div>
-                </div>
-                <div className="allInt-btm-container">
-                  <div className="allInt-btm-left-cont">
-                    <div className="allInt-loc-type-cont">
-                      <p className="allInt-loc-text">
-                        <FaLocationArrow className="allInt-loc-logo" />
-                        {interview.location}
-                      </p>
-                      <p>
-                        <MdWork className="allInt-type-logo" />
-                        {interview.type}
-                      </p>
+      {searchResult.length > 0 ? (
+        <div className="allInt-container">
+          {searchResult.map((interview) => (
+            <div key={interview.id} className="">
+              {showSearch ? (
+                <div className="allInt-column">
+                  <div className="allInt-top-cont">
+                    <div className="allInt-com-letter">
+                      <p>{interview.company[0].toUpperCase()}</p>
                     </div>
+                    <div>
+                      <p className="allInt-com-pos">{interview.position}</p>
+                      <p className="allInt-com-name">{interview.company}</p>
+                    </div>
+                  </div>
+                  <div className="allInt-btm-container">
+                    <div className="allInt-btm-left-cont">
+                      <div className="allInt-loc-type-cont">
+                        <p className="allInt-loc-text">
+                          <FaLocationArrow className="allInt-loc-logo" />
+                          {interview.location}
+                        </p>
+                        <p>
+                          <MdWork className="allInt-type-logo" />
+                          {interview.type}
+                        </p>
+                      </div>
 
-                    <div className="allInt-btm-bttns">
-                      <button
-                        className="allInt-edit-btn"
-                        onClick={() => showHandle(interview)}
-                      >
-                        Edit
-                      </button>
+                      <div className="allInt-btm-bttns">
+                        <button
+                          className="allInt-edit-btn"
+                          onClick={() => showHandle(interview)}
+                        >
+                          Edit
+                        </button>
 
-                      {/* <button className='allInt-edit-btn'>
+                        {/* <button className='allInt-edit-btn'>
                                 <OpenModalButton
                                     buttonText={'Edit'}
                                     
@@ -276,44 +293,45 @@ const AllInterviews = ({}) => {
                                 />
                             </button> */}
 
-                      <button className="allInt-del-btn">
-                        <OpenModalButton
-                          buttonText={"Delete"}
-                          modalComponent={
-                            <DeleteInterview interview={interview} />
-                          }
-                        />
-                      </button>
+                        <button className="allInt-del-btn">
+                          <OpenModalButton
+                            buttonText={"Delete"}
+                            modalComponent={
+                              <DeleteInterview interview={interview} />
+                            }
+                          />
+                        </button>
 
-                      <NavLink exact to={`/interview/${interview.id}/detail`}>
-                        <button className="allInt-btns-more">More</button>
-                      </NavLink>
+                        <NavLink exact to={`/interview/${interview.id}/detail`}>
+                          <button className="allInt-btns-more">More</button>
+                        </NavLink>
+                      </div>
+                    </div>
+                    <div className="allInt-btm-right-container">
+                      <p className="allInt-date">
+                        <BsCalendar2Week className="allInt-int-logo" />
+                        {interview["date"].slice(0, 17)}
+                      </p>
+                      {interview.status === "Pending" && (
+                        <p className="allInt-Pending">{interview.status}</p>
+                      )}
+                      {interview.status === "Scheduled" && (
+                        <p className="allInt-Scheduled">{interview.status}</p>
+                      )}
+                      {interview.status === "Declined" && (
+                        <p className="allInt-Declined">{interview.status}</p>
+                      )}
+                      {interview.status === "Offered" && (
+                        <p className="allInt-Offered">{interview.status}</p>
+                      )}
                     </div>
                   </div>
-                  <div className="allInt-btm-right-container">
-                    <p className="allInt-date">
-                      <BsCalendar2Week className="allInt-int-logo" />
-                      {interview["date"].slice(0, 17)}
-                    </p>
-                    {interview.status === "Pending" && (
-                      <p className="allInt-Pending">{interview.status}</p>
-                    )}
-                    {interview.status === "Scheduled" && (
-                      <p className="allInt-Scheduled">{interview.status}</p>
-                    )}
-                    {interview.status === "Declined" && (
-                      <p className="allInt-Declined">{interview.status}</p>
-                    )}
-                    {interview.status === "Offered" && (
-                      <p className="allInt-Offered">{interview.status}</p>
-                    )}
-                  </div>
                 </div>
-              </div>
-            ) : null}
-          </div>
-        ))}
-      </div>: showSearch ? (
+              ) : null}
+            </div>
+          ))}
+        </div>
+      ) : showSearch ? (
         <div>No results found</div>
       ) : null}
       {showInt ? (

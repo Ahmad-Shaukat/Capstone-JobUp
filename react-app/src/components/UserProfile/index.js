@@ -6,50 +6,105 @@ import "./app.css";
 import OpenModalButton from "../OpenModalButton";
 import { authenticate } from "../../store/session";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useState } from "react";
+// import { set } from "date-fns";
 // import { useDispatch } from "react-redux";
 
 const UserProfile = () => {
   const dispatch = useDispatch();
-  const history = useHistory()
+  const history = useHistory();
+  const [editPic, seteditPic] = useState(false)
   let user = useSelector((store) => store.session.user);
   let userProfile = useSelector((store) => store?.userProfile?.profile);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    const fileInput = document.querySelector('input[type="file"]');
+    formData.append('file-to-save', fileInput.files[0]);
+
+    try {
+      const response = await fetch(`/api/users/${user.id}/uploadImage`, {
+        method: 'PUT',
+        body: formData,
+      });
+
+      if (response.ok) {
+        console.log('Image uploaded successfully');
+        seteditPic(false)
+        // Handle success as needed
+      } else {
+        console.error('Image upload failed');
+        // Handle error as needed
+      }
+    } catch (error) {
+      console.error('Error while uploading image', error);
+      // Handle error as needed
+    }
+  };
   console.log("-----------------------------", userProfile);
   console.log(user, "-------------this is user");
   useEffect(() => {
     dispatch(authenticate());
   }, [dispatch]);
   if (!user) {
-    history.push('/')
-    return null
-}
+    history.push("/");
+    return null;
+  }
+  const openEdit = () => {
+    seteditPic(true)
+  }
 
   return (
     <>
       <section id="user-profile">
         <div className="user-profile-img">
-          <img src={userImage}></img>
+          <img
+            src={
+              user.image
+                ? `https://jobshpere-profile-images.s3.amazonaws.com/${user.image}`
+                : userImage
+            }
+          ></img>
+          {/* // https://jobshpere-profile-images.s3.amazonaws.com/6d8130902c8f4167b85a0dddab625582.jpg */}
+          <div>
+            <button onClick={openEdit}>Edit</button>
+            {editPic ? (
+
+            <div>
+              <form
+                method="PUT"
+                encType="multipart/form-data"
+                onSubmit={handleSubmit}
+              >
+                <input type="file" name="file-to-save"></input>
+                <button type="submit">Upload</button>
+              </form>
+            </div>
+            ) : null}
+          </div>
         </div>
 
         <div className="user-profile-info">
           <div>
             <label for="user-first-name">First Name</label>
-            <input id="user-first-name" value={user.firstName}disabled></input>
+            <input id="user-first-name" value={user.firstName} disabled></input>
           </div>
           <div>
             <label for="user-first-name">Last Name</label>
-            <input id="user-first-name" value={user.last_name}disabled></input>
+            <input id="user-first-name" value={user.last_name} disabled></input>
           </div>
           <div>
             <label for="user-career">Career</label>
-            <input id="user-career" value={user.career}disabled></input>
+            <input id="user-career" value={user.career} disabled></input>
           </div>
           <div>
             <label for="user-location">Location</label>
-            <input id="user-location" value={user.location}disabled></input>
+            <input id="user-location" value={user.location} disabled></input>
           </div>
           <div>
             <label for="user-username">Username</label>
-            <input id="user-username" value={user.username}disabled></input>
+            <input id="user-username" value={user.username} disabled></input>
           </div>
           <div>
             <label for="user-email">Email</label>

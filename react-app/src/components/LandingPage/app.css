@@ -5,6 +5,7 @@
     margin-top: 20px;
 
 }
+
 .land-logo {
     margin-left: 120px;
     /* background-color: green; */
@@ -14,7 +15,7 @@
     align-items: start;
     /* background-color:   red; */
     /* width: 400px; */
-    
+
 }
 
 .land-nav-cont {
@@ -23,37 +24,79 @@
     background-color: rgba(68, 99, 238, 0.01);
 
     margin-bottom: 20px;
-    
-} 
+
+}
 
 .landing-body-cont {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    /* grid-template-columns: 1fr 1fr; */
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-between;
+    gap: 40px;
     /* background-color: green; */
+    height: 45vh;
 }
+.heading-landing-page {
+    color: #e5e5e5;
+    letter-spacing: 2px;
+    /* background-color: white; */
+    font-family: 'Pacifico', cursive;
+    width: 100%;
+}
+.card-social {
+    border-top: 4px solid #4361ee;
+}
+.card-img-job {
+    width: 75px;
+    height: 85px;
+    /* color: #fcbf49; */
+}
+.card-work {
+    border-top: 4px solid #fcbf49;
+}
+
 .land-main-cion {
     height: 100vh;
+    width: 100vw;
+    margin: auto;
+    background-image:url('../../utilities/background .jpg') ;
     /* background-color: red; */
+    background-repeat: no-repeat;
+    /* background-position: center; */
+    background-size: cover;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* background-color: #0093E9;
+background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%); */
+color: #e5e5e5;
+
 }
+
 .landing-img img {
     width: 600px;
     height: 600px;
     /* background-color: #4361ee; */
 }
+
 .landing-img {
     /* background-color: red; */
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 400px;
 }
+
 .landing-desc-text {
     font-size: 20px;
     letter-spacing: 1px;
     width: 400px;
     margin-bottom: 10px;
     /* background-color: teal; */
-    
+
 }
+
 .landing-body-description {
     /* background-color: yellow; */
     display: flex;
@@ -63,78 +106,204 @@
     margin-left: 40px;
     /* background-color: blue; */
 }
+
 .landing-bod-content {
     /* background-color: teal; */
     /* padding: 40px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 30px;
     align-items: center;
-    height: 100%;
+    height: 70vh;
     width: 100%;
 }
-.landing-bod-content p {
-    padding: 5px;
+
+.landing-bod-content  {
+    /* padding: 5px; */
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
 .landing-heading {
     font-size: 40px;
     /* background-color: red; */
     font-weight: 500;
     letter-spacing: 1px;
+    font-family: 'Pacifico', cursive;
 }
+
 .landing-heading span {
     color: #4361ee;
 }
+
 .landing-btns {
     /* border: 1px solid red; */
     width: 250px;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 5px;
+    margin: auto;
+    margin-bottom: 10px;
     margin-top: 15px;
 }
+
 .landing-btns button {
     width: 115px;
     height: 35px;
     font-size: 16px;
     border: none;
-    background-color:#4361ee;
+    /* background-color: #4361ee; */
+    background-color: black;
+    border: .5px solid #e5e5e5;
+    
     letter-spacing: 1px;
     border-radius: 3px;
-    
+    font-family: 'Pacifico', cursive;
+    margin: auto;
+    transition: .3s;
+    color: #e5e5e5;
+
 }
+.landing-btns button:hover{
+    background-color: white;
+    color: black;
+    /* border: black; */
+}
+.card-container-landing {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+.card {
+    background-color: #f1faee;
+    width: 350px;
+    height: 250px;
+}
+.landing-demo-button {
+    margin: auto;
+    display: flex;
+    /* background-color: red; */
+    margin-bottom: 15px;
+}
+.card-img {
+    width: 70px;
+    height: 70px;
+    align-self: flex-end;
+}
+.card {
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+    border-radius: 5px;
+    /* border-top: 4px solid #e63946; */
+}
+.card-calander {
+    border-top: 4px solid #e63946;
+}
+.card-img-cont {
+    display: flex;
+    justify-content: end;
+}
+.card-cont {
+    /* background-color: red; */
+    width: 90%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card-cont h1 {
+    color:#415a77 ;
+    letter-spacing: 1px;
+}
+.card-cont p {
+    letter-spacing: 1px;
+    font-size: 17px;
+    color: #6c757d;
+}
+
+
 .landing-demo-button button {
     border: none;
     width: 250px;
     /* width: 100%; */
-    background-color:#4361ee;
+    /* background-color: #4361ee;
+     */
+    font-family: 'Pacifico', cursive;
+    background-color: black;
+    border: 1px solid white;
     height: 35px;
     font-size: 16px;
     letter-spacing: 1px;
-    color:white;
+    color: #e5e5e5;
     margin-top: 5px;
     border-radius: 3px;
     cursor: pointer;
+    margin: auto;
+    margin-bottom: 30px;
+    transition: .3s;
 
 
 }
-@media screen and (max-width:1160px ) {
+.landing-demo-button button:hover {
+    background-color: white;
+    color: black;
+}
+
+@media screen and (max-width:1160px) {
     .landing-body-cont {
         grid-template-columns: 1fr;
+        gap: 20px;
 
     }
+
+    .card-container-landing {
+        flex-direction: column;
+        margin: auto;
+    }
+
     .landing-img img {
         max-width: 300px;
         max-height: 340px;
+        /* background-color: blue; */
     }
+
+    /* .landing-heading {
+
+        font-size: 30px;
+    } */
+    .landing-body-cont {
+        height: 100%;
+    }
+    .landing-body-content {
+        height: 100%;
+    }
+    .landing-bod-content {
+        height: 100%;
+    }
+    .land-main-cion {
+        height: 100%;
+    }
+    
 }
-@media screen and (max-width:505px ) {
-    .landing-desc-text {
-        font-size: 15px;
-        letter-spacing: 1px;
-        width: 300px;
-        margin-bottom: 10px;
-        /* background-color: teal; */
-        
+
+@media screen and (max-width:505px) {
+    .landing-body-content {
+        height: 100%;
+
     }
+    .card-container-landing {
+        flex-direction: column;
+        margin: auto;
+        margin-right: 20px;
+        /* background-color: teal; */
+        justify-content: center;
+        align-items: center;
+    }
+
 }

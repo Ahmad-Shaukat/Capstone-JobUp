@@ -21,6 +21,7 @@ export const getReactJobsThunk = () => async (dispatch) => {
         return jobs
     }
 }
+
 export default function reactReducer(state = {}, action) {
     let newState = {}
     switch(action.type) {

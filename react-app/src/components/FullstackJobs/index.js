@@ -35,7 +35,8 @@ const FullStack = () => {
     } 
     const closeFav = () => {
         setShowJobs(true)
-        setShowJobs(true)
+        // setShowJobs(true)
+        setShowFavLists(false)
     }
     
     const handleAddInterview = async (title) => {

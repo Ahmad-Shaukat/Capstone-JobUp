@@ -49,8 +49,10 @@ const ReactJobs = () => {
         setShowFavLists(true)
     } 
     const closeFav = () => {
+        getReactJobsThunk()
         setShowJobs(true)
-        setShowJobs(true)
+        // setShowJobs(true)
+        setShowFavLists(false)
     }
     
     const handleAddInterview = async (title) => {
