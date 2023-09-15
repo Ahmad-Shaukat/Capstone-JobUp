@@ -14,6 +14,7 @@ const UserProfile = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [editPic, seteditPic] = useState(false)
+  const [showEdit, setShowEdit] = useState(true)
   let user = useSelector((store) => store.session.user);
   let userProfile = useSelector((store) => store?.userProfile?.profile);
   const handleSubmit = async (e) => {
@@ -53,6 +54,11 @@ const UserProfile = () => {
   }
   const openEdit = () => {
     seteditPic(true)
+    setShowEdit(false)
+  }
+  const handleCancelForm  = () => {
+    seteditPic(false)
+    setShowEdit(true)
   }
 
   return (
@@ -67,21 +73,28 @@ const UserProfile = () => {
             }
           ></img>
           {/* // https://jobshpere-profile-images.s3.amazonaws.com/6d8130902c8f4167b85a0dddab625582.jpg */}
-          <div>
-            <button onClick={openEdit}>Edit</button>
+          <div className="image-upload-cont">
+            {showEdit ? (
+
+            <div className="edit-imag-btn-cont"><button onClick={openEdit} className="edit-profile-pic-btn">Edit</button> </div>
+            ) :null}
             {editPic ? (
 
-            <div>
+            <div className="edit-pic-form-cont">
               <form
                 method="PUT"
                 encType="multipart/form-data"
                 onSubmit={handleSubmit}
               >
                 <input type="file" name="file-to-save"></input>
-                <button type="submit">Upload</button>
+                <div className="pic-form-btns">
+                  <button type="submit">Upload</button>
+                <button onClick={handleCancelForm}>Cancel</button>
+                </div>
+                
               </form>
             </div>
-            ) : null}
+            ) : <div> </div>}
           </div>
         </div>
 
@@ -114,7 +127,6 @@ const UserProfile = () => {
             <label for="user-bio-label">Bio</label>
             <textarea id="user-email" value={user.bio} disabled></textarea>
           </div>
-        </div>
         <div>
           <button className="user-info-edit-btn">
             <OpenModalButton
@@ -122,6 +134,7 @@ const UserProfile = () => {
               modalComponent={<EditUserInfoForm user={user} />}
             />
           </button>
+        </div>
         </div>
       </section>
     </>
