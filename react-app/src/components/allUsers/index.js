@@ -28,13 +28,15 @@ const AllUsers = () => {
 
     if (users) {
         return <>
+        <div className="main-cont-all-users">
+
+        <h1 className="all-users-heading">Discover People</h1>
             <div className="allusers-main-cont">
 
                 {filtered_users.map((user) => {
                     return (
-                        <NavLink exact to={`/users/${user.id}/profile`} className='allusers-links'>
-
-                            <div key={user.id} className="allusers-single-cont" >
+                        
+                        <div key={user.id} className="allusers-single-cont" >
                                 <div className="allusers-inner-content">
 
                                 <div className="allusers-img-cont">
@@ -48,17 +50,19 @@ const AllUsers = () => {
                                     <p className="allusers-location">Software Engineer</p>
                                 </div>
                                 <div className="allusers-connect-btn-ctn">
+                                <NavLink exact to={`/users/${user.id}/profile`} className='allusers-links'>
                                     <button className="allusers-connect-btn">Connect</button>
+                        </NavLink>
                                 </div>
                                 </div>
 
                             </div>
-                        </NavLink>
 
                     )
 
                 })}
             </div>
+        </div>
 
         </>
     }

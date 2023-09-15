@@ -1,17 +1,43 @@
 .allusers-main-cont {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    /* max-width: fit-content; */
+    align-items: center;
+    justify-content: center;
     gap: 10px;
-    margin-left: 20px;
+    /* margin-left: 20px;
+    margin-top: 20px; */
+    /* background-color: red; */
+    /* background-color: white; */
+    margin: auto;
+    width: 80vw;
+    margin-bottom: 20px;
+    margin-top: 15px;
+  }
+  .main-cont-all-users {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content:center ; */
+  }
+  .all-users-heading {
+    text-align: center;
     margin-top: 20px;
+    color: #4361ee;
   }
   .allusers-single-cont {
     /* background-color: red; */
+    /* background-color: blue; */
+
+    width: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   } 
   .allusers-img-cont img{
-    width: 100px;
+    width: 140px;
     border-radius: 50%;
-    height: 100px;
+    height: 140px;
     
   }
   .allusers-img-cont {
@@ -20,7 +46,7 @@
   .allusers-inner-content {
     background-color: green;
     background-color: white;
-    width: 170px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,7 +59,7 @@
     display: flex;
     width: 160px;
     justify-content: center;
-    font-size: 10px;
+    font-size: 15px;
     letter-spacing: 1px;
     font-weight: 500;
 
@@ -54,17 +80,17 @@
   .allusers-location {
     color: grey;
     letter-spacing: 1px;
-    font-size: 10px;
+    font-size: 15px;
     margin-top: 5px;
     margin-bottom: 10px;
 
 }
 .allusers-connect-btn-ctn button {
     /* background-color: red; */
-    width: 80px;
+    width: 100px;
     color: white;
-    font-size: 8px;
-    height: 20px;
+    font-size: 15px;
+    height: 23px;
     letter-spacing: 1px;
     font-weight: 700;
     margin-bottom: 10px;
@@ -73,4 +99,11 @@
     background-color: #4361ee;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
+}
+@media screen and  (max-width:600px) {
+  .allusers-main-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
