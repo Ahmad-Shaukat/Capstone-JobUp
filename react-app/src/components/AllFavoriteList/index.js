@@ -183,8 +183,8 @@ const AllFavriteLists = ({ options, favJob, closeFavFunc, stats }) => {
         ) : null}
         <div>
           {showNewForm ? (
-            <div>
-              <div>
+            <div className="outer-div">
+              <div className="inner-form">
                 <CreateFavoriteList closeNewForm={closeNewFormHandle} />
               </div>
             </div>

@@ -311,3 +311,30 @@
     margin-bottom: 15px;
 
 }
+@media screen and (max-width: 1060px) {
+    .fav-list-container {
+
+        width: 90%;
+    }
+    /* .fav-job-container p {
+        font-size: 12px;
+    } */
+    
+}
+@media screen and (max-width:400px ) {
+    .fav-list-container p {
+        font-size: 12px;
+    }
+    .outer-div {
+        /* background-color: green; */
+        /* height: 400px; */
+        width: 95%;
+        margin: auto;
+    }
+    .inner-form {
+        /* background-color: blue; */
+        width: 95%;
+    }
+}
+
+
