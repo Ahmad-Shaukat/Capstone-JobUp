@@ -1,0 +1,111 @@
+.about-me-main-cont {
+    /* background-color: red; */
+    width: 40%;
+    /* height: 40%; */
+    margin: auto;
+    margin-top: 100px;
+
+}
+.about-me-upper {
+    display: flex;
+    gap: 10px;
+    
+}
+.about-me-left{
+    /* width: 50%; */
+    /* background-color: blue; */
+    display: flex;
+    justify-content: center;
+
+}
+.profile-pic {
+   
+    border-radius: 50%; 
+    width: 240px;
+    height: 320px;
+}
+.about-me-right {
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    align-items: center;
+}
+.about-me-name {
+    font-weight: 600;
+    font-size: 30px;
+}
+.about-me-subheading {
+    font-weight: 600;
+}
+.about-me-bottom {
+    /* background-color: red; */
+    height: 100px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+.about-me-links  {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    /* background-color: #dda15e; */
+    border: 1px solid  #4362ee1c;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 15px;
+    color: white;
+    transition: .3s;
+}
+.about-me-links:hover {
+    /* background-color: #4362ee1c; */
+    background-color: transparent;
+    /* border-color: #dda15e; */
+    /* color: #dda15e; */
+    transform: scale(1.2);
+
+}   
+.about-me-portfolio {
+     background-color: #dda15e;
+}
+.about-me-portfolio:hover {
+    color: #dda15e;
+    border-color: #dda15e;
+}
+.about-me-github {
+    background-color: #a8dadc;
+}
+.about-me-github:hover {
+    /* background-color: ; */
+    color: #a8dadc;
+    border-color: #a8dadc;
+
+}
+.about-me-resume {
+    background-color: #9b5de5;
+}
+.about-me-resume:hover {
+    color: #9b5de5;
+    border-color: #9b5de5;
+}
+
+
+@media screen and (max-width: 1428px)  {
+    .about-me-main-cont {
+        width: 70%;
+    }
+}
+@media screen and (max-width: 875px)  {
+    .about-me-main-cont {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 575px)  {
+    .about-me-upper {
+        flex-direction: column;
+    }
+}
