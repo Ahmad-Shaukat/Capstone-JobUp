@@ -316,10 +316,16 @@
 
         width: 90%;
     }
-    /* .fav-job-container p {
+    /* .fav5job-container p {
         font-size: 12px;
     } */
     
+}
+@media screen and (max-width: 538px ) {
+    .fav-list-edit-form {
+        background-color: blue;
+        width: 95%;
+    }
 }
 @media screen and (max-width:400px ) {
     .fav-list-container p {
