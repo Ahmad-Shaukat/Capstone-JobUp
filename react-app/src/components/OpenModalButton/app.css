@@ -6,7 +6,8 @@
   font-size: large;
   height: 100%;
   width: 100%;
-  background: transparent;
+  /* background: transparent; */
+  /* border: 1px solid white; */
 
 }
 .modal-btn {

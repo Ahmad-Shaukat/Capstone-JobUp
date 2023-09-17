@@ -34,7 +34,10 @@ const LandingPage = () => {
                 </div>
             </nav> */}
         <div className="landing-body-cont">
-          <div>
+          <div className="land-heading-logo">
+            <div className="logo-landing-page">
+              <p>S</p>
+            </div>
             <h1 className="heading-landing-page">Job Sphere</h1>
           </div>
           <div className="landing-body-description">
@@ -64,10 +67,10 @@ const LandingPage = () => {
                   <div className="card card-social">
                   <div className="card-cont ">
                       <div>
-                        <h1>Social Network</h1>
+                        <h1>Network</h1>
                       </div>
                       <div>
-                        <p>Network with Peers</p>
+                        <p>Connect With Peers</p>
                       </div>
                       <div className="card-img-cont">
                         <img className="card-img-job" src={users}/>
@@ -93,7 +96,7 @@ const LandingPage = () => {
                         <h1>Interview Tracking</h1>
                       </div>
                       <div>
-                        <p>Stay up to date with interview process </p>
+                        <p>Stay Up To Date With Interview Process </p>
                       </div>
                       <div className="card-img-cont">
                         <img className="card-img" src={background} />
