@@ -128,7 +128,7 @@ const Sidebar = ({isLoaded}) => {
                     </div>
                     <div className="stats-cont" id={showAboutMe? "option-selected": ""}>
                         <div className="slide">
-                            <NavLink exact to='/aboutme' className='stats-nav' onClick={handleFavs}><FaUserCheck className='stats-logo' />
+                            <NavLink exact to='/aboutme' className='stats-nav' onClick={handleAboutMe}><FaUserCheck className='stats-logo' />
                                 About
                             </NavLink>
                         </div>
