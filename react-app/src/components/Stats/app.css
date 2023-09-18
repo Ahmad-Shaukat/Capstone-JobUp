@@ -10,9 +10,19 @@
 .right-side-inner-cont {
     /* background-color: blue; */
     width: 95%;
+    /* background-color: white; */
+    margin-top: 5px;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
 }
 .stats-fav-content {
     width: 100%;
+    margin-top: 50px;
+    /* align-self: center; */
+    background-color: white;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
 } 
 
 
@@ -36,7 +46,9 @@
      background-color: white;
      /* background-color: green; */
 }
-.graph-content-stat
+.graph-content-stat {
+background-color: white;
+}
 .stats-test {
     height: 100px;
     padding: 5px;
@@ -137,7 +149,8 @@ margin-bottom: 16px;
     /* display: grid;
     grid-template-columns: 1fr; */
     /* background-color: #4362ee1c; */
-    background-color: transparent;
+    /* background-color: transparent; */
+    background-color: white;
     padding: 5px;
     width: 900px;
     height: 700px;
@@ -148,10 +161,7 @@ margin-bottom: 16px;
     /* background-color: blue; */
     /* background-color: teal; */
 }
-.calander-container {
-    /* background-color: teal; */
-    /* background-color: white; */
-}
+
 :root {
     --fc-border-color: black;
     --fc-daygrid-event-dot-width: 5px;
@@ -284,11 +294,19 @@ flex-direction: column;
    
     
 }
+.graph-container {
+    /* width: 100%; */
+    /* height: 100%; */
+    background-color: white;
+}
 .right-side-main {
     /* display: grid; */
     /* grid-template-columns: 1fr; */
     display: flex;
-    background-color: #4362ee1c;
+    margin-top: 15px;
+    /* background-color: #4362ee1c; */
+    /* background-color: white; */
+
     /* background-color: red; */
     /* background-color: transparent; */
     padding: 5px;
@@ -313,6 +331,15 @@ flex-direction: column;
 }
 .testi {
     width: 100%;
+    /* height: 100%; */
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* justify-content: end; */
+    /* align-items: end; */
+    /* background-color: pink; */
+}
+.add_int_stats {
+    margin-top: 50px;
 }
 .showdashboard {
     /* background-color: red; */
@@ -322,6 +349,9 @@ flex-direction: column;
 
 
 @media (max-width: 1750px) {
+    .stats-fav-content {
+        margin-top: 5px;
+    }
     .stats-fav-content {
         width: 95%;
         /* background-color: teal;  */

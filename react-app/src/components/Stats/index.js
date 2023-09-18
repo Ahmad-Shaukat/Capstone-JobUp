@@ -330,21 +330,24 @@ function Stats() {
               {showDashboard ? (
                 <div className="right-side-inner-cont">
                   
+                  
                     <ShowGraph className='graph-content-stat' />{" "}
+                  
                   
                 </div>
               ) : null}
               {showFavorites ? (
                 <div className="right-side-inner-cont">
+                  <div className="testi">
                  <AllFavriteLists stats={true} className='stats-fav-content' />
-                  
+                  </div>
                 </div>
               ) : null}
               {showAddInterviewForm ? (
                 <div className="right-side-inner-cont" >
                   <div className="testi">
                   {/* {" "} */}
-                  <AddInterviewForm  />
+                  <AddInterviewForm className='add_int_stats' />
                    </div>
                 </div>
               ) : null}

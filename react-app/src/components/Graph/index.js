@@ -11,6 +11,7 @@ export const BarChart = ({ chartData }) => {
   const [showDeclined, setShowDeclined] = useState(false);
   const [showScheduled, setShowScheduled] = useState(false);
   const [showOffered, setShowOffered] = useState(false);
+  const currentYear = new Date().getFullYear()
   useEffect( () =>dispatch(getAllInterviewsThunk()), [dispatch] )
   
 
@@ -32,7 +33,7 @@ export const BarChart = ({ chartData }) => {
 
   return (
     <div className="chart-container">
-      <h2 style={{ textAlign: "center" }}>Interview Data for 2023</h2>
+      <h2 style={{ textAlign: "center" }}>Interview Data for {currentYear}</h2>
 
       <Bar
         data={chartData}

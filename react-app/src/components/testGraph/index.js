@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { BarChart } from "../Graph";
 import { useEffect } from "react";
 import { getAllInterviewsThunk } from "../../store/interview";
+import './app.css'
 
 Chart.register(CategoryScale);
 
@@ -17,6 +18,7 @@ export default function ShowGraph() {
   const [showDeclined, setShowDeclined] = useState(false);
   const [showScheduled, setShowScheduled] = useState(true);
   const [showOffered, setShowOffered] = useState(false);
+  const currentYear = new Date().getFullYear()
   useEffect(async () => await dispatch(getAllInterviewsThunk()), [dispatch]);
   const graphData = [
     {
@@ -79,9 +81,11 @@ export default function ShowGraph() {
     const dateStr = interview[i].date;
     const date = new Date(dateStr);
     const month = date.toLocaleString("default", { month: "short" });
+    const interviewYear = date.getFullYear()
+    console.log (interviewYear, '-----------this is the interviwe year')
     console.log(interview[i].status);
     for (let j = 0; j < graphData.length; j++) {
-      if (month === graphData[j].month) {
+      if (month === graphData[j].month  && interviewYear == currentYear) {
         graphData[j][interview[i].status] += 1;
       }
     }
