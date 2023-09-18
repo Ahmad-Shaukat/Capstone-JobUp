@@ -1,0 +1,20 @@
+.small-nav-cont {
+    background-color: #f8f7ff;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+}
+.small-nav-cont button {
+    width: 100px;
+    /* font-size: 12px; */
+    height: 20px;
+    border:none;
+    background-color: #7161ef;
+    font-size: 13px;
+    letter-spacing: 1px;
+    /* color: #4361ee; */
+    color: white;
+    border-radius: 4px;
+}

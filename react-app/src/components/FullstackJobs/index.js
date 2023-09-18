@@ -60,6 +60,10 @@ const FullStack = () => {
     useEffect(() => {
         dispatch(getFullStackJobsThunk())
     }, [dispatch])
+    if (!user) {
+        history.push('/')
+        return null
+    }
     return (
         <>
             {showJobs ? (

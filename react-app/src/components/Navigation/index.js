@@ -8,7 +8,9 @@ import './Navigation.css';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { ImParagraphLeft } from 'react-icons/im'
 import { FaUserFriends } from 'react-icons/fa'
-import BigSidebar from '../BigSideBar';
+import BigSidebar from '../SmallNav';
+// import {useEffect0}
+import {useEffect} from 'react'
 
 
 function Navigation({ isLoaded }) {
@@ -16,12 +18,25 @@ function Navigation({ isLoaded }) {
 	const history = useHistory()
 	const [isNavVisible, setIsNavVisible] = useState(false);
 	const navRef = useRef()
-	// const showNavbar = () => {
-	// 	navRef.current.classList.toggle('responsive_nav')
-	// }
+	
 	const showNavbar = () => {
+		// if (isNavVisible) return 
 		setIsNavVisible(!isNavVisible);
 	  };
+	const hideNav = () => {
+		setIsNavVisible(false)
+	}
+	useEffect(() => {
+		if (!isNavVisible) return
+		const closeNav = (e) => {
+			if (!isNavVisible)return
+			if (!navRef.current.contains(e.target)) {
+				setIsNavVisible(false)
+			}
+		}
+		document.addEventListener('click', closeNav)
+		return () => document.removeEventListener('click', closeNav)
+	}, [showNavbar])
 
 
 
@@ -30,12 +45,15 @@ function Navigation({ isLoaded }) {
 		{isLoaded &&  (
 			<nav>
 			{sessionUser && (
+				<div>
+
 				<div className='nav-opt'>
 					<ImParagraphLeft size={18}  onClick={showNavbar}/>
-					<div className={`res-nav-bar ${isNavVisible ? 'responsive-nav' : ''}`} ref={navRef}>
-						<p>options</p>
+					<div ref={navRef} className={`res-nav-bar ${isNavVisible ? 'responsive-nav' : ''}`} >
+						<BigSidebar closeNav = {hideNav}/>
 						<button className='res-nav-btn res-nav-close-btn' onClick={showNavbar}>close</button>
 					</div>
+				</div>
 				</div>
 			)}
 
@@ -59,32 +77,7 @@ function Navigation({ isLoaded }) {
 
 		</nav>
 		)}
-			{/* <nav>
-				{sessionUser && (
-					<div className='nav-opt'>
-						<ImParagraphLeft size={18} color='#4361ee' />
-					</div>
-				)}
-
-
-
-				{isLoaded && (
-					<div className='nav-user-connect'>
-						{sessionUser && (
-							<div className='connect-btn-conta'>
-								<NavLink path to='/allusers' className='connect-navlink'><button className='connect-btn'><span><FaUserFriends /></span>Connect</button></NavLink>
-							</div>
-						)}
-
-						<div className='nav-user'>
-
-							<ProfileButton user={sessionUser} />
-						</div>
-
-					</div>
-				)}
-
-			</nav> */}
+			
 		</>
 
 

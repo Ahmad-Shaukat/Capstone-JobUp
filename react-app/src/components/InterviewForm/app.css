@@ -194,11 +194,12 @@
 
 @media screen and (max-width: 790px) {
     .cre-int-cont {
-        background-color: red;
+        /* background-color: red; */
         height: fit-content;
         width: 85%;
         margin: auto;
         margin-top: 10px;
+        z-index: 5;
     }
     
     .cre-int-form-cont {
@@ -226,7 +227,7 @@
   }
   @media screen and (max-width: 430px) {
     .cre-int-form-cont {
-        background-color: green;
+        /* background-color: green; */
         display: flex;
         flex-direction: column;
     }

@@ -1,7 +1,17 @@
 import './app.css'
 import profilePic from '../../utilities/profile-pic.jpg'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+import { useSelector } from 'react-redux'
 
 const AboutMe =  () =>  {
+    const history = useHistory()
+    const user = useSelector((store) => store.session.user);
+
+    if (!user) {
+        history.push('/')
+        return null
+    }
+
     return <>
     <div className="about-me-main-cont">
         <div className="about-me-upper">

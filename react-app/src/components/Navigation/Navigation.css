@@ -20,13 +20,15 @@ nav {
 .nav-opt {
   margin-left: 45px;
   color: transparent;
-  display: relative;
+  /* display: relative; */
+  display: none;
 }
 .nav-user {
   margin-right: 45px;
   display: flex;
   justify-content: space-between;
 }
+
 .connect-btn {
   margin-right: 9px;
   border: none;
@@ -34,9 +36,13 @@ nav {
   padding-left: 10px;
   padding-top: 3px;
   padding-bottom: 3px; */
-  padding: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 3px;
+    padding-bottom: 3px;
   display: flex;
   justify-content: center;
+  gap: 1px;
   align-items: center;
   background-color:#4361ee ;
   font-size: 13px;
@@ -44,8 +50,12 @@ nav {
   color: white;
   letter-spacing: 1px;
   cursor: pointer;
-  border: 2px solid white;
+  border: 1px solid white;
   transition: .3s;
+  /* background-color: red; */
+  height: 30px;
+  padding-right: 10px;
+  padding-left: 10px;
 
 
 }
@@ -109,5 +119,15 @@ nav {
 @media screen and (width < 795px) {
   .nav-opt {
     color:#4361ee;
+  }
+  /* .nav-opt {
+    display: none;
+  } */
+  .nav-opt {
+    display: block;
+  }
+  .nav {
+    z-index: 100;
+    color: white;
   }
 }
