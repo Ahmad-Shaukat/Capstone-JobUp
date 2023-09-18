@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 // import { useState } from "react"
 import "./app.css";
 import { useState } from "react";
-import ReactJobs from "../ReactJobs";
+import ReactJobs from "../Jobs";
 import FullStack from "../FullstackJobs";
 import newsImage from "../../utilities/news-logo.png";
 import ShowPythonJobs from "../PythonJobs";
@@ -20,36 +20,60 @@ const FindJobs = () => {
   const [dataJobs, setDataJobs] = useState("");
   const [news, setNews] = useState(true);
   const [newsData, setNewsData] = useState([]);
+  const [allJobs, setAllJobs] = useState([])
+  const [showJobs, setShowJobs] = useState(false)
+  let allReactJobs = useSelector((store) => store.reactJobs)
+  allReactJobs = Object.values(allReactJobs)
+  // console.log (allReactJobs, '---------all react jobs')
+  let allFullStackJobs = useSelector((store) => store.fullstack)
+  allFullStackJobs = Object.values(allFullStackJobs)
+  
+  let allPythonJobs = useSelector((store) => store.python)
+  allPythonJobs = Object.values(allPythonJobs)
+
+  let allDataEngJobs = useSelector((store) => store.dataEngineer)
+  allDataEngJobs = Object.values(allDataEngJobs)
   let user = useSelector((store) => store.session["user"]);
 
   function handleReact() {
+    setShowJobs(true)
     setReactJobs(true);
     setFullstackJobs(false);
     setPythonJobs(false);
     setDataJobs(false);
     setNews(false);
+    setAllJobs(allReactJobs)
   }
 
   function handleFullstack() {
+    setShowJobs(true)
+
     setReactJobs(false);
     setFullstackJobs(true);
     setPythonJobs(false);
     setDataJobs(false);
     setNews(false);
+    setAllJobs(allFullStackJobs)
   }
   function handlePython() {
+    setShowJobs(true)
+
     setReactJobs(false);
     setFullstackJobs(false);
     setDataJobs(false);
     setPythonJobs(true);
     setNews(false);
+    setAllJobs(allPythonJobs)
   }
   function handleData() {
+    setShowJobs(true)
+
     setReactJobs(false);
     setFullstackJobs(false);
     setPythonJobs(false);
     setDataJobs(true);
     setNews(false);
+    setAllJobs(allDataEngJobs)
   }
   useEffect(() => {
     const apiUrl = "/api/news/articles";
@@ -73,6 +97,9 @@ const FindJobs = () => {
     items.publishedAt = newDate;
   }
   console.log(newsData, "---------------this is data");
+  // let allReactJobs = useSelector((store) => store.reactJobs)
+  // allReactJobs = Object.values(reactJobs)
+  
 
   if (!user) {
     history.push("/");
@@ -111,10 +138,10 @@ const FindJobs = () => {
             </button>
           </div>
           <div>
-            {reactJobs && <ReactJobs />}
-            {fullstackJobs && <FullStack />}
+            {showJobs && <ReactJobs jobsToShow ={allJobs}/>}
+            {/* {fullstackJobs && <FullStack />}
             {pythonJobs && <ShowPythonJobs />}
-            {dataJobs && <DataEngineerJobs />}
+            {dataJobs && <DataEngineerJobs />} */}
           </div>
         </div>
         <div className="news-container">

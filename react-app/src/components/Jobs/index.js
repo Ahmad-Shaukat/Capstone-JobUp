@@ -14,7 +14,7 @@ import { useState } from "react";
 
 
 
-const ReactJobs = () => {
+const ReactJobs = ({jobsToShow}) => {
     const dispatch = useDispatch()
     const history = useHistory()
     const [favOptions, setFavOptions] = useState(false)
@@ -82,7 +82,7 @@ const ReactJobs = () => {
 
             <div className="allJobs-main-cont">
 
-                {reactJobs.map(job => {
+                {jobsToShow.map(job => {
                     return (
                         <div className="allJobs-single-cont">
                             <div className="single-job-title">

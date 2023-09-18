@@ -1,5 +1,6 @@
 #all-fav-cont {
     max-width: 300px;
+    /* width: 600px; */
     margin: auto;
     display: flex;
     justify-content: center;
@@ -315,7 +316,10 @@
     .fav-list-container {
 
         width: 90%;
+        margin-top: 15px;
+        background-color: green;
     }
+
     /* .fav5job-container p {
         font-size: 12px;
     } */
