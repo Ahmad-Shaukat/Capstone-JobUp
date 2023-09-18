@@ -70,7 +70,7 @@
 }
 .cre-int-pos-cont label {
     margin-left: 10px;
-    font-size: 13px;
+    font-size: 14px;
     margin-bottom: 5px;
 }
 .cre-int-cont input {
@@ -82,7 +82,7 @@
     border: 0.5px solid rgba(0, 0, 0, 0.174);
     border-radius: 2px;
     outline-color:#4361ee;
-    font-size: 10px;
+    font-size: 14px;
     letter-spacing: 1px;
     outline: none;
     padding: 2px;
@@ -103,12 +103,12 @@
 }
 .cre-int-type-cont label {
     margin-left: 13px;
-    font-size: 13px;
+    font-size: 14px;
     margin-bottom: 5px;
 }
 .cre-int-status-cont label {
     margin-left: 13px;
-    font-size: 13px;
+    font-size: 14px;
     margin-bottom: 5px;
 }
 .cre-int-type-cont select{
@@ -116,7 +116,7 @@
     margin-left: 10px;
     height: 20px;
     letter-spacing: 1px;
-    font-size: 12px;
+    font-size: 14px;
     background-color: #4362ee1c;
     border: 0.5px solid rgba(0, 0, 0, 0.174);
     border-radius: 2px;
@@ -127,7 +127,7 @@
     margin-left: 10px;
     height: 20px;
     letter-spacing: 1px;
-    font-size: 12px;
+    font-size: 14px;
     background-color: #4362ee1c;
     border: 0.5px solid rgba(0, 0, 0, 0.174);
     border-radius: 2px;
@@ -142,7 +142,7 @@
 }
 .cre-int-date-cont label {
     margin-left: 10px;
-    font-size: 13px;
+    font-size: 14px;
     margin-bottom: 5px;
 }
 .cre-int-date-cont input{
@@ -153,7 +153,7 @@
     border: none;
     border: 0.5px solid rgba(0, 0, 0, 0.174);
     border-radius: 2px;
-    font-size: 12px;
+    font-size: 14px;
     
 
 }
@@ -168,7 +168,7 @@
     background-color: #4361ee;
     border: none;
     height: 25px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
     color: white;
     border-radius: 3px;
@@ -183,7 +183,7 @@
     width: 150px;
 }
 .cre-int-err-cont p {
-    font-size: 12px;
+    font-size: 14px;
     width: 80%;
     width: 300px;
 

@@ -4,11 +4,11 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 // import { useState } from "react"
 import "./app.css";
 import { useState } from "react";
-import ReactJobs from "../Jobs";
-import FullStack from "../FullstackJobs";
+import Jobs from "../Jobs";
+// import FullStack from "../FullstackJobs";
 import newsImage from "../../utilities/news-logo.png";
-import ShowPythonJobs from "../PythonJobs";
-import DataEngineerJobs from "../DataEngineer";
+// import ShowPythonJobs from "../PythonJobs";
+// import DataEngineerJobs from "../DataEngineer";
 import { MdAirlineSeatIndividualSuite } from "react-icons/md";
 // import { setDate } from "date-fns"
 
@@ -138,7 +138,7 @@ const FindJobs = () => {
             </button>
           </div>
           <div>
-            {showJobs && <ReactJobs jobsToShow ={allJobs}/>}
+            {showJobs && <Jobs jobsToShow ={allJobs}/>}
             {/* {fullstackJobs && <FullStack />}
             {pythonJobs && <ShowPythonJobs />}
             {dataJobs && <DataEngineerJobs />} */}

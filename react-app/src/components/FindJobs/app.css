@@ -102,25 +102,33 @@
     border: none;
     cursor: pointer;
     padding: 2px;
-    border: 2px solid transparent;
+    border: 2px solid #4361ee;
     /* background-color: red; */
     transition: .3s;
 }
 .jobs-btns button:hover {
-    background-color: transparent;
+    /* background-color: transparent; */
+    background-color: #4361ee;
     color: rgb(67, 97, 238);
     border: 2px solid #4361ee;
+    color: white;
 
 }
 .clicked {
-    background-color: transparent;
-    color: #4361ee;
+    background-color: #4361ee;
+    /* color: #4361ee;
+     */
+     color: white;
     /* background-color: #4362ee1c; */
     border: 2px solid #4361ee;
 }
 .notClicked {
-    background-color: #4361ee;
-    color: white;
+    /* background-color: #4361eebac; */
+    /* background-color: #4361ee; */
+    background-color: white;
+    border: 1px solid #4361ee;
+
+    color: #4361ee;
 }
 .news-container a {
     text-decoration: none;
