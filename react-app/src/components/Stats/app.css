@@ -1,9 +1,19 @@
 .stats-main-container {
+    margin: auto;
     margin-top: 20px;
-    margin-right: 40px;
-    margin-left: 40px;
+    /* margin-right: 40px; */
+    /* margin-left: 40px; */
+    /* background-color: teal; */
+    width: 95%;
+    
 }
-
+.right-side-inner-cont {
+    /* background-color: blue; */
+    width: 95%;
+}
+.stats-fav-content {
+    width: 100%;
+} 
 
 
 
@@ -26,6 +36,7 @@
      background-color: white;
      /* background-color: green; */
 }
+.graph-content-stat
 .stats-test {
     height: 100px;
     padding: 5px;
@@ -119,9 +130,12 @@ margin-bottom: 16px;
 .stats-icon-wrapper-offered {
     background-color:#cdf7ba ;
 }
+.graph-content-stat {
+    width: 95%;
+}
 .calander-container {
-    display: grid;
-    grid-template-columns: 1fr;
+    /* display: grid;
+    grid-template-columns: 1fr; */
     /* background-color: #4362ee1c; */
     background-color: transparent;
     padding: 5px;
@@ -132,10 +146,11 @@ margin-bottom: 16px;
     position: relative;
     z-index: 1;
     /* background-color: blue; */
+    /* background-color: teal; */
 }
 .calander-container {
     /* background-color: teal; */
-    background-color: white;
+    /* background-color: white; */
 }
 :root {
     --fc-border-color: black;
@@ -264,15 +279,18 @@ flex-direction: column;
     display: flex;
     gap: 10px;
     justify-content: space-around;
+    align-items: center;
     margin: auto;
    
     
 }
 .right-side-main {
-    display: grid;
-    grid-template-columns: 1fr;
-    /* background-color: #4362ee1c; */
-    background-color: transparent;
+    /* display: grid; */
+    /* grid-template-columns: 1fr; */
+    display: flex;
+    background-color: #4362ee1c;
+    /* background-color: red; */
+    /* background-color: transparent; */
     padding: 5px;
     width: 900px;
     height: 700px;
@@ -282,10 +300,7 @@ flex-direction: column;
     z-index: 1;
     /* width: 90%; */
 }
-.stats-main-container {
-    /* background-color: green; */
-    width: 90%;
-}
+
 .favorite-Cotainer-stat {
     
     /* height: 100%; */
@@ -307,22 +322,34 @@ flex-direction: column;
 
 
 @media (max-width: 1750px) {
+    .stats-fav-content {
+        width: 95%;
+        /* background-color: teal;  */
+        /* color: black;  */
+    }
     .stats-card-main-container {
         grid-template-columns: 1fr; /*
          Change to a single column 
          layout */
          width: 400px;
          margin: auto;
+         /* background-color: red; */
+    }
+    .right-side-main {
+        width: 95%;
     }
     .main-stats-btm {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        /* background-color: green; */
+        width: 95%;
     }
     .calander-container {
         width: 530px;
         height: 480px;
         overflow-y: hidden;
+        /* background-color: red; */
     }
     .calander {
         width: 90%;
@@ -332,14 +359,31 @@ flex-direction: column;
         right: 10px;
     }
     .graph-container {
-        width: 500px;
+        /* width: 500px;
+
         height: 400px;
         margin: auto;
+        background-color: purple; */
+        /* background-color: purple; */
+        width: 90%;
+        margin: auto;
+    }
+    .fav-stats-cont {
+        width: 90%;
+    }
+    .stats__sub {
+        /* background-color: yellow; */
+        width: 95%;
+        /* margin: auto; */
+        
+    }
+    .right-side-main {
+        height: fit-content;
     }
 }
 @media (max-width : 570px) {
     .calander-container {
-        width: 400px;
+        width: 95%;
         ;
     }
     .calander {
@@ -349,6 +393,13 @@ flex-direction: column;
     .graph-container {
         width: 400px;
     }
+    .stats-pending-container {
+        width: 80%;
+        /* background-color: yellow; */
+        margin-left: 20px;
+        /* margin: auto; */
+    }
+   
 }
 
 

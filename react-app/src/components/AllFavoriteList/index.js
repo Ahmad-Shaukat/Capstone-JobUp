@@ -107,7 +107,7 @@ const AllFavriteLists = ({ options, favJob, closeFavFunc, stats }) => {
         ) : null}
 
         {showFavLists ? (
-          <div className="fav-list-container">
+          <div className="fav-list-container stats-fav-content">
             <p id="fav-list-heading">Favorites</p>
             {allFavLists.map((list) => {
               return (

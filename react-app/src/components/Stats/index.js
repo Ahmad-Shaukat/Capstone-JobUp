@@ -183,7 +183,8 @@ function Stats() {
               </div>
             </div>
           </div>
-          <div className="stats-test stats-schduled-border">
+          <div className="stats-test stats-pending-container 
+           stats-schduled-border">
             <div className="left-card-container">
               <div className="stats-number">
                 <p id="stats-scheduled-text">{scheduledInterviews.length}</p>
@@ -197,7 +198,7 @@ function Stats() {
               </div>
             </div>
           </div>
-          <div className="stats-test stats-schduled-declined">
+          <div className="stats-test stats-pending-container stats-schduled-declined">
             <div className="left-card-container">
               <div className="stats-number">
                 <p className="stats-declined-colors">
@@ -213,7 +214,7 @@ function Stats() {
               </div>
             </div>
           </div>
-          <div className="stats-test stats-schduled-Offered">
+          <div className="stats-test stats-pending-container  stats-schduled-Offered">
             <div className="left-card-container">
               <div className="stats-number">
                 <p className="stats-offered-colors">
@@ -268,9 +269,9 @@ function Stats() {
             </div>
           </div>
           <div className="right-side-main">
-            <div className="stats__sub">
+            
               {showInterviews ? (
-                <div className="showInterviews">
+                <div className="right-side-inner-cont">
                   {showDateInterview.map((interview) => (
                     <div className="allInt-column allInt-column-stat">
                     <div className="allInt-top-cont">
@@ -296,34 +297,6 @@ function Stats() {
                         </div>
       
                         <div className="allInt-btm-bttns">
-                          {/* <button
-                            className="allInt-edit-btn"
-                            onClick={() => showHandle(interview)}
-                          >
-                            Edit
-                          </button> */}
-      
-                          {/* <button className='allInt-edit-btn'>
-                                              <OpenModalButton
-                                                  buttonText={'Edit'}
-                                                  
-                                                  modalComponent={
-                                                      <EditInterviewForm
-                                                          interview={interview} id={interview.id}
-                                                      />
-                                                  }
-                                              />
-                                          </button> */}
-      
-                          {/* <button className="allInt-del-btn">
-                            <OpenModalButton
-                              buttonText={"Delete"}
-                              modalComponent={
-                                <DeleteInterview interview={interview} />
-                              }
-                            />
-                          </button> */}
-      
                           <NavLink exact to={`/interview/${interview.id}/detail`}>
                             <button className="allInt-btns-more">More</button>
                           </NavLink>
@@ -355,27 +328,27 @@ function Stats() {
               ) : null}
 
               {showDashboard ? (
-                <div className="showDashboard">
-                  <div className="graph-container">
-                    <ShowGraph />{" "}
-                  </div>
+                <div className="right-side-inner-cont">
+                  
+                    <ShowGraph className='graph-content-stat' />{" "}
+                  
                 </div>
               ) : null}
               {showFavorites ? (
-                <div>
-                 <AllFavriteLists stats={true} />
+                <div className="right-side-inner-cont">
+                 <AllFavriteLists stats={true} className='stats-fav-content' />
                   
                 </div>
               ) : null}
               {showAddInterviewForm ? (
-                <div className="showdashboard" >
+                <div className="right-side-inner-cont" >
                   <div className="testi">
                   {/* {" "} */}
                   <AddInterviewForm  />
                    </div>
                 </div>
               ) : null}
-            </div>
+            
           </div>
         </div>
       </main>
