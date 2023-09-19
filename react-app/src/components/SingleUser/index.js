@@ -72,17 +72,18 @@ const SingleUser = () => {
                   : userImage
               }
             ></img>
-            <p className="single-user-name">
-              {userProfile.firstName} {userProfile.last_name}
-            </p>
-            <p>{userProfile.location}</p>
           </div>
           <div className="single-user-btm">
+            <p className="single-user-name"> {userProfile.firstName ==='N/A' ? 'Name: Unavailable' :`${userProfile.firstName} ${userProfile.last_name}` }
+            </p>
+            <p className=""> {userProfile.location ==='N/A' ? 'Location: Unavailable' :`${userProfile.location} $` }
+            </p>
             <div>
 
-            <p className="single-user-career">{userProfile.career}</p>
+            <p className="single-user-career">{userProfile.career === 'N/A' ? 'Career: Unavailable': `${userProfile.career}`}</p>
             </div>
-            <p className="single-user-bio">{userProfile.bio}</p>
+            <p className="single-user-bio">{userProfile.bio === 'N/A' ? 'Career: Unavailable': `${userProfile.bio}`}
+            </p>
             <p className="single-user-email">{userProfile.email}</p>
           </div>
         </div>

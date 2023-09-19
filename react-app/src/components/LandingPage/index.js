@@ -67,7 +67,7 @@ const LandingPage = () => {
                   <div className="card card-social">
                   <div className="card-cont ">
                       <div>
-                        <h1>Network</h1>
+                        <h1>Networking</h1>
                       </div>
                       <div>
                         <p>Connect With Peers</p>

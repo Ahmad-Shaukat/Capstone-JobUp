@@ -2,6 +2,7 @@ import './app.css'
 import profilePic from '../../utilities/profile-pic.jpg'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 import { useSelector } from 'react-redux'
+import resume from '../../utilities/Ahmad_Shaukat_resume.pdf'
 
 const AboutMe =  () =>  {
     const history = useHistory()
@@ -26,15 +27,15 @@ const AboutMe =  () =>  {
                     <p className='about-me-subheading'>A Bit About Me</p>
                 </div>
                 <div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at sem eget quam tristique tristique. Nunc tincidunt, libero nec ullamcorper laoreet, massa elit fermentum nulla, vel convallis nulla nisi at risus. Nulla facilisi. Sed tincidunt ipsum vel sapien tincidunt, non egestas dui eleifend. Quisque vel vehicula orci, vel iaculis ipsum. Suspendisse potenti. Maecenas fringilla, ipsum eget suscipit sollicitudin, odio urna pharetra lectus, vel tincidunt sapien turpis eget risus. Suspendisse potenti.</p>
+                    <p className='about-me-text'>My name is Ahmad Shaukat. I graduated from AppAcademy in September 2023. I have more then two years of experience in designing building and deploying web applications. I built JobSphere as a personal solution to streamline my job search and efficiently track my interview progress. Among all the aspects of building this project, designing the frontend was the most enjoyable experience. Drawing from my experience, I've come to understand that users are most drawn to applications that offer a friendly and intuitive user interface. I firmly beleive that a user-friendly interface is a key to any successful application, and this belief drove my approach throughout the whole project.</p>
                 </div>
             </div>
 
         </div>
         <div className="about-me-bottom">
-            <a className='about-me-links about-me-portfolio' href='https://www.google.com/' target='_black'>Portfolio</a>
-            <a className='about-me-links about-me-github'>GitHub</a>
-            <a className='about-me-links about-me-resume'>Resume</a>
+            <a className='about-me-links about-me-portfolio' href='https://ahmadshaukat.click/' target='_blank'>Portfolio</a>
+            <a className='about-me-links about-me-github' href='https://github.com/Ahmad-Shaukat' target='_blank'>GitHub</a>
+            <a className='about-me-links about-me-resume' href={resume} target='_blank'>Resume</a>
         </div>
     </div>
     

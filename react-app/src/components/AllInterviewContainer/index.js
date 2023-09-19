@@ -110,8 +110,9 @@ const AllInterviews = ({}) => {
     console.log(showSearch);
   };
   const handleSearchStatus = (e) => {
-    console.log(e.target.value.length);
-    if (e.target.value.length == 0) {
+    if (e.target.value === 'Pick One') {
+      handleClearSearch()
+    }else if (e.target.value.length == 0) {
       setShowInt(true);
       setShowSearch(false);
     } else {

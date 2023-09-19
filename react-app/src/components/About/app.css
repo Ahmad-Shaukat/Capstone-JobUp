@@ -11,6 +11,11 @@
     gap: 10px;
     
 }
+.about-me-text {
+    letter-spacing: 1px;
+    /* background-color: red; */
+    text-align: center;
+}
 .about-me-left{
     /* width: 50%; */
     /* background-color: blue; */

@@ -234,15 +234,15 @@ const [isLoading, SetIsLoading] = useState(false)
         </div> */}
 
         <div className="int-det-comm-cont">
-          <div>
+          <div className="int-det-comm-body">
             <div className="new-comm-err-cont">
               {errors && errors.maxLength && <p>{errors.maxLength}</p>}
               {errors && errors.minLength && <p>{errors.minLength}</p>}
             </div>
             <div className="comm-post-cont">
               <form onSubmit={handleSubmit} className="comm-post-form">
-                <div>
-                  <textarea
+                <div className="int-det-text-cont">
+                  <textarea className="int-det-comment-text"
                     placeholder="Write your comment here"
                     onChange={(e) => setComment(e.target.value)}
                     value={comment}

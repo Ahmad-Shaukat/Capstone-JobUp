@@ -15,14 +15,25 @@ const UserProfile = () => {
   const history = useHistory();
   const [editPic, seteditPic] = useState(false)
   const [showEdit, setShowEdit] = useState(true)
+  const [uploading, setUploading] = useState(false)
   let user = useSelector((store) => store.session.user);
   let userProfile = useSelector((store) => store?.userProfile?.profile);
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setUploading(true)
 
-    const formData = new FormData();
     const fileInput = document.querySelector('input[type="file"]');
-    formData.append('file-to-save', fileInput.files[0]);
+    const selectedFile = fileInput.files[0];
+  
+    if (!selectedFile) {
+      window.alert('No file selected for uploading');
+      // Handle the case where no file is selected
+      setUploading(false);
+      return;
+    }
+  
+    const formData = new FormData();
+    formData.append('file-to-save', selectedFile);
 
     try {
       const response = await fetch(`/api/users/${user.id}/uploadImage`, {
@@ -33,6 +44,7 @@ const UserProfile = () => {
       if (response.ok) {
         console.log('Image uploaded successfully');
         seteditPic(false)
+        dispatch(authenticate())
         // Handle success as needed
       } else {
         console.error('Image upload failed');
@@ -41,6 +53,9 @@ const UserProfile = () => {
     } catch (error) {
       console.error('Error while uploading image', error);
       // Handle error as needed
+    } finally {
+      setUploading(false)
+      setShowEdit(true)
     }
   };
   console.log("-----------------------------", userProfile);
@@ -65,7 +80,7 @@ const UserProfile = () => {
     <>
       <section id="user-profile">
         <div className="user-profile-img">
-          <img
+          <img className="user-profile-image-inner"
             src={
               user.image
                 ? `https://jobshpere-profile-images.s3.amazonaws.com/${user.image}`
@@ -88,7 +103,10 @@ const UserProfile = () => {
               >
                 <input type="file" name="file-to-save"></input>
                 <div className="pic-form-btns">
-                  <button type="submit">Upload</button>
+
+                <button type="submit" disabled={uploading}>
+                {uploading ? "Uploading..." : "Upload"}
+              </button>
                 <button onClick={handleCancelForm}>Cancel</button>
                 </div>
                 
