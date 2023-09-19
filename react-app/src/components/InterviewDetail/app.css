@@ -174,5 +174,33 @@
     margin-top: 20px;
     /* background-color: green; */
 }
+@media screen and (max-width:600px ) {
+    .allInt-det {
+        width: 95%;
+    }
+    .int-det-comm-cont {
+        width: 95%;
+        /* background-color: blue; */
+    }
+    .comm-post-cont {
+        width: 95%;
+    }
+    .int-det-comm-body{
+        width: 100%;
+        /* background-color: red; */
+    }
+    .int-det-text-cont {
+        /* background-color: teal; */
+        margin: auto;
+       width: 95%;
+    }
+    .comm-post-btn{
+        width: 95%;
+    }
+    .new-comm-err-cont {
+        width: 90%;
+        /* background-color: pink; */
+    }
+}
 
 

@@ -1,6 +1,9 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.models import User, db
+import boto3
+import uuid
+import os
 
 user_routes = Blueprint('users', __name__)
 
@@ -49,3 +52,44 @@ def edit_info(id):
     db.session.commit()
 
     return jsonify(user.to_dict())
+
+
+
+# allowed extension
+Allowed_Extensions = ['jpg', 'jpeg', 'png']
+# returns boolean based on the allowed extension 
+def allowd_files(filename):
+    return '.' in filename and filename.rsplit('.') in Allowed_Extensions
+# 
+# upload to the s3 profile iamge 
+@user_routes.route('/<userId>/uploadImage', methods=['PUT'])
+def upload_image(userId):
+    s3 = boto3.resource('s3', aws_access_key_id = os.environ.get('AWS_ACCESS_KEY'), aws_secret_access_key=os.environ.get('AWS_SECRET_ACCESS_KEY'), region_name ='us-east-1'
+                        )
+   
+    user=User.query.get(userId)
+    userImage = user.image
+    print(user.to_dict(), '-------------this is user')
+    if user.image == None:
+        uploaded_file = request.files['file-to-save']
+        new_filename = uuid.uuid4().hex + '.' + uploaded_file.filename.rsplit('.',1)[1].lower()
+        new_name =   str(user.id)+uploaded_file.filename
+        user.image = new_name
+        db.session.commit()
+        s3.Bucket('jobshpere-profile-images').upload_fileobj(uploaded_file, new_name)
+        return {'message': 'successfully'}
+    if user.image !=None:
+       
+        print(user.image, '---------------------')
+        uploaded_file = request.files['file-to-save']
+       
+        new_name = str(user.id)+uploaded_file.filename 
+        user.image = new_name
+        db.session.commit()
+        # new_filename = user.image
+        s3.Bucket('jobshpere-profile-images').upload_fileobj(uploaded_file, new_name)
+        
+    return {'message' : 'successfully'}
+
+
+

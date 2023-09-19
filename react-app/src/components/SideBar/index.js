@@ -9,6 +9,7 @@ import { BsFillClipboard2PlusFill } from 'react-icons/bs'
 import { FaSearchDollar } from 'react-icons/fa'
 import { BsSave2Fill } from 'react-icons/bs'
 import { useState } from "react"
+import {FaUserCheck} from 'react-icons/fa6'
 
 
 
@@ -20,6 +21,7 @@ const Sidebar = ({isLoaded}) => {
     const [showForm, setShowForm] = useState(false)
     const [showFavs, setShowFavs] = useState(false)
     const [showJobs, setShowJobs] = useState(false)
+    const [showAboutMe, setShowAboutMe] = useState(false)
     const history = useHistory()
 
 
@@ -29,6 +31,7 @@ const Sidebar = ({isLoaded}) => {
         setShowForm(false)
         setShowFavs(false)
         setShowJobs(false)
+        setShowAboutMe(false)
     }
     const handleInterviews = () => {
         setShowStats(false)
@@ -36,6 +39,7 @@ const Sidebar = ({isLoaded}) => {
         setShowForm(false)
         setShowFavs(false)
         setShowJobs(false)
+        setShowAboutMe(false)
     }
     const handleForm= () => {
         setShowStats(false)
@@ -43,6 +47,7 @@ const Sidebar = ({isLoaded}) => {
         setShowForm(true)
         setShowFavs(false)
         setShowJobs(false)
+        setShowAboutMe(false)
     }
     const handleFavs = () => {
         setShowStats(false)
@@ -50,6 +55,7 @@ const Sidebar = ({isLoaded}) => {
         setShowForm(false)
         setShowFavs(true)
         setShowJobs(false)
+        setShowAboutMe(false)
     }
     const handleJobs = () => {
         setShowStats(false)
@@ -57,6 +63,15 @@ const Sidebar = ({isLoaded}) => {
         setShowForm(false)
         setShowFavs(false)
         setShowJobs(true)
+        setShowAboutMe(false)
+    }
+    const handleAboutMe = () => {
+        setShowStats(false)
+        setShowInterviews(false)
+        setShowForm(false)
+        setShowFavs(false)
+        setShowJobs(false)
+        setShowAboutMe(true)
     }
 
     const sessionUser = useSelector(state => state.session.user);
@@ -107,6 +122,14 @@ const Sidebar = ({isLoaded}) => {
                         <div className="slide">
                             <NavLink exact to='/favlists' className='stats-nav' onClick={handleFavs}><BsSave2Fill className='stats-logo' />
                                 Favorites
+                            </NavLink>
+                        </div>
+    
+                    </div>
+                    <div className="stats-cont" id={showAboutMe? "option-selected": ""}>
+                        <div className="slide">
+                            <NavLink exact to='/aboutme' className='stats-nav' onClick={handleAboutMe}><FaUserCheck className='stats-logo' />
+                                About
                             </NavLink>
                         </div>
     

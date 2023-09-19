@@ -26,6 +26,7 @@ function InterviewDetail({}) {
   const [comment, setComment] = useState("");
   const [editInterview, setEditInterview] = useState({});
 const [showEdit, setShowEdit] = useState(false);
+const [isLoading, SetIsLoading] = useState(false)
   let interview = useSelector((store) => store.allinterviews[id]);
   console.log(interview, "------------------this is interview id");
   // console.log
@@ -59,6 +60,8 @@ const [showEdit, setShowEdit] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // SetIsLoading(true)
+    
     function checkErrors() {
       let allErrors = {};
       if (comment === "") {
@@ -77,6 +80,7 @@ const [showEdit, setShowEdit] = useState(false);
       }
     }
     if (checkErrors() === false) {
+        SetIsLoading(true)
       await dispatch(
         addUserCommentThunk(interview.id, {
           comment: comment,
@@ -86,6 +90,7 @@ const [showEdit, setShowEdit] = useState(false);
       await dispatch(getAllUsersInterviewThunk());
       await setComment("");
       await setErrors({});
+      SetIsLoading(false)
     }
   };
   if (showEdit) {
@@ -229,15 +234,15 @@ const [showEdit, setShowEdit] = useState(false);
         </div> */}
 
         <div className="int-det-comm-cont">
-          <div>
+          <div className="int-det-comm-body">
             <div className="new-comm-err-cont">
               {errors && errors.maxLength && <p>{errors.maxLength}</p>}
               {errors && errors.minLength && <p>{errors.minLength}</p>}
             </div>
             <div className="comm-post-cont">
               <form onSubmit={handleSubmit} className="comm-post-form">
-                <div>
-                  <textarea
+                <div className="int-det-text-cont">
+                  <textarea className="int-det-comment-text"
                     placeholder="Write your comment here"
                     onChange={(e) => setComment(e.target.value)}
                     value={comment}
@@ -245,7 +250,9 @@ const [showEdit, setShowEdit] = useState(false);
                 </div>
 
                 <div className="comm-post-btn">
-                  <button type="submit">Submit</button>
+                <button type="submit" disabled={isLoading}>
+    {isLoading ? "Submitting..." : "Submit"}
+  </button>
                 </div>
               </form>
             </div>

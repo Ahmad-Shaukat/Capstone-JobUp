@@ -18,7 +18,7 @@ import AllUsers from "./components/allUsers";
 import SingleUser from "./components/SingleUser";
 import FindJobs from "./components/FindJobs";
 import AllFavriteLists from "./components/AllFavoriteList";
-import Sidebar from "./components/SmallSideBar";
+import Sidebar from "./components/SideBar";
 import './app.css'
 import Stats from "./components/Stats";
 import LandingPage from "./components/LandingPage";
@@ -29,6 +29,7 @@ import { getPythonJobsThunk } from "./store/python";
 import { getDataEngineerJobsThunk } from "./store/dataEngineer";
 import Testing from "./components/testing/testing";
 import ShowGraph from "./components/testGraph";
+import AboutMe from "./components/About";
 // import { getProfileThunk } from "./store/profile";
 
 function App() {
@@ -179,8 +180,8 @@ function App() {
               <Route exact path='/hello'>
                 <Stats />
               </Route>
-              <Route exact path= '/interview/edit'>
-                <Testing />
+              <Route exact path= '/aboutMe'>
+                <AboutMe />
               </Route>
               <Route exact path = '/testing/graph'>
                 <ShowGraph />

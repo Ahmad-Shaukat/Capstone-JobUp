@@ -21,6 +21,7 @@ class User(db.Model, UserMixin):
     location = db.Column(db.String(100), default='N/A')
     bio = db.Column(db.String(1000), 
     default='N/A')
+    image = db.Column(db.String())
 
     
 
@@ -55,5 +56,6 @@ class User(db.Model, UserMixin):
             'last_name': self.last_name,
             'career':self.career,
             'location': self.location,
-            'bio':self.bio
+            'bio':self.bio,
+            'image':self.image
         }

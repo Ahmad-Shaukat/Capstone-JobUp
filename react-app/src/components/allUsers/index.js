@@ -28,17 +28,25 @@ const AllUsers = () => {
 
     if (users) {
         return <>
+        <div className="main-cont-all-users">
+
+        <h1 className="all-users-heading">Discover People</h1>
             <div className="allusers-main-cont">
 
                 {filtered_users.map((user) => {
                     return (
-                        <NavLink exact to={`/users/${user.id}/profile`} className='allusers-links'>
-
-                            <div key={user.id} className="allusers-single-cont" >
+                        
+                        <div key={user.id} className="allusers-single-cont" >
                                 <div className="allusers-inner-content">
 
                                 <div className="allusers-img-cont">
-                                    <img src='https://static.vecteezy.com/system/resources/previews/009/749/751/original/avatar-man-icon-cartoon-male-profile-mascot-illustration-head-face-business-user-logo-free-vector.jpg'/>
+                                <img
+            src={
+              user.image
+                ? `https://jobshpere-profile-images.s3.amazonaws.com/${user.image}`
+                : userImage
+            }
+          ></img>
                                 </div>
                                 <div className="allusers-name">
                                     <p className="allusers-firstname">{user.username}</p>
@@ -48,17 +56,19 @@ const AllUsers = () => {
                                     <p className="allusers-location">Software Engineer</p>
                                 </div>
                                 <div className="allusers-connect-btn-ctn">
+                                <NavLink exact to={`/users/${user.id}/profile`} className='allusers-links'>
                                     <button className="allusers-connect-btn">Connect</button>
+                        </NavLink>
                                 </div>
                                 </div>
 
                             </div>
-                        </NavLink>
 
                     )
 
                 })}
             </div>
+        </div>
 
         </>
     }

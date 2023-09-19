@@ -2,7 +2,7 @@ const GET_FAVLIST = 'favoriteList/GET_FAVLIST'
 const ADD_FAVLIST = 'favoriteList/ADD_FAVLIST'
 const DELETE_FAVLIST = 'favoriteList/DELETE_FAVLIST'
 const ADD_JOB = 'favoriteList/ADD_JOB'
-const DELETE_JOB = 'favoriteLIst/DELETE_JOB'
+const DELETE_JOB = 'favoriteList/DELETE_JOB'
 const CLEAR_FAVORITELIST = 'favoriteList/CLEAR_FAVORITELIST'
 
 export const getAllLists = (lists) => {
@@ -34,7 +34,7 @@ export const addJob = (listId, job) => {
 }
 export const deleteJob = (listId, jobId) => {
     return {
-        action: DELETE_JOB,
+        type: DELETE_JOB,
         payload: {
             listId, jobId
         }
@@ -113,17 +113,19 @@ export const addJobThunk = (listId, job) => async (dispatch) =>  {
     }
 }
 export const deleteJobThunk = (listId, jobId) => async (dispatch) => {
-    const response = fetch (`/api/favorites/${listId}/jobs/${jobId}/delete`, {
+    console.log ('-------------in the thunk')
+    const response = await fetch (`/api/favorites/${listId}/jobs/${jobId}/delete`, {
        method:'DELETE',
        headers: {
-        'Content-Type': 'application.json'
-       } 
+        'Content-Type': 'application/json'
+       },
+       body:JSON.stringify(listId, jobId)
     })
     if (response.ok) {
         dispatch(deleteJob(listId, jobId))
-        return true
+       
     }
-    return false
+    
 }
 export default function favoritesRedcuer (state = {}, action) {
     let newState = {}
@@ -150,10 +152,16 @@ export default function favoritesRedcuer (state = {}, action) {
             }
             return newState
         case DELETE_JOB:
+            console.log ('----------------in the action')
             newState = {...state}
-            const {favListId, listJob} = action.payload
-            delete newState[favListId].jobs[listJob]
-            return newState
+            const favListId = action.payload.listId
+            const listJob = action.payload.jobId
+            console.log (newState,'--------------this is the newState')
+            console.log (action.payload, '--------------this is the payload')
+            
+
+            newState[favListId].jobs = newState[favListId].jobs.filter(job => job.id !== listJob)
+    return newState
         case CLEAR_FAVORITELIST:
             return {}
         

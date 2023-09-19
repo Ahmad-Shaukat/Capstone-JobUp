@@ -6,6 +6,8 @@ from flask_login import login_required, current_user
 import json
 from urllib.request import urlopen
 from datetime import datetime
+import os
+
 
 
 
@@ -23,7 +25,7 @@ def full_stack():
     url = "https://usa-jobs-for-it.p.rapidapi.com/FullStack"
 
     headers = {
-        "X-RapidAPI-Key": "80ebbdc656mshc458e5c641670d2p11724fjsnc5d0cc104089",
+        "X-RapidAPI-Key": os.environ.get('X_RapidApi-Key'),
         "X-RapidAPI-Host": "usa-jobs-for-it.p.rapidapi.com"
     }
 
@@ -42,7 +44,7 @@ def react_jobs():
         url = "https://usa-jobs-for-it.p.rapidapi.com/React"
 
         headers = {
-        "X-RapidAPI-Key": "80ebbdc656mshc458e5c641670d2p11724fjsnc5d0cc104089",
+        "X-RapidAPI-Key": os.environ.get('X_RapidApi-Key'),
         "X-RapidAPI-Host": "usa-jobs-for-it.p.rapidapi.com"
     }
 
@@ -56,7 +58,7 @@ def python_jobs():
         url = "https://usa-jobs-for-it.p.rapidapi.com/Python"
 
         headers = {
-        "X-RapidAPI-Key": "80ebbdc656mshc458e5c641670d2p11724fjsnc5d0cc104089",
+        "X-RapidAPI-Key": os.environ.get('X_RapidApi-Key'),
         "X-RapidAPI-Host": "usa-jobs-for-it.p.rapidapi.com"
     }
 
@@ -74,7 +76,7 @@ def data_jobs():
         url = "https://usa-jobs-for-it.p.rapidapi.com/DataEngineer"
 
         headers = {
-        "X-RapidAPI-Key": "80ebbdc656mshc458e5c641670d2p11724fjsnc5d0cc104089",
+        "X-RapidAPI-Key": os.environ.get('X_RapidApi-Key'),
         "X-RapidAPI-Host": "usa-jobs-for-it.p.rapidapi.com"
     }
 

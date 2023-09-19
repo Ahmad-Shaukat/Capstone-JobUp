@@ -4,6 +4,9 @@ import { getAllUsersThunk } from "../../store/user";
 import { NavLink, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import './app.css'
 import { getReactJobsThunk } from "../../store/reactJobs";
+import { getPythonJobsThunk } from "../../store/python";
+import { getFullStackJobsThunk } from "../../store/fullstack";
+import { getDataEngineerJobsThunk } from "../../store/dataEngineer";
 import { createInterviewThunk } from "../../store/interview";
 import { getAllInterviewsThunk } from "../../store/interview";
 import {BiLinkExternal} from 'react-icons/bi'
@@ -14,7 +17,7 @@ import { useState } from "react";
 
 
 
-const ReactJobs = () => {
+const Jobs = ({jobsToShow}) => {
     const dispatch = useDispatch()
     const history = useHistory()
     const [favOptions, setFavOptions] = useState(false)
@@ -49,8 +52,13 @@ const ReactJobs = () => {
         setShowFavLists(true)
     } 
     const closeFav = () => {
+        dispatch(getReactJobsThunk())
+        dispatch(getFullStackJobsThunk())
+        dispatch(getDataEngineerJobsThunk())
+        dispatch(getPythonJobsThunk())
         setShowJobs(true)
-        setShowJobs(true)
+        // setShowJobs(true)
+        setShowFavLists(false)
     }
     
     const handleAddInterview = async (title) => {
@@ -73,6 +81,9 @@ const ReactJobs = () => {
     }
     useEffect(() => {
         dispatch(getReactJobsThunk())
+        dispatch(getFullStackJobsThunk())
+        dispatch(getDataEngineerJobsThunk())
+        dispatch(getPythonJobsThunk())
     }, [dispatch])
     return (
         <>
@@ -80,7 +91,7 @@ const ReactJobs = () => {
 
             <div className="allJobs-main-cont">
 
-                {reactJobs.map(job => {
+                {jobsToShow.map(job => {
                     return (
                         <div className="allJobs-single-cont">
                             <div className="single-job-title">
@@ -117,4 +128,4 @@ const ReactJobs = () => {
     )
 }
 
-export default ReactJobs
+export default Jobs

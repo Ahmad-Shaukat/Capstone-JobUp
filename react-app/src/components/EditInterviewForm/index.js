@@ -60,7 +60,7 @@ function EditInterviewForm({ id, interview, onCancel, afterSaving }) {
             if (!company) {
                 allErrors['company'] = 'Company name is requried'
             }
-            if (!location) {
+            if (!location || location =='wrong') {
                 allErrors['location'] = 'Job location is required'
             }
             if (!status || status === 'wrong') {
@@ -75,7 +75,7 @@ function EditInterviewForm({ id, interview, onCancel, afterSaving }) {
             if (company.length > 20) {
                 allErrors['companyLength'] = 'Company name can not be more then 1o letters'
             }
-            if (location.length > 10) {
+            if (location.length > 15) {
                 allErrors['locationLength'] = 'Location can not be more then 1o letters'
             }
             if (!type || type === 'wrong') {
@@ -278,7 +278,59 @@ function EditInterviewForm({ id, interview, onCancel, afterSaving }) {
 
                         <div className='cre-int-pos-cont'>
                             <label for='location'>Location</label>
-                            <input id='location' type='text' onChange={updateLocation} value={location}/>
+                            <select id='location' onChange={updateLocation} value={location}>
+                            <option key={'NA'} value={'wrong'}>Pick One</option>
+  <option key="alabama" value="Alabama">Alabama</option>
+  <option key="alaska" value="Alaska">Alaska</option>
+  <option key="arizona" value="Arizona">Arizona</option>
+  <option key="arkansas" value="Arkansas">Arkansas</option>
+  <option key="california" value="California">California</option>
+  <option key="colorado" value="Colorado">Colorado</option>
+  <option key="connecticut" value="Connecticut">Connecticut</option>
+  <option key="delaware" value="Delaware">Delaware</option>
+  <option key="florida" value="Florida">Florida</option>
+  <option key="georgia" value="Georgia">Georgia</option>
+  <option key="hawaii" value="Hawaii">Hawaii</option>
+  <option key="idaho" value="Idaho">Idaho</option>
+  <option key="illinois" value="Illinois">Illinois</option>
+  <option key="indiana" value="Indiana">Indiana</option>
+  <option key="iowa" value="Iowa">Iowa</option>
+  <option key="kansas" value="Kansas">Kansas</option>
+  <option key="kentucky" value="Kentucky">Kentucky</option>
+  <option key="louisiana" value="Louisiana">Louisiana</option>
+  <option key="maine" value="Maine">Maine</option>
+  <option key="maryland" value="Maryland">Maryland</option>
+  <option key="massachusetts" value="Massachusetts">Massachusetts</option>
+  <option key="michigan" value="Michigan">Michigan</option>
+  <option key="minnesota" value="Minnesota">Minnesota</option>
+  <option key="mississippi" value="Mississippi">Mississippi</option>
+  <option key="missouri" value="Missouri">Missouri</option>
+  <option key="montana" value="Montana">Montana</option>
+  <option key="nebraska" value="Nebraska">Nebraska</option>
+  <option key="nevada" value="Nevada">Nevada</option>
+  <option key="new-hampshire" value="New Hampshire">New Hampshire</option>
+  <option key="new-jersey" value="New Jersey">New Jersey</option>
+  <option key="new-mexico" value="New Mexico">New Mexico</option>
+  <option key="new-york" value="New York">New York</option>
+  <option key="north-carolina" value="North Carolina">North Carolina</option>
+  <option key="north-dakota" value="North Dakota">North Dakota</option>
+  <option key="ohio" value="Ohio">Ohio</option>
+  <option key="oklahoma" value="Oklahoma">Oklahoma</option>
+  <option key="oregon" value="Oregon">Oregon</option>
+  <option key="pennsylvania" value="Pennsylvania">Pennsylvania</option>
+  <option key="rhode-island" value="Rhode Island">Rhode Island</option>
+  <option key="south-carolina" value="South Carolina">South Carolina</option>
+  <option key="south-dakota" value="South Dakota">South Dakota</option>
+  <option key="tennessee" value="Tennessee">Tennessee</option>
+  <option key="texas" value="Texas">Texas</option>
+  <option key="utah" value="Utah">Utah</option>
+  <option key="vermont" value="Vermont">Vermont</option>
+  <option key="virginia" value="Virginia">Virginia</option>
+  <option key="washington" value="Washington">Washington</option>
+  <option key="west-virginia" value="West Virginia">West Virginia</option>
+  <option key="wisconsin" value="Wisconsin">Wisconsin</option>
+  <option key="wyoming" value="Wyoming">Wyoming</option>
+</select>
                         </div>
 
                     </div>

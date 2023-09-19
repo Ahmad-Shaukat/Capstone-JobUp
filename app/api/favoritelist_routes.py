@@ -104,6 +104,9 @@ def jobs_add(id):
 @login_required
 def job_delete(favoriteId, jobId):
     filtered_job = Job.query.get(jobId)
+    print(jobId, '-------------------this is jobId')
+    print(favoriteId, '-------------------this is favorite')
+    print(filtered_job,'----------------in the api')
     db.session.delete(filtered_job)
     db.session.commit()
     return {
