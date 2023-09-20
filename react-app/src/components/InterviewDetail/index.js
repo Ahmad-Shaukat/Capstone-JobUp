@@ -261,7 +261,13 @@ const [isLoading, SetIsLoading] = useState(false)
                 <>
                   <div key={comm.id} className="int-det-sin-comm">
                     <div className="comm-img">
-                      <img src={userImage} />
+                    <img className="user-profile-image-inner"
+            src={
+              comm['user'].image
+                ? `https://jobshpere-profile-images.s3.amazonaws.com/${comm['user'].image}`
+                : userImage
+            }
+          ></img>
                     </div>
                     <div className="comm-user-name-comm">
                       <p>

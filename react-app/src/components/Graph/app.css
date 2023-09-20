@@ -56,3 +56,9 @@
 .chart-container {
     background-color: white;
 }
+
+@media screen and (max-width: 570px) {
+    .chart-container h2 {
+        font-size: 20px;
+    }
+}

@@ -40,7 +40,7 @@ export const BarChart = ({ chartData }) => {
         options={{
           plugins: {
             title: {
-              display: true,
+              display: false,
               text: "",
             },
 
@@ -49,8 +49,9 @@ export const BarChart = ({ chartData }) => {
             },
             respnsive: true,
           },
-          aspectRatio: 1.5,
+          aspectRatio: 2,
           responsive: true,
+          
         }}
       />
     </div>
