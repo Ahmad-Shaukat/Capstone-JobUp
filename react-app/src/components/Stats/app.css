@@ -410,16 +410,28 @@ flex-direction: column;
     }
 }
 @media (max-width : 570px) {
+    .add-event-btn {
+        /* display: flex;
+        display: inline-block; */
+        /* flex-direction: row; */
+        right: 0;
+        
+
+    }
     .calander-container {
         width: 95%;
-        ;
+        
+        
     }
     .calander {
         width: 90%;
         height: 90%;
+        overflow-x: hidden;
     }
     .graph-container {
         width: 400px;
+        height: 400px;
+        background-color: purple;
     }
     .stats-pending-container {
         width: 80%;

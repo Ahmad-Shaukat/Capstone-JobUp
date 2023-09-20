@@ -264,7 +264,7 @@ export default function ShowGraph() {
           Offered
         </button>
       </div>
-      { <BarChart chartData={chartData} />}
+      { <BarChart chartData={chartData}  />}
     </div>
   );
 }
