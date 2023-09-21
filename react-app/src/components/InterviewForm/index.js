@@ -14,6 +14,7 @@ function AddInterviewForm() {
     const [date, setDate] = useState('')
     const [type, setType] = useState('')
     const [errors, setErrors] = useState({})
+    const {user} = useSelector((state) => state.session )
 
     const updatePosition = (e) => setPosition(e.target.value)
     const updateCompany = (e) => setCompany(e.target.value)
@@ -22,10 +23,14 @@ function AddInterviewForm() {
     const updateDate = (e) => setDate(e.target.value)
     const updateType = (e) => setType(e.target.value)
 
+    if (!user) {
+        history.push('/')
+        return null
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        // console.log (position, company, location, status, date)
+       
         function checkErrors() {
             let allErrors = {}
             if (position === '') {
@@ -56,31 +61,19 @@ function AddInterviewForm() {
                 allErrors['type'] = 'Type is required'
             }
 
-            // function checkDate(date) {
-            //     const currentDate = new Date()
-            //     const formDate = new Date(date)
-            //     if (formDate <= currentDate) {
-            //         allErrors['pastDate'] = "Interview date can't be in the past"
-            //     }
-
-            // }
-
-            // checkDate(date)
-
-            // console.log (allErrors)
-            // console.log (Object.values(allErrors).length)
+            
             if (Object.values(allErrors).length > 0) {
 
                 setErrors(allErrors)
-                console.log(allErrors)
+                
                 return true
             } else {
                 return false
             }
         }
-        console.log(checkErrors(), '------------------')
+        
         if (checkErrors() === false) {
-            console.log('------------------in the function ')
+            
             const interview = {
                 position,
                 company,
@@ -89,7 +82,7 @@ function AddInterviewForm() {
                 date,
                 type
             }
-            console.log(interview)
+            
             await dispatch(createInterviewThunk(interview))
             await dispatch(getAllInterviewsThunk())
             await history.push('/interviews')

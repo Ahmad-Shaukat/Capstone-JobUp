@@ -46,6 +46,13 @@
 }
 .graph-content-stat {
 background-color: white;
+height: 700;
+}
+canvas {
+ height: 900px;
+}
+.container-dash {
+    height: 100%
 }
 .stats-test {
     height: 100px;
@@ -360,6 +367,7 @@ flex-direction: column;
          Change to a single column 
          layout */
          width: 400px;
+         /* width: 90%; */
          margin: auto;
          /* background-color: red; */
     }
@@ -431,13 +439,16 @@ flex-direction: column;
     .graph-container {
         width: 400px;
         height: 400px;
-        background-color: purple;
+        /* background-color: purple; */
     }
     .stats-pending-container {
         width: 80%;
         /* background-color: yellow; */
         margin-left: 20px;
         /* margin: auto; */
+    }
+    .stats-card-main-container {
+        width: 90%;
     }
    
 }

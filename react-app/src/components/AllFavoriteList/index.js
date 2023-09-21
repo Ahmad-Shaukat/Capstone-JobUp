@@ -26,14 +26,13 @@ const AllFavriteLists = ({ options, favJob, closeFavFunc, stats }) => {
   const [showEditForm, setShowEditForm] = useState(false);
   const [showFavLists, setShowFavLists] = useState(true);
   const [editList, setEditList] = useState({});
-  // console.log (options, '--------this is options value')
+  
 
   const history = useHistory();
   const user = useSelector((store) => store.session.user);
   let allFavLists = useSelector((store) => store?.favoriteList);
   allFavLists = Object.values(allFavLists);
 
-  // console.log(allFavLists, "------------thesea are the favoriteList");
   useEffect(async () => {
     await dispatch(getAllListsThunk());
   }, [dispatch]);
@@ -52,7 +51,7 @@ const AllFavriteLists = ({ options, favJob, closeFavFunc, stats }) => {
   };
 
   const delJobHandle = async (listId, jobId) => {
-    console.log(listId, jobId, "----------------------in the delete handle");
+   
     await dispatch(deleteJobThunk(listId, jobId));
     await dispatch(getAllListsThunk());
   };

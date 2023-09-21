@@ -75,10 +75,7 @@ const Sidebar = ({isLoaded}) => {
     }
 
     const sessionUser = useSelector(state => state.session.user);
-    // if (!sessionUser) {
-    //     history.push('/')
-    //     return null
-    // }
+
     return (
         <div className="sidebar-container">
             {isLoaded && (
@@ -93,7 +90,7 @@ const Sidebar = ({isLoaded}) => {
                 <div className="sidbar-links">
                     <div className="stats-cont" id={showStats? "option-selected": ""}>
                         <div className="slide">
-                            <NavLink exact to='/hello' className='stats-nav' onClick={handleStats}><BiSolidBarChartAlt2 className="stats-logo"/> Stats </NavLink>
+                            <NavLink exact to='/dashboard' className='stats-nav' onClick={handleStats}><BiSolidBarChartAlt2 className="stats-logo"/> Stats </NavLink>
                         </div>
     
     
@@ -139,53 +136,7 @@ const Sidebar = ({isLoaded}) => {
             </div>
             )}
         </div>
-        // <div className="sidbar-main">
-        //     <div className="logo-cont">
-        //         <NavLink exact to='/'>
-        //             <img src={logo} className="logo-img" />
-        //         </NavLink>
-
-
-        //     </div>
-        //     <div className="sidbar-links">
-        //         <div className="stats-cont">
-        //             <div className="slide">
-        //                 <NavLink exact to='/hello' className='stats-nav'><BiSolidBarChartAlt2 className="stats-logo" /> Stats </NavLink>
-        //             </div>
-
-
-        //         </div>
-        //         <div className="stats-cont" >
-        //             <div className="slide">
-        //                 <NavLink exact to='/interviews' className='stats-nav'> <BsCalendar4Range className="stats-logo" />All Interviews</NavLink>
-        //             </div>
-
-        //         </div>
-
-
-        //         <div className="stats-cont">
-        //             <div className="slide">
-        //                 <NavLink exact to='/newInterview' className='stats-nav'> <BsFillClipboard2PlusFill className="stats-logo" />Add Interview</NavLink>
-        //             </div>
-
-        //         </div>
-        //         <div className="stats-cont">
-        //             <div className="slide">
-        //                 <NavLink exact to='/findjobs' className='stats-nav'> <FaSearchDollar className="stats-logo" />Find Jobs</NavLink>
-        //             </div>
-
-        //         </div>
-        //         <div className="stats-cont">
-        //             <div className="slide">
-        //                 <NavLink exact to='/favlists' className='stats-nav'><BsSave2Fill className='stats-logo' />
-        //                     Favorites
-        //                 </NavLink>
-        //             </div>
-
-        //         </div>
-        //     </div>
-
-        // </div>
+       
 
     )
 }

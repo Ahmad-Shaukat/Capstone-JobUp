@@ -42,7 +42,7 @@ const UserProfile = () => {
       });
 
       if (response.ok) {
-        console.log('Image uploaded successfully');
+       
         seteditPic(false)
         dispatch(authenticate())
         // Handle success as needed
@@ -58,8 +58,7 @@ const UserProfile = () => {
       setShowEdit(true)
     }
   };
-  console.log("-----------------------------", userProfile);
-  console.log(user, "-------------this is user");
+  
   useEffect(() => {
     dispatch(authenticate());
   }, [dispatch]);

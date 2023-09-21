@@ -28,14 +28,14 @@ const AllInterviews = ({}) => {
 
   const history = useHistory();
   interview = Object.values(interview);
-  // console.log(interview);
+  
   const StatusInterview = (status) => {
     status = status.toString().toLowerCase();
     return interview.filter(
       (interview) => interview.status.toLowerCase() == status
     );
   };
-  console.log(StatusInterview("Pending"), "-----------all pending interviews");
+ 
   const positionInterview = (position) => {
     position = position.toString().toLowerCase(); // Convert to lowercase after ensuring it's a string
     return interview.filter((interview) =>
@@ -54,7 +54,7 @@ const AllInterviews = ({}) => {
       interview.type.toLowerCase().includes(type)
     );
   };
-  // console.log(StatusInterview("Pending"), "---------------these are pending");
+  
 
   useEffect(async () => dispatch(getAllInterviewsThunk()), [dispatch]);
 
@@ -92,13 +92,12 @@ const AllInterviews = ({}) => {
   }
 
   const handleSearchPosition = (e) => {
-    console.log(e.target.value.length);
     if (e.target.value.length == 0) {
       setShowInt(true);
       setShowSearch(false);
     } else {
       setSearchPosition(e.target.value);
-      console.log(searchPosition, "---------------search Position");
+      
       setSearchResult(positionInterview(searchPosition));
       setShowSearch(true);
       setShowInt(false);
@@ -106,8 +105,7 @@ const AllInterviews = ({}) => {
       setSearchStatus(false);
       setSearchType(false);
     }
-    console.log(searchResult, "--------------searchResult");
-    console.log(showSearch);
+   
   };
   const handleSearchStatus = (e) => {
     if (e.target.value === 'Pick One') {
@@ -116,41 +114,37 @@ const AllInterviews = ({}) => {
       setShowInt(true);
       setShowSearch(false);
     } else {
-      console.log(e.target.value, "-------------target value");
-      // console.log("in the else statement");
+      
       setSearchStatus(e.target.value);
       setSearchResult(StatusInterview(e.target.value));
       setSearchPosition(false);
-      // console.log(searchPosition, "---------------search Position");
+      
       setShowSearch(true);
       setShowInt(false);
       setSearchCompany(false);
       setSearchType(false);
     }
-    console.log(searchResult, "----------------this is search result");
-    // console.log(searchResult, "--------------searchResult");
-    console.log(showSearch);
+    
   };
   const handleSearchCompany = (e) => {
-    console.log(e.target.value.length);
+    
     if (e.target.value.length == 0) {
       setShowInt(true);
       setShowSearch(false);
     } else {
-      console.log(e.target.value, "-------------target value");
-      // console.log("in the else statement");
+      
+      
       setSearchCompany(e.target.value);
       setSearchStatus(false);
       setSearchResult(companyInterview(e.target.value));
       setSearchPosition(false);
       setSearchType(false);
-      // console.log(searchPosition, "---------------search Position");
+      
       setShowSearch(true);
       setShowInt(false);
     }
-    console.log(searchResult, "----------------this is search result");
-    // console.log(searchResult, "--------------searchResult");
-    console.log(showSearch);
+    
+    
   };
   const handleSearchType = (e) => {
     if (e.target.value === 'Pick One') {
@@ -160,20 +154,17 @@ const AllInterviews = ({}) => {
       setShowInt(true);
       setShowSearch(false);
     } else {
-      console.log(e.target.value, "-------------target value");
-      // console.log("in the else statement");
+      
       setSearchType(e.target.value);
       setSearchStatus(false);
       setSearchResult(companyType(e.target.value));
       setSearchPosition(false);
-      // console.log(searchPosition, "---------------search Position");
+      
       setSearchCompany(true);
       setShowSearch(true);
       setShowInt(false);
     }
-    console.log(searchResult, "----------------this is search result");
-    // console.log(searchResult, "--------------searchResult");
-    console.log(showSearch);
+    
   };
 
  
@@ -338,8 +329,7 @@ const AllInterviews = ({}) => {
       {showInt ? (
         <div className="allInt-container">
           {interview.map((interview) => {
-            // const interviewDate = new Date(interview.date)
-            // const formattedDate = format(interviewDate, 'EEEE, MMMM d, yyyy', { timeZone: 'GMT' });
+            
 
             return (
               <div className="allInt-column">
@@ -373,17 +363,7 @@ const AllInterviews = ({}) => {
                         Edit
                       </button>
 
-                      {/* <button className='allInt-edit-btn'>
-                                        <OpenModalButton
-                                            buttonText={'Edit'}
-                                            
-                                            modalComponent={
-                                                <EditInterviewForm
-                                                    interview={interview} id={interview.id}
-                                                />
-                                            }
-                                        />
-                                    </button> */}
+                      
 
                       <button className="allInt-del-btn">
                         <OpenModalButton
@@ -423,81 +403,7 @@ const AllInterviews = ({}) => {
           })}
         </div>
       ) : null}
-      {/* <div className="allInt-container">
-        {interview.map((interview) => {
-          // const interviewDate = new Date(interview.date)
-          // const formattedDate = format(interviewDate, 'EEEE, MMMM d, yyyy', { timeZone: 'GMT' });
-
-          return (
-            <div className="allInt-column">
-              <div className="allInt-top-cont">
-                <div className="allInt-com-letter">
-                  <p>{interview.company[0].toUpperCase()}</p>
-                </div>
-                <div>
-                  <p className="allInt-com-pos">{interview.position}</p>
-                  <p className="allInt-com-name">{interview.company}</p>
-                </div>
-              </div>
-              <div className="allInt-btm-container">
-                <div className="allInt-btm-left-cont">
-                  <div className="allInt-loc-type-cont">
-                    <p className="allInt-loc-text">
-                      <FaLocationArrow className="allInt-loc-logo" />
-                      {interview.location}
-                    </p>
-                    <p>
-                      <MdWork className="allInt-type-logo" />
-                      {interview.type}
-                    </p>
-                  </div>
-
-                  <div className="allInt-btm-bttns">
-                    <button
-                      className="allInt-edit-btn"
-                      onClick={() => showHandle(interview)}
-                    >
-                      Edit
-                    </button>
-
-
-                    <button className="allInt-del-btn">
-                      <OpenModalButton
-                        buttonText={"Delete"}
-                        modalComponent={
-                          <DeleteInterview interview={interview} />
-                        }
-                      />
-                    </button>
-
-                    <NavLink exact to={`/interview/${interview.id}/detail`}>
-                      <button className="allInt-btns-more">More</button>
-                    </NavLink>
-                  </div>
-                </div>
-                <div className="allInt-btm-right-container">
-                  <p className="allInt-date">
-                    <BsCalendar2Week className="allInt-int-logo" />
-                    {interview["date"].slice(0, 17)}
-                  </p>
-                  {interview.status === "Pending" && (
-                    <p className="allInt-Pending">{interview.status}</p>
-                  )}
-                  {interview.status === "Scheduled" && (
-                    <p className="allInt-Scheduled">{interview.status}</p>
-                  )}
-                  {interview.status === "Declined" && (
-                    <p className="allInt-Declined">{interview.status}</p>
-                  )}
-                  {interview.status === "Offered" && (
-                    <p className="allInt-Offered">{interview.status}</p>
-                  )}
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div> */}
+      
     </>
   );
 };

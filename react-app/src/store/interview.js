@@ -130,8 +130,7 @@ export const addCommentThunk = (interviewId, commentObj) => async (dispatch) => 
     }
 }
 export const editCommentThunk = (commentId, interviewId, comment) => async (dispatch) => {
-    // console.log (commentId, '---------------------in the fetch')
-    // console.log (interviewId, '-----------------in the fetch')
+    
     const response = await fetch (`/api/comments/${commentId}/interviews/${interviewId}/edit`, {
         method:'PUT',
         headers: {
@@ -189,13 +188,10 @@ export default function interviewsReducer (state ={}, action) {
             const interId = action.payload.interviewId
             const commId = action.payload.commentId
             const commen = action.payload.comment
-            // const {interId, commId, commen} = action.payload 
-            // console.log (action.payload, '-------------------------------------')
+            
 
             newState[interId].comments.commId = commen
-            // console.log (interId, '----------------id')
-            // console.log (commId, '------------------------')
-            // console.log (commen)
+            
             return newState
         case DELETE_COMMENT:
             newState = {...state}

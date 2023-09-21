@@ -6,7 +6,6 @@ import { useModal } from "../../context/Modal";
 import './app.css'
 
 function EditFavoriteList({list, closeEditForm}) {
-    // console.log (list)
     const dispatch = useDispatch()
     const {closeModal} = useModal()
     const [listName, setListName] = useState(list.name)

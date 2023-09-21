@@ -24,7 +24,7 @@ const FindJobs = () => {
   const [showJobs, setShowJobs] = useState(false)
   let allReactJobs = useSelector((store) => store.reactJobs)
   allReactJobs = Object.values(allReactJobs)
-  // console.log (allReactJobs, '---------all react jobs')
+  
   let allFullStackJobs = useSelector((store) => store.fullstack)
   allFullStackJobs = Object.values(allFullStackJobs)
   
@@ -87,18 +87,17 @@ const FindJobs = () => {
       });
   }, []);
   for (let items of newsData) {
-    // console.log (items)
+    
     let dateString = items.publishedAt;
-    // console.log (dateString)
+    
     let date = new Date(dateString);
     const options = { year: "numeric", month: "long", day: "numeric" };
     let newDate = date.toLocaleDateString(undefined, options);
 
     items.publishedAt = newDate;
   }
-  console.log(newsData, "---------------this is data");
-  // let allReactJobs = useSelector((store) => store.reactJobs)
-  // allReactJobs = Object.values(reactJobs)
+  
+ 
   
 
   if (!user) {

@@ -49,7 +49,7 @@ export const BarChart = ({ chartData }) => {
             },
             respnsive: true,
           },
-          aspectRatio: 2,
+          aspectRatio: 1.4,
           responsive: true,
           
         }}

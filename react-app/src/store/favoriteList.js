@@ -51,7 +51,7 @@ export const getAllListsThunk = () => async (dispatch) => {
     if (response.ok) {
         const favorites = await response.json()
         await dispatch(getAllLists(favorites))
-        // console.log (favorites, '-----------------favorites')
+        
         return favorites
     }
 }
@@ -113,7 +113,7 @@ export const addJobThunk = (listId, job) => async (dispatch) =>  {
     }
 }
 export const deleteJobThunk = (listId, jobId) => async (dispatch) => {
-    console.log ('-------------in the thunk')
+    
     const response = await fetch (`/api/favorites/${listId}/jobs/${jobId}/delete`, {
        method:'DELETE',
        headers: {
@@ -152,12 +152,11 @@ export default function favoritesRedcuer (state = {}, action) {
             }
             return newState
         case DELETE_JOB:
-            console.log ('----------------in the action')
+            
             newState = {...state}
             const favListId = action.payload.listId
             const listJob = action.payload.jobId
-            console.log (newState,'--------------this is the newState')
-            console.log (action.payload, '--------------this is the payload')
+           
             
 
             newState[favListId].jobs = newState[favListId].jobs.filter(job => job.id !== listJob)

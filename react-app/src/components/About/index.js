@@ -27,7 +27,7 @@ const AboutMe =  () =>  {
                     <p className='about-me-subheading'>A Bit About Me</p>
                 </div>
                 <div>
-                    <p className='about-me-text'>My name is Ahmad Shaukat. I graduated from AppAcademy in September 2023. I have more then two years of experience in designing building and deploying web applications. I built JobSphere as a personal solution to streamline my job search and efficiently track my interview progress. Among all the aspects of building this project, designing the frontend was the most enjoyable experience. Drawing from my experience, I've come to understand that users are most drawn to applications that offer a friendly and intuitive user interface. I firmly beleive that a user-friendly interface is a key to any successful application, and this belief drove my approach throughout the whole project.</p>
+                    <p className='about-me-text'>My name is Ahmad Shaukat. I graduated from AppAcademy in September 2023. I have more then two years of experience in designing building and deploying web applications. I built JobSphere as a personal solution to streamline my job search and efficiently track my interview progress. Among all the aspects of building this project, designing the frontend was the most enjoyable experience. Drawing from my experience, I've come to understand that users are most drawn to applications that offer a friendly and intuitive user interface. I firmly believe that a user-friendly interface is a key to any successful application, and this belief drove my approach throughout the whole project.</p>
                 </div>
             </div>
 
