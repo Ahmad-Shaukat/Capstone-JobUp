@@ -317,7 +317,7 @@
 
         width: 90%;
         margin-top: 15px;
-        background-color: green;
+        /* background-color: green; */
     }
 
     /* .fav5job-container p {
@@ -327,8 +327,19 @@
 }
 @media screen and (max-width: 538px ) {
     .fav-list-edit-form {
-        background-color: blue;
+        /* background-color: blue; */
         width: 95%;
+        
+    }
+    .fav-job-view-btn {
+        font-size: 12px;
+        width: 60px;
+        height: 20px;
+    }
+    .fav-single-icons button {
+        font-size: 12px;
+        width: 80px;
+        height: 20px;
     }
 }
 @media screen and (max-width:400px ) {
@@ -340,6 +351,9 @@
         /* height: 400px; */
         width: 95%;
         margin: auto;
+    }
+    .fav-single-icons button {
+       
     }
     .inner-form {
         /* background-color: blue; */

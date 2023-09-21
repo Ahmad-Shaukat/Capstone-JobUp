@@ -73,7 +73,7 @@ export default function ShowGraph() {
   ];
   let { interview } = useSelector((store) => store);
   interview = Object.values(interview);
-  console.log(interview, "----------------------all the interviews");
+ 
 
   // iterate though all the interviews and format them on the basis of month
   
@@ -82,8 +82,8 @@ export default function ShowGraph() {
     const date = new Date(dateStr);
     const month = date.toLocaleString("default", { month: "short" });
     const interviewYear = date.getFullYear()
-    console.log (interviewYear, '-----------this is the interviwe year')
-    console.log(interview[i].status);
+    
+    
     for (let j = 0; j < graphData.length; j++) {
       if (month === graphData[j].month  && interviewYear == currentYear) {
         graphData[j][interview[i].status] += 1;
@@ -98,7 +98,7 @@ export default function ShowGraph() {
       graphData[i].Pending + graphData[i].Declined + graphData[i].Scheduled+graphData[i].Offered;
     graphData[i]["totalInterviews"] = totalInterview;
   }
-  console.log(graphData, "-------------------graph data after");
+  
 
   const [scheduled, setScheduled] = useState({
     labels: graphData.map((data) => data.month),

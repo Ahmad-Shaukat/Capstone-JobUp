@@ -347,7 +347,11 @@ color: white;
 @media screen and (max-width:505px) {
     .landing-body-content {
         height: 100%;
+        /* margin-bottom: 20px; */
 
+    }
+    .landing-body-description {
+        margin-bottom: 20px;
     }
     .card-container-landing {
         flex-direction: column;

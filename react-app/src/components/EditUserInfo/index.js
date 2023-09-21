@@ -18,7 +18,7 @@ function EditUserInfoForm({ user }) {
   const [location, setLocation] = useState(user.location);
   const [bio, setBio] = useState(user.bio);
   const [errors, setErrors] = useState({});
-  console.log(user, "--------------tesing user errror");
+  
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -53,7 +53,7 @@ function EditUserInfoForm({ user }) {
       bio: bio,
     };
     e.preventDefault();
-    console.log(updatedInfo);
+    
     await dispatch(EditUserThunk(id, updatedInfo));
     closeModal();
   };

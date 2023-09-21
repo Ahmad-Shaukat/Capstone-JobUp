@@ -12,13 +12,13 @@ const AllUsers = () => {
     let users = useSelector((store) => store.user)
 
     users = Object.values(users)
-    console.log(users, '---------------users')
+    
     useEffect(async () =>
         dispatch(getAllUsersThunk()), [dispatch]
     )
     const filtered_users = users.filter(user => user.id !== currentUser.id);
 
-    console.log(filtered_users, '---------------filtered users')
+    
     if (!currentUser) {
         history.push('/')
         return null

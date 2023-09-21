@@ -51,7 +51,7 @@ function Navigation({ isLoaded }) {
 					<ImParagraphLeft size={18}  onClick={showNavbar}/>
 					<div ref={navRef} className={`res-nav-bar ${isNavVisible ? 'responsive-nav' : ''}`} >
 						<BigSidebar closeNav = {hideNav}/>
-						<button className='res-nav-btn res-nav-close-btn' onClick={showNavbar}>close</button>
+						{/* <button className='res-nav-btn res-nav-close-btn' onClick={showNavbar}>closdfse</button> */}
 					</div>
 				</div>
 				</div>

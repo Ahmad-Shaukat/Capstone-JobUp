@@ -9,6 +9,7 @@
 .about-me-upper {
     display: flex;
     gap: 10px;
+    margin-bottom: 10px;
     
 }
 .about-me-text {
@@ -101,6 +102,7 @@
 
 @media screen and (max-width: 1428px)  {
     .about-me-main-cont {
+        /* background-color: pink; */
         width: 70%;
     }
 }
@@ -112,5 +114,7 @@
 @media screen and (max-width: 575px)  {
     .about-me-upper {
         flex-direction: column;
+        /* background-color: blue;
+        margin-bottom: 10px; */
     }
 }

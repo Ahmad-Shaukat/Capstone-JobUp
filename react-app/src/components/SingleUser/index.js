@@ -15,35 +15,23 @@ const SingleUser = () => {
   const history = useHistory();
   const { id } = useParams();
   const dispatch = useDispatch();
-  console.log(id, "-------------this is id");
 
   let interviews = useSelector((store) => store?.allinterviews);
   let allUsers = useSelector((store) => store?.user);
 
   let userProfile = {};
   for (let keys in allUsers) {
-    console.log(allUsers[keys].id);
     if (allUsers[keys].id == id) {
       userProfile = allUsers[keys];
     }
   }
-  console.log(userProfile, "------------user procfile");
-  console.log(allUsers, "these are all the users");
+
   let user = useSelector((store) => store?.session["user"]);
   interviews = Object.values(interviews);
-  console.log(interviews, "-----------------these are all the interviews");
-  // console.log(interviews, '--------------------all the interviews')
+
   const userInterviews = interviews.filter(
     (interview) => Number(interview.userId) == id
   );
-  console.log(userInterviews, "--------------these belong to the users");
-
-  // console.log (userInterviews, '------------these belong th the uses')
-
-  // const pendingInterviews = userInterviews  .filter((interview) => interview.status === 'Pending')
-
-  // const scheduledInterviews = userInterviews.filter ((interview) =>
-  //     interview.status = 'Scheduled')
 
   useEffect(async () => dispatch(getAllUsersInterviewThunk()), [dispatch]);
   if (!user) {
@@ -51,15 +39,6 @@ const SingleUser = () => {
     return null;
   }
 
-//   if (userInterviews.length < 1) {
-//     return (
-//       <>
-//         <div className="no-user-int-cont">
-//           <p> This user does not have any interviews</p>
-//         </div>
-//       </>
-//     );
-//   }
   return (
     <>
       <div className="single-user-main-cont">
@@ -74,104 +53,91 @@ const SingleUser = () => {
             ></img>
           </div>
           <div className="single-user-btm">
-            <p className="single-user-name"> {userProfile.firstName ==='N/A' ? 'Name: Unavailable' :`${userProfile.firstName} ${userProfile.last_name}` }
+            <p className="single-user-name">
+              {" "}
+              {userProfile.firstName === "N/A"
+                ? "Name: Unavailable"
+                : `${userProfile.firstName} ${userProfile.last_name}`}
             </p>
-            <p className=""> {userProfile.location ==='N/A' ? 'Location: Unavailable' :`${userProfile.location} $` }
+            <p className="">
+              {" "}
+              {userProfile.location === "N/A"
+                ? "Location: Unavailable"
+                : `${userProfile.location} $`}
             </p>
             <div>
-
-            <p className="single-user-career">{userProfile.career === 'N/A' ? 'Career: Unavailable': `${userProfile.career}`}</p>
+              <p className="single-user-career">
+                {userProfile.career === "N/A"
+                  ? "Career: Unavailable"
+                  : `${userProfile.career}`}
+              </p>
             </div>
-            <p className="single-user-bio">{userProfile.bio === 'N/A' ? 'Career: Unavailable': `${userProfile.bio}`}
+            <p className="single-user-bio">
+              {userProfile.bio === "N/A"
+                ? "Career: Unavailable"
+                : `${userProfile.bio}`}
             </p>
             <p className="single-user-email">{userProfile.email}</p>
           </div>
         </div>
-      <div className="allInt-container">
-        {userInterviews.map((interview) => {
-          return (
-            <div className="allInt-column single">
-              <div className="allInt-top-cont">
-                <div className="allInt-com-letter">
-                  <p>{interview.company[0].toUpperCase()}</p>
-                </div>
-                <div>
-                  <p className="allInt-com-pos">{interview.position}</p>
-                  <p className="allInt-com-name">{interview.company}</p>
-                </div>
-              </div>
-              <div className="allInt-btm-container">
-                <div className="allInt-btm-left-cont">
-                  <div className="allInt-loc-type-cont">
-                    <p className="allInt-loc-text">
-                      <FaLocationArrow className="allInt-loc-logo" />
-                      {interview.location}
-                    </p>
-                    <p>
-                      <MdWork className="allInt-type-logo" />
-                      {interview.type}
-                    </p>
+        <div className="allInt-container">
+          {userInterviews.map((interview) => {
+            return (
+              <div className="allInt-column single">
+                <div className="allInt-top-cont">
+                  <div className="allInt-com-letter">
+                    <p>{interview.company[0].toUpperCase()}</p>
                   </div>
+                  <div>
+                    <p className="allInt-com-pos">{interview.position}</p>
+                    <p className="allInt-com-name">{interview.company}</p>
+                  </div>
+                </div>
+                <div className="allInt-btm-container">
+                  <div className="allInt-btm-left-cont">
+                    <div className="allInt-loc-type-cont">
+                      <p className="allInt-loc-text">
+                        <FaLocationArrow className="allInt-loc-logo" />
+                        {interview.location}
+                      </p>
+                      <p>
+                        <MdWork className="allInt-type-logo" />
+                        {interview.type}
+                      </p>
+                    </div>
 
-                  <div className="allInt-btm-bttns">
-                    <NavLink exact to={`/interview/${interview.id}/detail`}>
-                      <button className="allInt-btns-more">More</button>
-                    </NavLink>
+                    <div className="allInt-btm-bttns">
+                      <NavLink exact to={`/interview/${interview.id}/detail`}>
+                        <button className="allInt-btns-more">More</button>
+                      </NavLink>
+                    </div>
+                  </div>
+                  <div className="allInt-btm-right-container">
+                    {user.id === interview.userId && (
+                      <p className="allInt-date">
+                        <BsCalendar2Week className="allInt-int-logo" />
+                        {interview["date"].slice(0, 17)}
+                      </p>
+                    )}
+                    {interview.status === "Pending" && (
+                      <p className="allInt-Pending">{interview.status}</p>
+                    )}
+                    {interview.status === "Scheduled" && (
+                      <p className="allInt-Scheduled">{interview.status}</p>
+                    )}
+                    {interview.status === "Declined" && (
+                      <p className="allInt-Declined">{interview.status}</p>
+                    )}
                   </div>
                 </div>
-                <div className="allInt-btm-right-container">
-                  {user.id === interview.userId && (
-                    <p className="allInt-date">
-                      <BsCalendar2Week className="allInt-int-logo" />
-                      {interview["date"].slice(0, 17)}
-                    </p>
-                  )}
-                  {interview.status === "Pending" && (
-                    <p className="allInt-Pending">{interview.status}</p>
-                  )}
-                  {interview.status === "Scheduled" && (
-                    <p className="allInt-Scheduled">{interview.status}</p>
-                  )}
-                  {interview.status === "Declined" && (
-                    <p className="allInt-Declined">{interview.status}</p>
-                  )}
-                </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
       </div>
     </>
 
-    // <>
-    //     {scheduledInterviews.map((interview) => {
-    //         return (
-    //             <div key={interview.id}>
-    //                 <p>{interview.company}</p>
-    //                 <p>{interview.position}</p>
-    //                 <p>{interview.location}</p>
-    //                 <p>{interview.status}</p>
-    //                 <p>Helooooooooooooooooooo</p>
-
-    //             </div>
-    //         )
-    //     })}
-
-    //     {pendingInterviews.map((interview) => {
-    //         return (
-
-    //         <div key={interview.id}>
-    //             <p>{interview.company}</p>
-    //             <p>{interview.position}</p>
-    //             <p>{interview.location}</p>
-    //             <p>{interview.status}</p>
-    //         </div>
-    //         )
-    //     })}
-
-    // </>
-    // <div>hello</div>
+  
   );
 };
 

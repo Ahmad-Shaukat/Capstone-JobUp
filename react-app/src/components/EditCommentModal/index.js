@@ -28,7 +28,6 @@ function EditCommentForm({ commentId, interviewId, comment }) {
             }
             if (Object.values(allErrors).length > 0) {
                 setErrors(allErrors)
-                console.log(errors)
                 return true
 
             } else {

@@ -14,7 +14,7 @@ function CreateFavoriteList({ closeNewForm }) {
   const updateListName = (e) => setListName(e.target.value);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(listName);
+    
 
     const checkErrros = () => {
       let errorList = {};

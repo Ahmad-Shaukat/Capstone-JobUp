@@ -3,7 +3,12 @@
     background-color: white;
     /* height: 400px; */
     padding: 5px;
-    background-color: red;
+    /* background-color: red; */
+    height: 100%;
+}
+canvas {
+    /* background-color: teal; */
+    height: 600px;
 }
 
 @media screen and (max-width: 570px) {

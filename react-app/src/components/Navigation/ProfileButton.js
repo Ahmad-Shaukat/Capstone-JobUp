@@ -16,7 +16,6 @@ import { clearReactJobs } from "../../store/reactJobs";
 import { clearFullStack } from "../../store/fullstack";
 import { clearDataEngineerJobs } from "../../store/dataEngineer";
 import { clearPython } from "../../store/python";
-import { clearProfile } from "../../store/profile";
 
 
 function ProfileButton({ user }) {

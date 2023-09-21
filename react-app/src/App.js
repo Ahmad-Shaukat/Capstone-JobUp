@@ -27,10 +27,7 @@ import { getFullStackJobsThunk } from "./store/fullstack";
 import { getReactJobsThunk } from "./store/reactJobs";
 import { getPythonJobsThunk } from "./store/python";
 import { getDataEngineerJobsThunk } from "./store/dataEngineer";
-import Testing from "./components/testing/testing";
-import ShowGraph from "./components/testGraph";
 import AboutMe from "./components/About";
-// import { getProfileThunk } from "./store/profile";
 
 function App() {
   const dispatch = useDispatch();
@@ -45,81 +42,12 @@ function App() {
     dispatch(getReactJobsThunk())
     dispatch(getPythonJobsThunk())
     dispatch(getDataEngineerJobsThunk())
-    // dispatch(getProfileThunk())
+    
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
   return (
     <>
-    {/* {sessionUser && (
-      <div className="app-container">
-      {sessionUser && (
-        <div className="sidebar">
-        <Sidebar isLoaded={isLoaded}/>
-
-      </div>
-      )}
-      
-      <div className="main-content">
-        <div className="navigation">
-          {sessionUser && isLoaded &&(
-            <Navigation isLoaded={isLoaded} />
-          )}
-          
-        </div>
-    
-        
-        {isLoaded && (
-          <Switch>
-            <Route exact path = '/'>
-              {sessionUser?<Stats /> : <LandingPage />}
-              
-            </Route>
-            <Route exact path="/login" >
-              <LoginFormPage />
-            </Route>
-            <Route exact path="/signup">
-              <SignupFormPage />
-            </Route>
-            <Route exact path='/interviews'>
-              <AllInterviews />
-            </Route>
-            <Route exact path='/user'>
-              <GetProfile />
-            </Route>
-            <Route exact path='/newInterview'>
-              <AddInterviewForm />
-            </Route>
-            <Route exact path='/interview/edit'>
-              <EditInterviewForm />
-            </Route>
-
-            <Route exact path='/interview/:id/detail'>
-              <InterviewDetail />
-            </Route>
-            <Route exact path='/allUsers'>
-              <AllUsers />
-            </Route>
-            <Route exact path='/users/:id/profile'>
-              <SingleUser />
-            </Route>
-
-            <Route exact path='/findjobs'>
-              <FindJobs />
-            </Route>
-            <Route exact path='/favlists'>
-              <AllFavriteLists />
-            </Route>
-            <Route exact path='/hello'>
-              <Stats />
-            </Route>
-
-
-          </Switch>
-        )}
-      </div>
-    </div>
-    )} */}
       <div className="app-container">
         {sessionUser && (
           <div className="sidebar" id="main-sidebar">
@@ -177,17 +105,12 @@ function App() {
               <Route exact path='/favlists'>
                 <AllFavriteLists />
               </Route>
-              <Route exact path='/hello'>
+              <Route exact path='/dashboard'>
                 <Stats />
               </Route>
               <Route exact path= '/aboutMe'>
                 <AboutMe />
               </Route>
-              <Route exact path = '/testing/graph'>
-                <ShowGraph />
-              </Route>
-
-
             </Switch>
           )}
         </div>

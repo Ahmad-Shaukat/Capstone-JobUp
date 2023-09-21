@@ -28,13 +28,12 @@ function InterviewDetail({}) {
 const [showEdit, setShowEdit] = useState(false);
 const [isLoading, SetIsLoading] = useState(false)
   let interview = useSelector((store) => store.allinterviews[id]);
-  console.log(interview, "------------------this is interview id");
-  // console.log
+  
   const [errors, setErrors] = useState({});
-  console.log(interview);
+  
   let user = useSelector((store) => store?.session["user"]);
-  console.log(user, '---------this is user------');
-  console.log(comment, "---------this is the initial comment");
+  
+  
   useEffect(() => {
     dispatch(getAllInterviewsThunk());
     dispatch(getAllUsersInterviewThunk());
@@ -55,7 +54,7 @@ const [isLoading, SetIsLoading] = useState(false)
   const cancelEdit = () => {
     setEditInterview({});
     setShowEdit(false);
-    history.push("/hello");
+    history.push("/dashboard");
   };
 
   const handleSubmit = async (e) => {
@@ -73,7 +72,7 @@ const [isLoading, SetIsLoading] = useState(false)
       }
       if (Object.values(allErrors).length > 0) {
         setErrors(allErrors);
-        console.log(errors, "---------------these are errors");
+        
         return true;
       } else {
         return false;
@@ -98,12 +97,12 @@ const [isLoading, SetIsLoading] = useState(false)
       <>
         <div>
           <EditInterviewForm id={editInterview.id}interview={editInterview} onCancel={cancelEdit} afterSaving={afterSaving}/>
-          {/* <button onClick={() => cancelEdit()}>Cancel</button> */}
+        
         </div>
       </>
     );
   }
-  // console.log (interview[1],'---------testing state')
+  
   if (interview) {
     return (
       <main className="Int-det-container">

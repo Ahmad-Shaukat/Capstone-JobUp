@@ -12,12 +12,11 @@ function DeleteComment({ interviewId, commentId }) {
     const dispatch = useDispatch()
     const history = useHistory()
     const { closeModal } = useModal()
-    console.log(interviewId)
-    console.log(commentId)
+   
 
     const handleDelete = async (e) => {
         e.preventDefault()
-        console.log('deleting comment')
+        
         await dispatch(deleteUserCommentThunk(interviewId, commentId))
         await getAllUsersInterviewThunk()
         await dispatch(getAllInterviewsThunk())

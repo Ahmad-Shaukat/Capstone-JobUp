@@ -45,13 +45,11 @@ function Stats() {
   const hideFunc = false
   
 
-  //   const events = []
-
-  // console.log (state, '--------------------this is state')
+  
   let interviews = useSelector((store) => store.interview);
   interviews = Object.values(interviews);
 
-  // Format all the interviews to have new format
+ 
 
   const formatedInterview = interviews.map((interview) => {
     let initalDateString = interview.date;
@@ -64,9 +62,7 @@ function Stats() {
     let date = `${year}-${month}-${day}`;
     return { ...interview, date: date };
   });
-  //   console.log (formatedInterview, '---------------------')
-  // console.log(interviews, "-----------------yellah");
-  // console.log(formatedInterview, "---------------formated");
+  
 
   //   using map to make events array
   let events = formatedInterview.map((interview) => ({
@@ -93,10 +89,9 @@ function Stats() {
       return event.date == args.dateStr;
     });
     if (hasInterviews) {
-      console.log (args.dateStr, '-------------date')
-      console.log (formatedInterview, '----------------------formatted ')
+      
       const showTodays = formatedInterview.filter((interview) => interview.date == args.dateStr)
-      console.log (showTodays)
+      
       setShowDateInterview(showTodays)
       setShowInterviews(true);
       setShowDashboard(false);
@@ -151,13 +146,7 @@ function Stats() {
     setShowDashboard(true);
     setShowInterviews(false)
   };
-  // console.log (pendingInterviews.length, 'these are pending interivew --------------')
-  // console.log (scheduledInterviews.length, 'these are scheduled interviews')
-  // console.log (declinedInterviews.length, 'these are declined interviews')
-
-  // let pendingInterviews = interviews.filter(interview => interview['status'] = 'Pending')
-  // console.log(pendingInterviews, '--------------these are pending ')
-  // console.log (interviews, '--------------------')
+  
 
   useEffect(async () => await dispatch(getAllInterviewsThunk()), [dispatch]);
 
@@ -329,9 +318,13 @@ function Stats() {
 
               {showDashboard ? (
                 <div className="right-side-inner-cont">
+                  <div className="container-dash"> 
+
+
+                    <ShowGraph className='graph-content-stat' />
+                  </div>
                   
                   
-                    <ShowGraph className='graph-content-stat' />{" "}
                   
                   
                 </div>
