@@ -1,8 +1,13 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useDispatch } from "react-redux";
 // import { useState } from "react"
 import "./app.css";
+import { getFullStackJobsThunk } from "../../store/fullstack";
+import { getReactJobsThunk } from "../../store/reactJobs";
+import { getPythonJobsThunk } from "../../store/python";
+import { getDataEngineerJobsThunk } from "../../store/dataEngineer";
 import { useState } from "react";
 import Jobs from "../Jobs";
 // import FullStack from "../FullstackJobs";
@@ -10,9 +15,11 @@ import newsImage from "../../utilities/news-logo.png";
 // import ShowPythonJobs from "../PythonJobs";
 // import DataEngineerJobs from "../DataEngineer";
 import { MdAirlineSeatIndividualSuite } from "react-icons/md";
+// import { getFullStackJobsThunk } from "../../store/fullstack";
 // import { setDate } from "date-fns"
 
 const FindJobs = () => {
+  const dispatch = useDispatch()
   const history = useHistory();
   const [reactJobs, setReactJobs] = useState("");
   const [fullstackJobs, setFullstackJobs] = useState("");
@@ -38,11 +45,11 @@ const FindJobs = () => {
   function handleReact() {
     setShowJobs(true)
     setReactJobs(true);
+    setAllJobs(allReactJobs)
     setFullstackJobs(false);
     setPythonJobs(false);
     setDataJobs(false);
     setNews(false);
-    setAllJobs(allReactJobs)
   }
 
   function handleFullstack() {
@@ -86,6 +93,13 @@ const FindJobs = () => {
         setNewsData(Object.values(data.articles));
       });
   }, []);
+  useEffect(() => {
+    dispatch(getFullStackJobsThunk())
+    dispatch(getReactJobsThunk())
+    dispatch(getPythonJobsThunk())
+    dispatch(getDataEngineerJobsThunk())
+
+  }, [dispatch])
   for (let items of newsData) {
     
     let dateString = items.publishedAt;
@@ -111,12 +125,7 @@ const FindJobs = () => {
 
         <div className="all-jobs-cont">
           <div className="jobs-btns">
-            <button
-              onClick={handleReact}
-              className={reactJobs ? "clicked" : "notClicked"}
-            >
-              React Jobs
-            </button>
+           
             <button
               onClick={handleFullstack}
               className={fullstackJobs ? "clicked" : "notClicked"}
@@ -134,6 +143,12 @@ const FindJobs = () => {
               className={dataJobs ? "clicked" : "notClicked"}
             >
               Data Engineer
+            </button>
+            <button
+              onClick={handleReact}
+              className={reactJobs ? "clicked" : "notClicked"}
+            >
+              React Jobs
             </button>
           </div>
           <div>
