@@ -64,7 +64,7 @@ def allowd_files(filename):
 # upload to the s3 profile iamge 
 @user_routes.route('/<userId>/uploadImage', methods=['PUT'])
 def upload_image(userId):
-    s3 = boto3.client('s3', aws_access_key_id = os.environ.get('AWS_ACCESS_KEY'), aws_secret_access_key=os.environ.get('AWS_SECRET_ACCESS_KEY'), region_name ='us-east-1'
+    s3_client = boto3.client('s3', aws_access_key_id = os.environ.get('AWS_ACCESS_KEY'), aws_secret_access_key=os.environ.get('AWS_SECRET_ACCESS_KEY'), region_name ='us-east-1'
                         )
    
     user=User.query.get(userId)
@@ -76,7 +76,7 @@ def upload_image(userId):
         new_name =   str(user.id)+uploaded_file.filename
         user.image = new_name
         db.session.commit()
-        s3.upload_fileobj(uploaded_file,'jobshpere-profile-images', new_name, ExtraArgs=None, Callback=None, Config=None)
+        s3_client.upload_fileobj(uploaded_file,'jobshpere-profile-images', new_name, ExtraArgs=None, Callback=None, Config=None)
         return {'message': 'successfully'}
     if user.image !=None:
        
@@ -87,7 +87,7 @@ def upload_image(userId):
         user.image = new_name
         db.session.commit()
         # new_filename = user.image
-        s3.upload_fileobj(uploaded_file,'jobshpere-profile-images', new_name, ExtraArgs=None, Callback=None, Config=None)
+        s3_client.upload_fileobj(uploaded_file,'jobshpere-profile-images', new_name, ExtraArgs=None, Callback=None, Config=None)
         
     return {'message' : 'successfully'}
 
