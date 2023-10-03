@@ -17,8 +17,8 @@ def news_articles():
     newsapi = NewsApiClient(api_key= os.environ.get('newsapi_key'))
 
 # /v2/top-headlines
-    top_headlines = newsapi.get_everything(q='hiring',
-                                              domains ='ycombinator.com,careersatbright.com'
+    top_headlines = newsapi.get_everything(q='tech',
+                                             
                                           )
     # print(top_headlines, '----------------------------')
     return jsonify(top_headlines)
