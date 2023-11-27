@@ -74,6 +74,7 @@ const UserProfile = () => {
     seteditPic(false)
     setShowEdit(true)
   }
+  console.log (user.image, 'This is the user image name -----------------------')
 
   return (
     <>
@@ -82,7 +83,7 @@ const UserProfile = () => {
           <img className="user-profile-image-inner"
             src={
               user.image
-                ? `https://jobshpere-profile-images.s3.amazonaws.com/${user.image}`
+                ? `https://jobsphere.s3.amazonaws.com/${user.image}`
                 : userImage
             }
           ></img>
