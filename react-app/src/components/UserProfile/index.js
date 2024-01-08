@@ -74,15 +74,16 @@ const UserProfile = () => {
     seteditPic(false)
     setShowEdit(true)
   }
+ 
 
   return (
     <>
       <section id="user-profile">
         <div className="user-profile-img">
-          <img className="user-profile-image-inner"
+          <img id="user-profile-image-inner"
             src={
               user.image
-                ? `https://jobshpere-profile-images.s3.amazonaws.com/${user.image}`
+                ? `https://jobsphere.s3.amazonaws.com/${user.image}`
                 : userImage
             }
           ></img>

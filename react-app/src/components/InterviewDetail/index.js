@@ -263,7 +263,7 @@ const [isLoading, SetIsLoading] = useState(false)
                     <img className="user-profile-image-inner"
             src={
               comm['user'].image
-                ? `https://jobshpere-profile-images.s3.amazonaws.com/${comm['user'].image}`
+                ? `https://jobsphere.s3.amazonaws.com/${comm['user'].image}`
                 : userImage
             }
           ></img>
