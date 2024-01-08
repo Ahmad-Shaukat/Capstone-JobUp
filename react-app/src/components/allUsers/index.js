@@ -43,7 +43,7 @@ const AllUsers = () => {
                                 <img
             src={
               user.image
-                ? `https://jobshpere-profile-images.s3.amazonaws.com/${user.image}`
+                ? `https://jobsphere.s3.amazonaws.com/${user.image}`
                 : userImage
             }
           ></img>
